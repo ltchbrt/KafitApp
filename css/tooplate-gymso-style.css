@@ -372,6 +372,14 @@ https://www.tooplate.com/view/2119-gymso-fitness
     position: relative;
   }
 
+  .back{
+    padding: 2rem;
+background-image: linear-gradient(#000000b3, #000000bd), url('../images/back.jpg');
+background-size: cover;
+background-position: top;
+background-repeat: no-repeat;
+}
+
 
   /*---------------------------------------
      CLASS               
