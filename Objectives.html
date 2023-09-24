@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KaFit Fitness App</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/aos.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/tooplate-gymso-style.css" />
+  </head>
+
+  <style>
+    .p_title {
+      font-size: 25px;
+      padding: 1rem;
+
+      margin: 0 !important;
+      text-align: center;
+    }
+
+    .p_title1 {
+      font-size: 15px;
+      padding: 1rem;
+      margin: 0 !important;
+    }
+
+    .p_header {
+      font-size: 18px;
+      background-color: #80808091;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    .list {
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+    }
+
+    .icon button {
+      border: none;
+      background: none;
+      font-size: 17px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+    }
+
+    .icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 0.5rem;
+    }
+
+    .btn_func {
+      padding: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn_func button {
+      width: 75px;
+      height: 35px;
+      border-radius: 7px;
+      font-size: 12px;
+      background-color: black;
+      color: white;
+      border: white 1px solid;
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+      position: fixed;
+      top: 110px;
+      right: 0;
+      left: 0;
+      padding: 1rem;
+    }
+
+    .prod {
+      font-size: 12px;
+      margin: 0 !important;
+      text-align: justify;
+    }
+  </style>
+  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">KaFit App</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+              <a href="overview.html" class="nav-link smoothScroll">OVERVIEW</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="PFT.html" class="nav-link smoothScroll">PFT</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link smoothScroll">PROFILE</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link smoothScroll">RESOURCES</a>
+            </li>
+            <li class="nav-item">
+              <a href="About.html" class="nav-link smoothScroll">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.html" class="nav-link smoothScroll">LOGOUT</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- ABOUT -->
+    <section class="about section centerdata" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
+            <div>
+              <h1 class="p_title">Physical Fitness Test Objectives</h1>
+              <p
+                style="
+                  text-align: left;
+                  font-size: 14px;
+                  padding-left: 1rem;
+                  margin-top: 1rem;
+                "
+              >
+                1. To determine the level of fitness of students.
+              </p>
+              <p style="text-align: left; font-size: 14px; padding-left: 1rem">
+                2. To identify strength and weaknesses for development and
+                improvement
+              </p>
+              <p style="text-align: left; font-size: 14px; padding-left: 1rem">
+                3. To provide baseline data for selection of physical activities
+                for enhancement of health and skill performance.
+              </p>
+              <p style="text-align: left; font-size: 14px; padding-left: 1rem">
+                4. To gather data for the development of norms and standards.
+              </p>
+              <p style="text-align: left; font-size: 14px; padding-left: 1rem">
+                5. To motivate, guide and counsel pupils/students in selecting
+                sports for recreation, competition, and lifetime participation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="modal fade"
+      id="membershipForm"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="membershipFormLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="membershipFormLabel">TUTORIAL</h2>
+
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div>
+              <video width="400" controls>
+                <source src="video/Hexagon.mp4" type="video/mp4" />
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+          </div>
+
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+  </body>
+</html>
