@@ -68,6 +68,7 @@ func Handlers() {
 	http.HandleFunc("/Time_Drop", views.TimeDropHandler)
 	http.HandleFunc("/Coordination_Jug", views.Coordination_JHandler)
 	http.HandleFunc("/Balance_Page", views.BalanceCopyHandler)
+	http.HandleFunc("/Resources", views.ResourcesHandler)
 	http.HandleFunc("/api/", api.APIHandler)
 	http.HandleFunc("/logout", views.LogOutHandler)
 
