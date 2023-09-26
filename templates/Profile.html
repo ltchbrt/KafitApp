@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KaFit Fitness App</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/assets/css/aos.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
+  </head>
+
+  <style>
+    .p_title {
+      font-size: 25px;
+      padding: 1rem;
+
+      margin: 0 !important;
+      text-align: center;
+    }
+
+    .p_header {
+      font-size: 18px;
+      background-color: #80808091;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    .list {
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+    }
+
+    .icon a {
+      border: none;
+      background: none;
+      font-size: 17px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+    }
+
+    .icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 0.5rem;
+    }
+
+    .report{
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .report select{
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    width: 250px;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    }
+  </style>
+
+  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">KaFit App</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+              <a href="/overview" class="nav-link smoothScroll">OVERVIEW</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/PFT" class="nav-link smoothScroll">PFT</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link smoothScroll">PROFILE</a>
+            </li>
+            <li class="nav-item">
+              <a href="/Resources" class="nav-link smoothScroll">RESOURCES</a>
+            </li>
+            <li class="nav-item">
+              <a href="/About" class="nav-link smoothScroll">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- ABOUT -->
+    <section class="about section centerdata" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12 report">
+            <h1 class="p_title">PROFILE</h1>
+            <h3 style="font-size: 17px;
+            text-align: center;">User: <span style="font-size: 17px;
+            text-align: center;">David Alexis F Falo</span></h3>
+            <select name="test" id="test" >
+              <option value="">Select Report</option>
+              <option value="BMI">BMI</option>
+            </select>
+
+            <table class="table"  id="details">
+             
+            </table>
+           
+           
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCRIPTS -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/aos.js"></script>
+    <script src="/assets/js/smoothscroll.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    type="text/javascript"
+    src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+  ></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+    <script>
+        function BMI(){
+          var value = $.cookie("id");
+          $("#details").empty()
+          $("#details").append(`
+                <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Weight</th>
+                  <th scope="col">Height</th>
+                  <th scope="col">BMI</th>
+                </tr>
+              </thead>
+              <tbody id="t_details">
+                
+              </tbody>
+                `)
+          $.get("/api/get_bmi", function (index) {
+            var result = JSON.parse(index).item
+            $.each(result, function (_, v) {
+              if (value == v.UserID){
+                $("#t_details").append(`
+                <tr>
+                  <th scope="row">`+v.Date+`</th>
+                  <td>`+v.Weight+`</td>
+                  <td>`+v.Height+`</td>
+                  <td>`+v.Result+`</td>
+                </tr>
+                `)
+              }
+            })
+          })
+        }
+
+        $('#test').on('change', function() {
+          var result = $("#test").val()
+
+          if(result == "BMI"){
+            $("#details").show()
+            BMI()
+          }else{
+            $("#details").hide()
+          }
+        });
+        
+    </script>
+  </body>
+</html>

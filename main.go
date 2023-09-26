@@ -16,7 +16,7 @@ import (
 
 const (
 	BindIP = "0.0.0.0"
-	Port   = ":2027"
+	Port   = ":8054"
 )
 
 func main() {
@@ -69,6 +69,7 @@ func Handlers() {
 	http.HandleFunc("/Coordination_Jug", views.Coordination_JHandler)
 	http.HandleFunc("/Balance_Page", views.BalanceCopyHandler)
 	http.HandleFunc("/Resources", views.ResourcesHandler)
+	http.HandleFunc("/Profile", views.ProfileHandler)
 	http.HandleFunc("/api/", api.APIHandler)
 	http.HandleFunc("/logout", views.LogOutHandler)
 
@@ -80,7 +81,7 @@ func Handlers() {
 
 func CreateDB(name string) *sql.DB {
 	fmt.Println("Database Created")
-	db, err := sql.Open("mysql", "root:a@tcp(127.0.0.1:3306)/")
+	db, err := sql.Open("mysql", "root:GroupNB2023@tcp(127.0.0.1:3306)/")
 	if err != nil {
 		panic(err)
 	}
@@ -92,7 +93,7 @@ func CreateDB(name string) *sql.DB {
 	}
 	db.Close()
 
-	db, err = sql.Open("mysql", "root:a@tcp(127.0.0.1:3306)/"+name)
+	db, err = sql.Open("mysql", "root:GroupNB2023@tcp(127.0.0.1:3306)/"+name)
 	if err != nil {
 		panic(err)
 	}
@@ -103,11 +104,12 @@ func CreateDB(name string) *sql.DB {
 func MigrateDB() {
 	fmt.Println("Database Migrated")
 	user := models.User{}
+	BMI := models.BMI{}
 	
 
 
 	db := GormDB()
-	db.AutoMigrate(&user)
+	db.AutoMigrate(&user,&BMI)
 }
 
 
@@ -165,7 +167,7 @@ func hashPassword(pass string) string {
 }
 
 func GormDB() *gorm.DB {
-	dsn := "root:a@tcp(127.0.0.1:3306)/kafit?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:GroupNB2023@tcp(127.0.0.1:3306)/kafit?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {

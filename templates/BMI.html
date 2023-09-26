@@ -84,6 +84,17 @@
       background-color: black;
       color: white;
       border: white 1px solid;
+      
+    }
+
+    .btn_func button {
+      width: 75px;
+      height: 35px;
+      border-radius: 7px;
+      font-size: 12px;
+      background-color: black;
+      color: white;
+      border: white 1px solid;
     }
   </style>
   <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
@@ -136,7 +147,7 @@
           <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
             <h1 class="p_title">BMI (BODY MASS INDEX)</h1>
             <p style="text-align: center">
-              - is the body's relative amount of fat to fat-free mass.
+              is the body's relative amount of fat to fat-free mass.
             </p>
             <h1 class="p_title1">FORMULA FOR COMPUTING BODY MASS INDEX</h1>
             <p
@@ -148,8 +159,14 @@
             >
               WEIGHT [in Kilograms]
             </p>
-            <p style="text-align: center; font-size: 12px">
-              HEIGHT [in Meters] 2
+            <p style="    text-align: center;
+            display: flex;
+            font-size: 12px;
+            justify-content: center;
+            align-items: center;">
+              HEIGHT [in Meters] <span style="font-size: 10px;
+          
+              margin-left: 2px;">2</span>
             </p>
             <span>Example:</span>
             <p
@@ -161,18 +178,102 @@
             >
               30
             </p>
-            <p style="text-align: center; font-size: 12px">(1.20)2</p>
+            <p style="    text-align: center;
+            display: flex;
+            font-size: 12px;
+            justify-content: center;
+            align-items: center;">(1.20) <span style="font-size: 10px;
+              margin-left: 2px;">2</span></p>
             <h1 class="p_title">BM = 20.83 (NORMAL)</h1>
 
             <div class="btn_func">
-              <a href="/BMI_Weight">WEIGHT</a>
-              <a href="/BMI_Height">HEIGHT</a>
-              <a href="">SCORING</a>
+              <a href="/BMI_Weight" data-aos="fade-up"
+              data-aos-delay="300">WEIGHT</a>
+              <a href="/BMI_Height" data-aos="fade-up"
+              data-aos-delay="300">HEIGHT</a>
+              <button data-aos="fade-up"
+              data-aos-delay="300"
+              data-toggle="modal"
+              data-target="#DataSccore" onclick="Score()" >SCORE</button>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <div
+    class="modal fade"
+    id="DataSccore"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="membershipFormLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="membershipFormLabel">SCORE</h2>
+
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div style="    display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin-top: 1rem; gap: 1rem;">
+          <div style="    display: flex;
+          flex-direction: column;
+          justify-content: center;
+        ">
+            <span style="    font-size: 11px;
+            font-style: italic;">Weight in Kilograms</span>
+            <input type="number" name="data" id="weight" placeholder="Weight...">
+          </div>
+          <div style="    display: flex;
+          flex-direction: column;
+          justify-content: center;
+          ">
+            <span style="    font-size: 11px;
+            font-style: italic;">Height in Meters</span>
+            <input type="number" name="data" id="height" placeholder="Height...">
+          </div>
+
+          <div style="    display: flex;
+          flex-direction: row;
+          justify-content: space-around;">
+            <p>Height: <span id="hresult"></span></p>
+            <p>Weight: <span id="wresult"></span></p>
+          
+          </div>
+          <div style="    display: flex;
+          flex-direction: row;
+          justify-content: space-around;">
+            <p>BMI: <span id="bresult"></span> <span id="classic"></span></p>
+           </div>
+           
+              <button style="
+              height: 35px;
+              border-radius: 7px;
+              font-size: 12px;
+              background-color: black;
+              color: white;
+              border: white 1px solid;" onclick="Save()">SAVE</button>
+            
+          </div>
+        </div>
+
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
 
     <!-- SCRIPTS -->
     <script src="/assets/js/jquery.min.js"></script>
@@ -180,5 +281,91 @@
     <script src="/assets/js/aos.js"></script>
     <script src="/assets/js/smoothscroll.js"></script>
     <script src="/assets/js/custom.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    type="text/javascript"
+    src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+  ></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        var d = new Date()
+        var date = moment(d).format('YYYY-MM-DD');
+        var value = $.cookie("id");
+        $.get("/api/get_bmi", function (index) {
+            var result = JSON.parse(index).item
+            $.each(result, function (_, v) {
+              if (v.UserID == value && date == v.Date){
+                $("#hresult").html(v.Height)
+                $("#wresult").html(v.Weight)
+                $("#bresult").html(v.Result.toFixed(2))
+
+                if (v.Result.toFixed(2) <= parseFloat(18.5)){
+                  $("#classic").html("Wasted")
+                }else if(v.Result.toFixed(2) >= parseFloat(18.5) && v.Result.toFixed(2) <= parseFloat(24.9)){
+                  $("#classic").html("Normal")
+                }else if(v.Result.toFixed(2) >= parseFloat(25) && v.Result.toFixed(2) <= parseFloat(29.9)){
+                  $("#classic").html("OVerweight")
+                }else if(v.Result.toFixed(2) >= parseFloat(30) && v.Result.toFixed(2) <= parseFloat(39.9)){
+                  $("#classic").html("Obese")
+                }else{
+                  $("#classic").html("Extremely Obese")
+                }
+              }
+            })
+          })
+       
+      })
+
+
+      function Score(){
+        $("#height").val("")
+        $("#weight").val("")
+      }
+
+      function Save(){
+        var h = $("#height").val()
+        var w = $("#weight").val()
+
+        if (h == "" || w == ""){
+          Swal.fire({
+            toast: true,
+            position: "center",
+            icon: "warning",
+            title: "Please Complete Required Details",
+            showConfirmButton: false,
+            timer: 3000,
+          });
+        }else{
+          $.ajax({
+            url: "/api/bmi",
+            data: {
+              height: h,
+              weight: w,
+            },
+            success: function (res) {
+          Swal.fire({
+            toast: true,
+            position: "center",
+            icon: "success",
+            title: "BMI Record Success",
+            showConfirmButton: false,
+            timer: 3000,
+          }).then(function (){
+            window.location.reload();
+          })
+            },
+          });
+        }
+      }
+
+
+    </script>
   </body>
 </html>
