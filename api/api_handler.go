@@ -46,6 +46,15 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 		GetFlex(w, r)
 		return
 	}
+	if strings.HasPrefix(r.URL.Path, "speed") {
+		CreateSpeed(w, r)
+		return
+	}
+
+	if strings.HasPrefix(r.URL.Path, "get_speed") {
+		GetSpeed(w, r)
+		return
+	}
 
 	if strings.HasPrefix(r.URL.Path, "basic") {
 		CreateStrength(w, r)
@@ -56,7 +65,41 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 		GetStrength(w, r)
 		return
 	}
+	if strings.HasPrefix(r.URL.Path, "agility") {
+		CreateAgility(w, r)
+		return
+	}
 
+	if strings.HasPrefix(r.URL.Path, "get_agility") {
+		GetAgility(w, r)
+		return
+	}
 
-	
+	if strings.HasPrefix(r.URL.Path, "time") {
+		CreateTime(w, r)
+		return
+	}
+
+	if strings.HasPrefix(r.URL.Path, "get_time") {
+		GetTime(w, r)
+		return
+	}
+	if strings.HasPrefix(r.URL.Path, "jug") {
+		CreateCoordination(w, r)
+		return
+	}
+
+	if strings.HasPrefix(r.URL.Path, "get_jug") {
+		GetCoordination(w, r)
+		return
+	}
+	if strings.HasPrefix(r.URL.Path, "balance") {
+		CreateBalance(w, r)
+		return
+	}
+
+	if strings.HasPrefix(r.URL.Path, "get_balance") {
+		GetBalance(w, r)
+		return
+	}
 }
