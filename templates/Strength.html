@@ -299,25 +299,34 @@
               $("#height").val(v.Basic);
               if (v.Push == 0) {
                 $("#hresult").html("Poor");
-              } else if (v.Push == parseFloat(1)) {
+              } else if (v.Push >= parseFloat(1) && v.Push <= parseFloat(5)) {
                 $("#hresult").html("Needs Improvement");
-              } else if (v.Push == parseFloat(2)) {
+              } else if (v.Push >= parseFloat(6) && v.Push <= parseFloat(10)) {
                 $("#hresult").html("Fair");
-              } else if (v.Push == parseFloat(3)) {
+              } else if (v.Push >= parseFloat(11) && v.Push <= parseFloat(15)) {
                 $("#hresult").html("Good");
-              } else if (v.Push == parseFloat(4)) {
+              } else if (v.Push >= parseFloat(16) && v.Push <= parseFloat(20)) {
                 $("#hresult").html("Very Good");
               } else {
                 $("#hresult").html("Excellent");
               }
 
-              if (v.Basic == parseFloat(1)) {
+              if (v.Basic >= parseFloat(1) && v.Basic <= parseFloat(15)) {
                 $("#wresult").html("Needs Improvement");
-              } else if (v.Basic == parseFloat(2)) {
+              } else if (
+                v.Basic >= parseFloat(16) &&
+                v.Basic <= parseFloat(30)
+              ) {
                 $("#wresult").html("Fair");
-              } else if (v.Basic == parseFloat(3)) {
+              } else if (
+                v.Basic >= parseFloat(31) &&
+                v.Basic <= parseFloat(45)
+              ) {
                 $("#wresult").html("Good");
-              } else if (v.Basic == parseFloat(4)) {
+              } else if (
+                v.Basic >= parseFloat(46) &&
+                v.Basic <= parseFloat(50)
+              ) {
                 $("#wresult").html("Very Good");
               } else {
                 $("#wresult").html("Excellent");

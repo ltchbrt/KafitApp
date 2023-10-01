@@ -278,17 +278,29 @@
           $.each(result, function (_, v) {
             if (v.UserID == value && date == v.Date) {
               $("#weight").val(v.Drop);
-              if (v.Drop == 0) {
+              if (v.Drop >= 30.49) {
                 $("#hresult").html("Poor");
-              } else if (v.Drop == parseFloat(1)) {
+              } else if (
+                v.Drop >= parseFloat(27.94) &&
+                v.Drop <= parseFloat(30.48)
+              ) {
                 $("#hresult").html("Needs Improvement");
-              } else if (v.Drop == parseFloat(2)) {
+              } else if (
+                v.Drop >= parseFloat(20.32) &&
+                v.Drop <= parseFloat(27.93)
+              ) {
                 $("#hresult").html("Fair");
-              } else if (v.Drop == parseFloat(3)) {
+              } else if (
+                v.Drop >= parseFloat(12.7) &&
+                v.Drop <= parseFloat(20.31)
+              ) {
                 $("#hresult").html("Good");
-              } else if (v.Drop == parseFloat(4)) {
+              } else if (
+                v.Drop >= parseFloat(5.08) &&
+                v.Drop <= parseFloat(12.69)
+              ) {
                 $("#hresult").html("Very Good");
-              } else {
+              } else if (v.Drop <= parseFloat(5.07)) {
                 $("#hresult").html("Excellent");
               }
             }

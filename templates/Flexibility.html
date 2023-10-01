@@ -208,7 +208,7 @@
                 "
               >
                 <span style="font-size: 11px; font-style: italic"
-                  >Zipper Test</span
+                  >Convert in cm</span
                 >
                 <input
                   type="number"
@@ -225,7 +225,7 @@
                 "
               >
                 <span style="font-size: 11px; font-style: italic"
-                  >Sit and Reach</span
+                  >Convert in cm</span
                 >
                 <input
                   type="number"
@@ -301,29 +301,50 @@
             if (v.UserID == value && date == v.Date) {
               $("#weight").val(v.Test);
               $("#height").val(v.Sit);
-              if (v.Test == 0) {
+              if (v.Test.toFixed(2) < 0) {
                 $("#hresult").html("Poor");
-              } else if (v.Test == parseFloat(1)) {
+              } else if (v.Test.toFixed(2) == parseFloat(0)) {
                 $("#hresult").html("Needs Improvement");
-              } else if (v.Test == parseFloat(2)) {
+              } else if (
+                v.Test.toFixed(2) > parseFloat(0) &&
+                v.Test.toFixed(2) <= parseFloat(1.9)
+              ) {
                 $("#hresult").html("Fair");
-              } else if (v.Test == parseFloat(3)) {
+              } else if (
+                v.Test.toFixed(2) >= parseFloat(2) &&
+                v.Test.toFixed(2) <= parseFloat(3.9)
+              ) {
                 $("#hresult").html("Good");
-              } else if (v.Test == parseFloat(4)) {
+              } else if (
+                v.Test.toFixed(2) >= parseFloat(4) &&
+                v.Test.toFixed(2) <= parseFloat(5.9)
+              ) {
                 $("#hresult").html("Very Good");
-              } else {
+              } else if (v.Test.toFixed(2) >= parseFloat(6)) {
                 $("#hresult").html("Excellent");
               }
 
-              if (v.Sit == parseFloat(1)) {
+              if (
+                v.Sit.toFixed(2) == parseFloat(0) &&
+                v.Sit.toFixed(2) <= parseFloat(15.9)
+              ) {
                 $("#wresult").html("Needs Improvement");
-              } else if (v.Sit == parseFloat(2)) {
+              } else if (
+                v.Sit.toFixed(2) >= parseFloat(16) &&
+                v.Sit.toFixed(2) <= parseFloat(30.9)
+              ) {
                 $("#wresult").html("Fair");
-              } else if (v.Sit == parseFloat(3)) {
+              } else if (
+                v.Sit.toFixed(2) >= parseFloat(31) &&
+                v.Sit.toFixed(2) <= parseFloat(45.9)
+              ) {
                 $("#wresult").html("Good");
-              } else if (v.Sit == parseFloat(4)) {
+              } else if (
+                v.Sit.toFixed(2) >= parseFloat(46) &&
+                v.Sit.toFixed(2) <= parseFloat(59.9)
+              ) {
                 $("#wresult").html("Very Good");
-              } else {
+              } else if (v.Sit.toFixed(2) >= parseFloat(60)) {
                 $("#wresult").html("Excellent");
               }
             }
@@ -342,15 +363,6 @@
             position: "center",
             icon: "warning",
             title: "Please Complete Required Details",
-            showConfirmButton: false,
-            timer: 3000,
-          });
-        } else if (h > 5 || w > 5) {
-          Swal.fire({
-            toast: true,
-            position: "center",
-            icon: "warning",
-            title: "Invalid Input",
             showConfirmButton: false,
             timer: 3000,
           });

@@ -279,15 +279,13 @@
           $.each(result, function (_, v) {
             if (v.UserID == value && date == v.Date) {
               $("#weight").val(v.Speed);
-              if (v.Speed == 0) {
-                $("#hresult").html("Poor");
-              } else if (v.Speed == parseFloat(1)) {
+              if (v.Speed >= 55 && v.Speed <= 100) {
                 $("#hresult").html("Needs Improvement");
-              } else if (v.Speed == parseFloat(2)) {
+              } else if (v.Speed >= 101 && v.Speed <= 125) {
                 $("#hresult").html("Fair");
-              } else if (v.Speed == parseFloat(3)) {
+              } else if (v.Speed >= 126 && v.Speed <= 150) {
                 $("#hresult").html("Good");
-              } else if (v.Speed == parseFloat(4)) {
+              } else if (v.Speed >= 151 && v.Speed <= 200) {
                 $("#hresult").html("Very Good");
               } else {
                 $("#hresult").html("Excellent");
