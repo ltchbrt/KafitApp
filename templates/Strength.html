@@ -85,6 +85,15 @@
       color: white;
       border: white 1px solid;
     }
+    .btn_func button {
+      width: 75px;
+      height: 35px;
+      border-radius: 7px;
+      font-size: 12px;
+      background-color: black;
+      color: white;
+      border: white 1px solid;
+    }
   </style>
   <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
     <!-- MENU BAR -->
@@ -142,11 +151,118 @@
             <div class="btn_func">
               <a href="/Strength_Push" style="width: 40%">Push-up</a>
               <a href="/Strength_Plank" style="width: 40%">Basic Plank</a>
+              <button
+                data-aos="fade-up"
+                data-aos-delay="300"
+                data-toggle="modal"
+                data-target="#DataSccore"
+                onclick="Score()"
+              >
+                SCORE
+              </button>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <div
+      class="modal fade"
+      id="DataSccore"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="membershipFormLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="membershipFormLabel">SCORE</h2>
+
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-top: 1rem;
+                gap: 1rem;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                "
+              >
+                <span style="font-size: 11px; font-style: italic">Push Up</span>
+                <input
+                  type="number"
+                  name="data"
+                  id="weight"
+                  placeholder="Push Up"
+                />
+              </div>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                "
+              >
+                <span style="font-size: 11px; font-style: italic"
+                  >Basic Plank</span
+                >
+                <input
+                  type="number"
+                  name="data"
+                  id="height"
+                  placeholder="Basic Plank"
+                />
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-around;
+                "
+              >
+                <p>Push Up: <span id="hresult"></span></p>
+                <p>Basic Plank: <span id="wresult"></span></p>
+              </div>
+
+              <button
+                style="
+                  height: 35px;
+                  border-radius: 7px;
+                  font-size: 12px;
+                  background-color: black;
+                  color: white;
+                  border: white 1px solid;
+                "
+                onclick="Save()"
+              >
+                SAVE
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
 
     <!-- SCRIPTS -->
     <script src="/assets/js/jquery.min.js"></script>
@@ -154,5 +270,108 @@
     <script src="/assets/js/aos.js"></script>
     <script src="/assets/js/smoothscroll.js"></script>
     <script src="/assets/js/custom.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        View();
+      });
+
+      function View() {
+        var d = new Date();
+        var date = moment(d).format("YYYY-MM-DD");
+        var value = $.cookie("id");
+        $.get("/api/get_basic", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            if (v.UserID == value && date == v.Date) {
+              $("#weight").val(v.Push);
+              $("#height").val(v.Basic);
+              if (v.Push == 0) {
+                $("#hresult").html("Poor");
+              } else if (v.Push == parseFloat(1)) {
+                $("#hresult").html("Needs Improvement");
+              } else if (v.Push == parseFloat(2)) {
+                $("#hresult").html("Fair");
+              } else if (v.Push == parseFloat(3)) {
+                $("#hresult").html("Good");
+              } else if (v.Push == parseFloat(4)) {
+                $("#hresult").html("Very Good");
+              } else {
+                $("#hresult").html("Excellent");
+              }
+
+              if (v.Basic == parseFloat(1)) {
+                $("#wresult").html("Needs Improvement");
+              } else if (v.Basic == parseFloat(2)) {
+                $("#wresult").html("Fair");
+              } else if (v.Basic == parseFloat(3)) {
+                $("#wresult").html("Good");
+              } else if (v.Basic == parseFloat(4)) {
+                $("#wresult").html("Very Good");
+              } else {
+                $("#wresult").html("Excellent");
+              }
+            }
+          });
+        });
+      }
+      function Score() {}
+
+      function Save() {
+        var h = $("#height").val();
+        var w = $("#weight").val();
+
+        if (h == "" || w == "") {
+          Swal.fire({
+            toast: true,
+            position: "center",
+            icon: "warning",
+            title: "Please Complete Required Details",
+            showConfirmButton: false,
+            timer: 3000,
+          });
+        } else if (h > 5 || w > 5) {
+          Swal.fire({
+            toast: true,
+            position: "center",
+            icon: "warning",
+            title: "Invalid Input",
+            showConfirmButton: false,
+            timer: 3000,
+          });
+        } else {
+          $.ajax({
+            url: "/api/basic",
+            data: {
+              height: h,
+              weight: w,
+            },
+            success: function (res) {
+              Swal.fire({
+                toast: true,
+                position: "center",
+                icon: "success",
+                title: "Strength Record Success",
+                showConfirmButton: false,
+                timer: 3000,
+              }).then(function () {
+                View();
+              });
+            },
+          });
+        }
+      }
+    </script>
   </body>
 </html>

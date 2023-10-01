@@ -37,6 +37,26 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if strings.HasPrefix(r.URL.Path, "flex") {
+		CreateFlex(w, r)
+		return
+	}
+
+	if strings.HasPrefix(r.URL.Path, "get_flex") {
+		GetFlex(w, r)
+		return
+	}
+
+	if strings.HasPrefix(r.URL.Path, "basic") {
+		CreateStrength(w, r)
+		return
+	}
+
+	if strings.HasPrefix(r.URL.Path, "get_basic") {
+		GetStrength(w, r)
+		return
+	}
+
 
 	
 }
