@@ -350,15 +350,6 @@
             showConfirmButton: false,
             timer: 3000,
           });
-        } else if (h > 5 || w > 5) {
-          Swal.fire({
-            toast: true,
-            position: "center",
-            icon: "warning",
-            title: "Invalid Input",
-            showConfirmButton: false,
-            timer: 3000,
-          });
         } else {
           $.ajax({
             url: "/api/basic",
