@@ -126,18 +126,39 @@
       <div class="container">
         <div class="row">
           <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12 report">
-            <h1 class="p_title">PROFILE</h1>
-            <h3 style="font-size: 17px;
-            text-align: center;">User: <span id="username" style="font-size: 17px;
-            text-align: center;"></span></h3>
-            <select name="test" id="test" >
-              <option value="">Select Report</option>
-              <option value="BMI">BMI</option>
-            </select>
-
-            <table class="table"  id="details">
+            <h1 class="p_title">PHYSICAL FITNESS TEST SCORE CARD</h1>
+            <div style="width: 100%;
+            display: flex;
+            justify-content: space-between; margin-top: 1rem; margin-bottom: 1rem;">
+              <div style="width: 60%;">
+                <h3 style="font-size: 17px;
+                  text-align: left;">NAME: <span id="username" style="font-size: 17px;
+                  text-align: left;"></span></h3>
+              </div>
+              <div style="width: 40%;
+              display: flex;
+              justify-content: space-between;">
+                <h3 style="font-size: 17px;
+                text-align: left;">SEX: <span id="username" style="font-size: 17px;
+                text-align: left;"></span></h3>
+                <h3 style="font-size: 17px;
+                text-align: left;">AGE: <span id="username" style="font-size: 17px;
+                text-align: left;"></span></h3>
+              </div>
+            </div>
+            <div style="width: 100%; margin-top: 1rem;">
+              <h1 style="font-size: 15px; margin: 0.5rem !important;">Part 1: Health-Related Fitness Test</h1>
+              <div>
+                <h1 style="font-size: 15px; margin: 0.5rem !important; ">A. BODY COMPOSITION: Body Mass Index (BMI)</h1>
+                <span style="margin-bottom: 1rem;">1. Body Mass Index (BMI)</span>
+                <table class="table"  id="details">
+               
+                </table>
+              </div>
              
-            </table>
+            </div>
+           
+           
            
            
           </div>
@@ -174,15 +195,17 @@
               }
             })
           })
-       
+
+          BMI()
       })
         function BMI(){
+          var d = new Date();
+        var date = moment(d).format("YYYY-MM-DD");
           var value = $.cookie("id");
           $("#details").empty()
           $("#details").append(`
                 <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Date</th>
                   <th scope="col">Weight</th>
                   <th scope="col">Height</th>
                   <th scope="col">BMI</th>
@@ -195,10 +218,9 @@
           $.get("/api/get_bmi", function (index) {
             var result = JSON.parse(index).item
             $.each(result, function (_, v) {
-              if (value == v.UserID){
+              if (value == v.UserID && v.Date == date){
                 $("#t_details").append(`
                 <tr>
-                  <th scope="row">`+v.Date+`</th>
                   <td>`+v.Weight+`</td>
                   <td>`+v.Height+`</td>
                   <td>`+v.Result+`</td>
@@ -208,18 +230,6 @@
             })
           })
         }
-
-        $('#test').on('change', function() {
-          var result = $("#test").val()
-
-          if(result == "BMI"){
-            $("#details").show()
-            BMI()
-          }else{
-            $("#details").hide()
-          }
-        });
-        
     </script>
   </body>
 </html>
