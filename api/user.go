@@ -17,6 +17,8 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	username := r.FormValue("username")
 	password := r.FormValue("password")
 	number := r.FormValue("number")
+	sex := r.FormValue("sex")
+	age := r.FormValue("age")
 	
 
 
@@ -25,7 +27,8 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	product.Password = hashPassword(password)
 	product.Type = "User"
 	product.Number = number
-	
+	product.Sex = sex
+	product.Age = age
 
 	db.Save(&product)
 

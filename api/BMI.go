@@ -2,13 +2,10 @@ package api
 
 import (
 	"net/http"
-	"time"
 	"strconv"
-	
-
+	"time"
 
 	"github.com/dafalo/KafitApp/models"
-
 )
 
 func CreateBMI(w http.ResponseWriter, r *http.Request) {
@@ -54,7 +51,7 @@ func GetBMI(w http.ResponseWriter, r *http.Request) {
 	db := GormDB()
 
 	item := []models.BMI{}
-	db.Preload("User").Find(&item)
+	db.Preload("User").Last(&item)
 
 	data := map[string]interface{}{
 		"status": "ok",

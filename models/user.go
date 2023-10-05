@@ -9,6 +9,8 @@ type User struct {
 	Name     string
 	Type     string
 	Number	 string 
+	Age		string
+	Sex		string
 	Deleted  gorm.DeletedAt
 }
 

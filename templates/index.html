@@ -184,6 +184,22 @@
               />
 
               <input
+                type="number"
+                class="form-control"
+                name="cf-phone"
+                id="age"
+                placeholder="Age"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                required
+              />
+
+              <select name="sex" id="sex" class="form-control">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+
+              <input
                 type="tel"
                 class="form-control"
                 name="cf-phone"
@@ -257,8 +273,17 @@
         var number = $("#number").val();
         var username = $("#username").val();
         var password = $("#password").val();
+        var age = $("#age").val();
+        var sex = $("#sex").val();
 
-        if (username == "" || name == "" || password == "" || number == "") {
+        if (
+          username == "" ||
+          name == "" ||
+          password == "" ||
+          number == "" ||
+          age == "" ||
+          sex == ""
+        ) {
           $("#username").val("");
           $("#password").val("");
           $("#number").val("");
@@ -279,6 +304,8 @@
               password: password,
               name: name,
               number: number,
+              age: age,
+              sex: sex,
             },
             success: function (res) {
               Swal.fire({

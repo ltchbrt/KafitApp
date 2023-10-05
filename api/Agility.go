@@ -49,7 +49,7 @@ func GetAgility(w http.ResponseWriter, r *http.Request) {
 	db := GormDB()
 
 	item := []models.Agility{}
-	db.Preload("User").Find(&item)
+	db.Preload("User").Last(&item)
 
 	data := map[string]interface{}{
 		"status": "ok",
