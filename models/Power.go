@@ -7,6 +7,7 @@ type SpeedT struct {
 	User		User
 	UserID		string
 	Speed		float64
+	Speed1		float64
 	Date		string
 	Deleted  gorm.DeletedAt
 }

@@ -209,12 +209,29 @@
                 "
               >
                 <span style="font-size: 11px; font-style: italic"
-                  >Hexagon Agility Test</span
+                  >Clockwise</span
                 >
                 <input
                   type="number"
                   name="data"
                   id="weight"
+                  placeholder="Hexagon Agility Test"
+                />
+              </div>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                "
+              >
+                <span style="font-size: 11px; font-style: italic"
+                  >Counter Clockwise</span
+                >
+                <input
+                  type="number"
+                  name="data"
+                  id="height"
                   placeholder="Hexagon Agility Test"
                 />
               </div>
@@ -226,6 +243,7 @@
                   justify-content: space-around;
                 "
               >
+                <p>Average: <span id="result"></span></p>
                 <p>Hexagon Agility Test: <span id="hresult"></span></p>
               </div>
 
@@ -277,24 +295,30 @@
         var d = new Date();
         var date = moment(d).format("YYYY-MM-DD");
         var value = $.cookie("id");
+        var result = 0;
         $.get("/api/get_agility", function (index) {
           var result = JSON.parse(index).item;
           $.each(result, function (_, v) {
             if (v.UserID == value && date == v.Date) {
               $("#weight").val(v.Test);
-              if (v.Test >= 25) {
+              $("#height").val(v.Test1);
+
+              result = parseFloat(v.Test) + parseFloat(v.Test1) / 2;
+              if (result >= 25) {
                 $("#hresult").html("Poor");
-              } else if (v.Test >= parseFloat(21) && v.Test <= parseFloat(25)) {
+              } else if (result >= parseFloat(21) && v.Test <= parseFloat(25)) {
                 $("#hresult").html("Needs Improvement");
-              } else if (v.Test >= parseFloat(16) && v.Test <= parseFloat(20)) {
+              } else if (result >= parseFloat(16) && v.Test <= parseFloat(20)) {
                 $("#hresult").html("Fair");
-              } else if (v.Test >= parseFloat(11) && v.Test <= parseFloat(15)) {
+              } else if (result >= parseFloat(11) && v.Test <= parseFloat(15)) {
                 $("#hresult").html("Good");
-              } else if (v.Test >= parseFloat(10) && v.Test <= parseFloat(6)) {
+              } else if (result >= parseFloat(10) && v.Test <= parseFloat(6)) {
                 $("#hresult").html("Very Good");
-              } else if (v.Test <= parseFloat(5)) {
+              } else if (result <= parseFloat(5)) {
                 $("#hresult").html("Excellent");
               }
+
+              $("#result").html(result);
             }
           });
         });
@@ -303,6 +327,7 @@
 
       function Save() {
         var w = $("#weight").val();
+        var h = $("#height").val();
 
         if (w == "") {
           Swal.fire({
@@ -318,6 +343,7 @@
             url: "/api/agility",
             data: {
               weight: w,
+              height: h,
             },
             success: function (res) {
               Swal.fire({

@@ -15,6 +15,7 @@ func CreateAgility(w http.ResponseWriter, r *http.Request) {
 	product := models.Agility{}
 	product1 := []models.Agility{}
 	weight, _ := strconv.ParseFloat(r.FormValue("weight"), 64)
+	height, _ := strconv.ParseFloat(r.FormValue("height"), 64)
 	user, _ := r.Cookie("id")
 	now := time.Now()
 	date := now.Format("2006-01-02")
@@ -25,6 +26,7 @@ func CreateAgility(w http.ResponseWriter, r *http.Request) {
 
 	 if result == 0{
 		product.Test = weight
+		product.Test1 = height
 		product.UserID = user.Value
 		product.Date = date
 		db.Save(&product)
@@ -32,6 +34,7 @@ func CreateAgility(w http.ResponseWriter, r *http.Request) {
 	 }else{
 		db.Where("date", date).Find(&product)
 		product.Test = weight
+		product.Test1 = height
 		product.UserID = user.Value
 		db.Save(&product)
 	 }

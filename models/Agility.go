@@ -7,6 +7,7 @@ type Agility struct {
 	User		User
 	UserID		string
 	Test		float64
+	Test1		float64
 	Date		string
 	Deleted  gorm.DeletedAt
 }

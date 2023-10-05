@@ -212,7 +212,25 @@
                   type="number"
                   name="data"
                   id="weight"
-                  placeholder="STANDING LONG JUMP"
+                  placeholder="1st Try"
+                />
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                "
+              >
+                <span style="font-size: 11px; font-style: italic"
+                  >STANDING LONG JUMP</span
+                >
+                <input
+                  type="number"
+                  name="data"
+                  id="height"
+                  placeholder="2nd Try"
                 />
               </div>
 
@@ -279,16 +297,34 @@
           $.each(result, function (_, v) {
             if (v.UserID == value && date == v.Date) {
               $("#weight").val(v.Speed);
-              if (v.Speed >= 55 && v.Speed <= 100) {
-                $("#hresult").html("Needs Improvement");
-              } else if (v.Speed >= 101 && v.Speed <= 125) {
-                $("#hresult").html("Fair");
-              } else if (v.Speed >= 126 && v.Speed <= 150) {
-                $("#hresult").html("Good");
-              } else if (v.Speed >= 151 && v.Speed <= 200) {
-                $("#hresult").html("Very Good");
+              $("#height").val(v.Speed1);
+
+              if (v.Speed > v.Speed1) {
+                alert(1);
+                if (v.Speed >= 55 && v.Speed <= 100) {
+                  $("#hresult").html("Needs Improvement");
+                } else if (v.Speed >= 101 && v.Speed <= 125) {
+                  $("#hresult").html("Fair");
+                } else if (v.Speed >= 126 && v.Speed <= 150) {
+                  $("#hresult").html("Good");
+                } else if (v.Speed >= 151 && v.Speed <= 200) {
+                  $("#hresult").html("Very Good");
+                } else {
+                  $("#hresult").html("Excellent");
+                }
               } else {
-                $("#hresult").html("Excellent");
+                alert(2);
+                if (v.Speed1 >= 55 && v.Speed1 <= 100) {
+                  $("#hresult").html("Needs Improvement");
+                } else if (v.Speed1 >= 101 && v.Speed1 <= 125) {
+                  $("#hresult").html("Fair");
+                } else if (v.Speed1 >= 126 && v.Speed1 <= 150) {
+                  $("#hresult").html("Good");
+                } else if (v.Speed1 >= 151 && v.Speed1 <= 200) {
+                  $("#hresult").html("Very Good");
+                } else {
+                  $("#hresult").html("Excellent");
+                }
               }
             }
           });
@@ -298,6 +334,7 @@
 
       function Save() {
         var w = $("#weight").val();
+        var h = $("#height").val();
 
         if (w == "") {
           Swal.fire({
@@ -313,6 +350,7 @@
             url: "/api/speed",
             data: {
               weight: w,
+              height: h,
             },
             success: function (res) {
               Swal.fire({

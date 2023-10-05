@@ -7,7 +7,9 @@ type Flex struct {
 	User		User
 	UserID		string
 	Test		float64
+	Left		float64
 	Sit			float64
+	Try			float64
 	Date		string
 	Deleted  gorm.DeletedAt
 }

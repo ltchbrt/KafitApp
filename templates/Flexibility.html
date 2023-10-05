@@ -200,39 +200,80 @@
                 gap: 1rem;
               "
             >
-              <div
-                style="
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                "
-              >
-                <span style="font-size: 11px; font-style: italic"
-                  >Convert in cm</span
+              <div>
+                <h1 style="font-size: 20px">Zipper Test</h1>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                  "
                 >
-                <input
-                  type="number"
-                  name="data"
-                  id="weight"
-                  placeholder="Zipper Test"
-                />
+                  <span style="font-size: 11px; font-style: italic"
+                    >Convert in cm</span
+                  >
+                  <input
+                    type="number"
+                    name="data"
+                    id="weight"
+                    placeholder="Right Zipper Test"
+                  />
+                </div>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                  "
+                >
+                  <span style="font-size: 11px; font-style: italic"
+                    >Convert in cm</span
+                  >
+                  <input
+                    type="number"
+                    name="data"
+                    id="weight1"
+                    placeholder="Left Zipper Test"
+                  />
+                </div>
               </div>
-              <div
-                style="
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: center;
-                "
-              >
-                <span style="font-size: 11px; font-style: italic"
-                  >Convert in cm</span
+              <div>
+                <h1 style="font-size: 20px">Sit and Reach</h1>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                  "
                 >
-                <input
-                  type="number"
-                  name="data"
-                  id="height"
-                  placeholder="Sit and Reach"
-                />
+                  <span style="font-size: 11px; font-style: italic"
+                    >Convert in cm</span
+                  >
+                  <input
+                    type="number"
+                    name="data"
+                    id="height"
+                    placeholder="First Try Sit and Reach"
+                  />
+                </div>
+
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                  "
+                >
+                  <span style="font-size: 11px; font-style: italic"
+                    >Convert in cm</span
+                  >
+                  <input
+                    type="number"
+                    name="data"
+                    id="height1"
+                    placeholder="Second Try Sit and Reach"
+                  />
+                </div>
               </div>
 
               <div
@@ -242,7 +283,8 @@
                   justify-content: space-around;
                 "
               >
-                <p>Zipper Test: <span id="hresult"></span></p>
+                <p>Zipper Test (Right): <span id="hresult"></span></p>
+                <p>Zipper Test (Left): <span id="hresult1"></span></p>
                 <p>Sit and Reach: <span id="wresult"></span></p>
               </div>
 
@@ -300,7 +342,9 @@
           $.each(result, function (_, v) {
             if (v.UserID == value && date == v.Date) {
               $("#weight").val(v.Test);
+              $("#weight1").val(v.Left);
               $("#height").val(v.Sit);
+              $("#height1").val(v.Try);
               if (v.Test.toFixed(2) < 0) {
                 $("#hresult").html("Poor");
               } else if (v.Test.toFixed(2) == parseFloat(0)) {
@@ -324,28 +368,77 @@
                 $("#hresult").html("Excellent");
               }
 
-              if (
-                v.Sit.toFixed(2) >= parseFloat(0) &&
-                v.Sit.toFixed(2) <= parseFloat(15.9)
-              ) {
-                $("#wresult").html("Needs Improvement");
+              if (v.Left.toFixed(2) < 0) {
+                $("#hresult1").html("Poor");
+              } else if (v.Test.toFixed(2) == parseFloat(0)) {
+                $("#hresult1").html("Needs Improvement");
               } else if (
-                v.Sit.toFixed(2) >= parseFloat(16) &&
-                v.Sit.toFixed(2) <= parseFloat(30.9)
+                v.Left.toFixed(2) > parseFloat(0) &&
+                v.Left.toFixed(2) <= parseFloat(1.9)
               ) {
-                $("#wresult").html("Fair");
+                $("#hresult1").html("Fair");
               } else if (
-                v.Sit.toFixed(2) >= parseFloat(31) &&
-                v.Sit.toFixed(2) <= parseFloat(45.9)
+                v.Left.toFixed(2) >= parseFloat(2) &&
+                v.Left.toFixed(2) <= parseFloat(3.9)
               ) {
-                $("#wresult").html("Good");
+                $("#hresult1").html("Good");
               } else if (
-                v.Sit.toFixed(2) >= parseFloat(46) &&
-                v.Sit.toFixed(2) <= parseFloat(59.9)
+                v.Left.toFixed(2) >= parseFloat(4) &&
+                v.Left.toFixed(2) <= parseFloat(5.9)
               ) {
-                $("#wresult").html("Very Good");
-              } else if (v.Sit.toFixed(2) >= parseFloat(60)) {
-                $("#wresult").html("Excellent");
+                $("#hresult1").html("Very Good");
+              } else if (v.Left.toFixed(2) >= parseFloat(6)) {
+                $("#hresult1").html("Excellent");
+              }
+
+              if (v.Sit.toFixed(2) > v.Try.toFixed(2)) {
+                if (
+                  v.Sit.toFixed(2) >= parseFloat(0) &&
+                  v.Sit.toFixed(2) <= parseFloat(15.9)
+                ) {
+                  $("#wresult").html("Needs Improvement");
+                } else if (
+                  v.Sit.toFixed(2) >= parseFloat(16) &&
+                  v.Sit.toFixed(2) <= parseFloat(30.9)
+                ) {
+                  $("#wresult").html("Fair");
+                } else if (
+                  v.Sit.toFixed(2) >= parseFloat(31) &&
+                  v.Sit.toFixed(2) <= parseFloat(45.9)
+                ) {
+                  $("#wresult").html("Good");
+                } else if (
+                  v.Sit.toFixed(2) >= parseFloat(46) &&
+                  v.Sit.toFixed(2) <= parseFloat(59.9)
+                ) {
+                  $("#wresult").html("Very Good");
+                } else if (v.Sit.toFixed(2) >= parseFloat(60)) {
+                  $("#wresult").html("Excellent");
+                }
+              } else {
+                if (
+                  v.Try.toFixed(2) >= parseFloat(0) &&
+                  v.Try.toFixed(2) <= parseFloat(15.9)
+                ) {
+                  $("#wresult").html("Needs Improvement");
+                } else if (
+                  v.Try.toFixed(2) >= parseFloat(16) &&
+                  v.Try.toFixed(2) <= parseFloat(30.9)
+                ) {
+                  $("#wresult").html("Fair");
+                } else if (
+                  v.Try.toFixed(2) >= parseFloat(31) &&
+                  v.Try.toFixed(2) <= parseFloat(45.9)
+                ) {
+                  $("#wresult").html("Good");
+                } else if (
+                  v.Try.toFixed(2) >= parseFloat(46) &&
+                  v.Try.toFixed(2) <= parseFloat(59.9)
+                ) {
+                  $("#wresult").html("Very Good");
+                } else if (v.Try.toFixed(2) >= parseFloat(60)) {
+                  $("#wresult").html("Excellent");
+                }
               }
             }
           });
@@ -356,8 +449,10 @@
       function Save() {
         var h = $("#height").val();
         var w = $("#weight").val();
+        var w1 = $("#weight1").val();
+        var h1 = $("#height1").val();
 
-        if (h == "" || w == "") {
+        if (h == "" || h1 == "" || w == "" || w1 == "") {
           Swal.fire({
             toast: true,
             position: "center",
@@ -372,6 +467,8 @@
             data: {
               height: h,
               weight: w,
+              left: w1,
+              try: h1,
             },
             success: function (res) {
               Swal.fire({

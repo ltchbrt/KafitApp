@@ -81,7 +81,7 @@ func Handlers() {
 
 func CreateDB(name string) *sql.DB {
 	fmt.Println("Database Created")
-	db, err := sql.Open("mysql", "root:GroupNB2023@tcp(127.0.0.1:3306)/")
+	db, err := sql.Open("mysql", "root:a@tcp(127.0.0.1:3306)/")
 	if err != nil {
 		panic(err)
 	}
@@ -93,7 +93,7 @@ func CreateDB(name string) *sql.DB {
 	}
 	db.Close()
 
-	db, err = sql.Open("mysql", "root:GroupNB2023@tcp(127.0.0.1:3306)/"+name)
+	db, err = sql.Open("mysql", "root:a@tcp(127.0.0.1:3306)/"+name)
 	if err != nil {
 		panic(err)
 	}
@@ -175,7 +175,7 @@ func hashPassword(pass string) string {
 }
 
 func GormDB() *gorm.DB {
-	dsn := "root:GroupNB2023@tcp(127.0.0.1:3306)/kafit?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:a@tcp(127.0.0.1:3306)/kafit?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
