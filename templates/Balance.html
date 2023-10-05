@@ -214,7 +214,25 @@
                   type="number"
                   name="data"
                   id="weight"
-                  placeholder="Stork Balance Stand Test"
+                  placeholder="Right Foot"
+                />
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                "
+              >
+                <span style="font-size: 11px; font-style: italic"
+                  >Stork Balance Stand Test</span
+                >
+                <input
+                  type="number"
+                  name="data"
+                  id="height"
+                  placeholder="Left Foot"
                 />
               </div>
 
@@ -225,6 +243,7 @@
                   justify-content: space-around;
                 "
               >
+                <p>Average : <span id="average"></span></p>
                 <p>Stork Balance Stand Test: <span id="hresult"></span></p>
               </div>
 
@@ -276,31 +295,34 @@
         var d = new Date();
         var date = moment(d).format("YYYY-MM-DD");
         var value = $.cookie("id");
+        var result = 0;
         $.get("/api/get_balance", function (index) {
           var result = JSON.parse(index).item;
           $.each(result, function (_, v) {
             if (v.UserID == value && date == v.Date) {
               $("#weight").val(v.Stork);
-              if (v.Stork >= parseFloat(1) && v.Stork <= parseFloat(40)) {
+              $("#height").val(v.Stork1);
+
+              result = (v.Stork + v.Stork1) / 2;
+              if (result >= parseFloat(1) && result <= parseFloat(40)) {
                 $("#hresult").html("Needs Improvement");
-              } else if (
-                v.Stork >= parseFloat(41) &&
-                v.Stork <= parseFloat(80)
-              ) {
+              } else if (result >= parseFloat(41) && result <= parseFloat(80)) {
                 $("#hresult").html("Fair");
               } else if (
-                v.Stork >= parseFloat(81) &&
-                v.Stork <= parseFloat(120)
+                result >= parseFloat(81) &&
+                result <= parseFloat(120)
               ) {
                 $("#hresult").html("Good");
               } else if (
-                v.Stork >= parseFloat(121) &&
-                v.Stork <= parseFloat(160)
+                result >= parseFloat(121) &&
+                result <= parseFloat(160)
               ) {
                 $("#hresult").html("Very Good");
               } else {
                 $("#hresult").html("Excellent");
               }
+
+              $("#average").html(result);
             }
           });
         });
@@ -309,6 +331,7 @@
 
       function Save() {
         var w = $("#weight").val();
+        var h = $("#height").val();
 
         if (w == "") {
           Swal.fire({
@@ -324,6 +347,7 @@
             url: "/api/balance",
             data: {
               weight: w,
+              height: h,
             },
             success: function (res) {
               Swal.fire({

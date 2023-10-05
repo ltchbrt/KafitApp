@@ -219,9 +219,46 @@
                 style="
                   display: flex;
                   flex-direction: column;
+                  justify-content: center;
+                "
+              >
+                <span style="font-size: 11px; font-style: italic"
+                  >Stick Drop Test</span
+                >
+                <input
+                  type="number"
+                  name="data"
+                  id="weight1"
+                  placeholder="Stick Drop Test"
+                />
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                "
+              >
+                <span style="font-size: 11px; font-style: italic"
+                  >Stick Drop Test</span
+                >
+                <input
+                  type="number"
+                  name="data"
+                  id="weight2"
+                  placeholder="Stick Drop Test"
+                />
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
                   justify-content: space-around;
                 "
               >
+                <p>Score: <span id="score"></span></p>
                 <p>Stick Drop Test: <span id="hresult"></span></p>
               </div>
 
@@ -270,6 +307,7 @@
       });
 
       function View() {
+        const median = [];
         var d = new Date();
         var date = moment(d).format("YYYY-MM-DD");
         var value = $.cookie("id");
@@ -278,31 +316,44 @@
           $.each(result, function (_, v) {
             if (v.UserID == value && date == v.Date) {
               $("#weight").val(v.Drop);
-              if (v.Drop >= 30.49) {
+              $("#weight1").val(v.Drop1);
+              $("#weight2").val(v.Drop2);
+
+              const median = (arr) => {
+                const mid = Math.floor(arr.length / 2),
+                  nums = [...arr].sort((a, b) => a - b);
+                return arr.length % 2 !== 0
+                  ? nums[mid]
+                  : (nums[mid - 1] + nums[mid]) / 2;
+              };
+              var data = median([v.Drop, v.Drop1, v.Drop2]);
+
+              if (data >= 30.49) {
                 $("#hresult").html("Poor");
               } else if (
-                v.Drop >= parseFloat(27.94) &&
-                v.Drop <= parseFloat(30.48)
+                data >= parseFloat(27.94) &&
+                data <= parseFloat(30.48)
               ) {
                 $("#hresult").html("Needs Improvement");
               } else if (
-                v.Drop >= parseFloat(20.32) &&
-                v.Drop <= parseFloat(27.93)
+                data >= parseFloat(20.32) &&
+                data <= parseFloat(27.93)
               ) {
                 $("#hresult").html("Fair");
               } else if (
-                v.Drop >= parseFloat(12.7) &&
-                v.Drop <= parseFloat(20.31)
+                data >= parseFloat(12.7) &&
+                data <= parseFloat(20.31)
               ) {
                 $("#hresult").html("Good");
               } else if (
-                v.Drop >= parseFloat(5.08) &&
-                v.Drop <= parseFloat(12.69)
+                data >= parseFloat(5.08) &&
+                data <= parseFloat(12.69)
               ) {
                 $("#hresult").html("Very Good");
-              } else if (v.Drop <= parseFloat(5.07)) {
+              } else if (data <= parseFloat(5.07)) {
                 $("#hresult").html("Excellent");
               }
+              $("#score").html(data);
             }
           });
         });
@@ -311,6 +362,8 @@
 
       function Save() {
         var w = $("#weight").val();
+        var w1 = $("#weight1").val();
+        var w2 = $("#weight2").val();
 
         if (w == "") {
           Swal.fire({
@@ -326,6 +379,8 @@
             url: "/api/time",
             data: {
               weight: w,
+              weight1: w1,
+              weight2: w2,
             },
             success: function (res) {
               Swal.fire({

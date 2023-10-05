@@ -7,8 +7,7 @@ type Balance struct {
 	User		User
 	UserID		string
 	Stork		float64
+	Stork1		float64
 	Date		string
 	Deleted  gorm.DeletedAt
 }
-
-

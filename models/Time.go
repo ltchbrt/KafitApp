@@ -7,6 +7,8 @@ type TimeD struct {
 	User		User
 	UserID		string
 	Drop		float64
+	Drop1		float64
+	Drop2		float64
 	Date		string
 	Deleted  gorm.DeletedAt
 }

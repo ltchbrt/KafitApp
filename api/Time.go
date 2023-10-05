@@ -15,6 +15,8 @@ func CreateTime(w http.ResponseWriter, r *http.Request) {
 	product := models.TimeD{}
 	product1 := []models.TimeD{}
 	weight, _ := strconv.ParseFloat(r.FormValue("weight"), 64)
+	weight1, _ := strconv.ParseFloat(r.FormValue("weight1"), 64)
+	weight2, _ := strconv.ParseFloat(r.FormValue("weight2"), 64)
 	user, _ := r.Cookie("id")
 	now := time.Now()
 	date := now.Format("2006-01-02")
@@ -25,6 +27,8 @@ func CreateTime(w http.ResponseWriter, r *http.Request) {
 
 	 if result == 0{
 		product.Drop = weight
+		product.Drop1 = weight1
+		product.Drop2 = weight2
 		product.UserID = user.Value
 		product.Date = date
 		db.Save(&product)
@@ -32,6 +36,8 @@ func CreateTime(w http.ResponseWriter, r *http.Request) {
 	 }else{
 		db.Where("date", date).Find(&product)
 		product.Drop = weight
+		product.Drop1 = weight1
+		product.Drop2 = weight2
 		product.UserID = user.Value
 		db.Save(&product)
 	 }
