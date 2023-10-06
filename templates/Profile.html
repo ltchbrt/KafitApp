@@ -492,6 +492,7 @@
         Speed();
         Balance();
         Time();
+        Cardio();
       });
       function BMI() {
         var d = new Date();
@@ -524,6 +525,21 @@
               } else {
                 $("#c").html("Extremely Obese");
               }
+            }
+          });
+        });
+      }
+
+      function Cardio() {
+        var d = new Date();
+        var value = $.cookie("id");
+
+        $.get("/api/get_cardio", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            if (value == v.UserID) {
+              $("#before").html(v.Before);
+              $("#after").html(v.After);
             }
           });
         });

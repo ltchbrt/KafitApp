@@ -102,4 +102,14 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 		GetBalance(w, r)
 		return
 	}
+
+	if strings.HasPrefix(r.URL.Path, "cardio") {
+		CreateCardio(w, r)
+		return
+	}
+
+	if strings.HasPrefix(r.URL.Path, "get_cardio") {
+		GetCardio(w, r)
+		return
+	}
 }

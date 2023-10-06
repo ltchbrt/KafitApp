@@ -112,12 +112,13 @@ func MigrateDB() {
 	Time := models.TimeD{}
 	Jug := models.Juggling{}
 	Balance := models.Balance{}
+	Cardio := models.Cardio{}
 	
 	
 
 
 	db := GormDB()
-	db.AutoMigrate(&user,&BMI,&Flex,&Strength,&Speed,&Agility,&Time,&Jug,&Balance)
+	db.AutoMigrate(&user,&BMI,&Flex,&Strength,&Speed,&Agility,&Time,&Jug,&Balance,&Cardio)
 }
 
 
