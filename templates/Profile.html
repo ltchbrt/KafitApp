@@ -505,7 +505,7 @@
             if (value == v.UserID) {
               $("#w").html(v.Weight);
               $("#h").html(v.Height);
-              $("#b").html(v.Result);
+              $("#b").html(v.Result.toFixed(2));
               if (v.Result.toFixed(2) <= parseFloat(18.5)) {
                 $("#c").html("Wasted");
               } else if (

@@ -222,6 +222,7 @@
                 "
               >
                 <p>Time: <span id="hresult"></span></p>
+                <p>Classification: <span id="csf"></span></p>
               </div>
 
               <button
@@ -278,6 +279,27 @@
             if (v.UserID == value && date == v.Date) {
               $("#weight").val(v.Sprint);
               $("#hresult").html(v.Sprint);
+
+              if (v.Sprint.toFixed(2) >= parseFloat(9.6)) {
+                $("#csf").html("Needs Improvement");
+              } else if (
+                v.Sprint.toFixed(2) > parseFloat(8.6) &&
+                v.Sprint.toFixed(2) <= parseFloat(9.5)
+              ) {
+                $("#csf").html("Fair");
+              } else if (
+                v.Sprint.toFixed(2) >= parseFloat(7.8) &&
+                v.Sprint.toFixed(2) <= parseFloat(8.5)
+              ) {
+                $("#csf").html("Good");
+              } else if (
+                v.Sprint.toFixed(2) >= parseFloat(6.1) &&
+                v.Sprint.toFixed(2) <= parseFloat(7.7)
+              ) {
+                $("#csf").html("Very Good");
+              } else if (v.Sprint.toFixed(2) <= parseFloat(6)) {
+                $("#csf").html("Excellent");
+              }
             }
           });
         });
