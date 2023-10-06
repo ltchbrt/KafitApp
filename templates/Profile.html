@@ -222,9 +222,9 @@
                   <p style="font-weight: bold">
                     After the activity: <span id="after"></span>
                   </p>
-                  <p style="font-weight: bold">
+                  <!-- <p style="font-weight: bold">
                     Classification: <span id="c"></span>
-                  </p>
+                  </p> -->
                 </div>
               </div>
 
@@ -493,6 +493,7 @@
         Balance();
         Time();
         Cardio();
+        Sprint();
       });
       function BMI() {
         var d = new Date();
@@ -540,6 +541,20 @@
             if (value == v.UserID) {
               $("#before").html(v.Before);
               $("#after").html(v.After);
+            }
+          });
+        });
+      }
+
+      function Sprint() {
+        var d = new Date();
+        var value = $.cookie("id");
+
+        $.get("/api/get_sprint", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            if (value == v.UserID) {
+              $("#sp").html(v.Sprint);
             }
           });
         });

@@ -112,4 +112,14 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 		GetCardio(w, r)
 		return
 	}
+
+	if strings.HasPrefix(r.URL.Path, "sprint") {
+		CreateSprint(w, r)
+		return
+	}
+
+	if strings.HasPrefix(r.URL.Path, "get_sprint") {
+		GetSprint(w, r)
+		return
+	}
 }

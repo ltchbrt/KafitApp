@@ -165,11 +165,158 @@
       </div>
     </section>
 
+    <div
+      class="modal fade"
+      id="DataSccore"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="membershipFormLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="membershipFormLabel">SCORE</h2>
+
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-top: 1rem;
+                gap: 1rem;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                "
+              >
+                <span style="font-size: 11px; font-style: italic">Time</span>
+                <input
+                  type="number"
+                  name="data"
+                  id="weight"
+                  placeholder="Time"
+                />
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-around;
+                "
+              >
+                <p>Time: <span id="hresult"></span></p>
+              </div>
+
+              <button
+                style="
+                  height: 35px;
+                  border-radius: 7px;
+                  font-size: 12px;
+                  background-color: black;
+                  color: white;
+                  border: white 1px solid;
+                "
+                onclick="Save()"
+              >
+                SAVE
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- SCRIPTS -->
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/aos.js"></script>
     <script src="/assets/js/smoothscroll.js"></script>
     <script src="/assets/js/custom.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        View();
+      });
+
+      function View() {
+        var d = new Date();
+        var date = moment(d).format("YYYY-MM-DD");
+        var value = $.cookie("id");
+        $.get("/api/get_sprint", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            if (v.UserID == value && date == v.Date) {
+              $("#weight").val(v.Sprint);
+              $("#hresult").html(v.Sprint);
+            }
+          });
+        });
+      }
+      function Score() {}
+
+      function Save() {
+        var w = $("#weight").val();
+
+        if (w == "") {
+          Swal.fire({
+            toast: true,
+            position: "center",
+            icon: "warning",
+            title: "Please Complete Required Details",
+            showConfirmButton: false,
+            timer: 3000,
+          });
+        } else {
+          $.ajax({
+            url: "/api/sprint",
+            data: {
+              weight: w,
+            },
+            success: function (res) {
+              Swal.fire({
+                toast: true,
+                position: "center",
+                icon: "success",
+                title: "Speed Record Success",
+                showConfirmButton: false,
+                timer: 3000,
+              }).then(function () {
+                View();
+              });
+            },
+          });
+        }
+      }
+    </script>
   </body>
 </html>
