@@ -51,9 +51,13 @@ func GetStrength(w http.ResponseWriter, r *http.Request) {
 	item := []models.Strength{}
 	db.Preload("User").Last(&item)
 
+	item1 := []models.Strength{}
+	db.Preload("User").Find(&item1)
+
 	data := map[string]interface{}{
 		"status": "ok",
 		"item":   item,
+		"item1":   item1,
 	}
 	ReturnJSON(w, r, data)
 	sqlDB, _ := db.DB()

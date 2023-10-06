@@ -50,6 +50,7 @@ func Handlers() {
 	http.HandleFunc("/Cardio", views.CardioHandler)
 	http.HandleFunc("/Strength", views.StrengthHandler)
 	http.HandleFunc("/Speed", views.SpeedHandler)
+	http.HandleFunc("/Report", views.ReportHandler)
 	http.HandleFunc("/Power", views.PowerHandler)
 	http.HandleFunc("/Agility", views.AgilityHandler)
 	http.HandleFunc("/Time", views.TimeHandler)

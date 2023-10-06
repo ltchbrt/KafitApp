@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KaFit Fitness App</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/assets/css/aos.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
+  </head>
+
+  <style>
+    .p_title {
+      font-size: 25px;
+      padding: 1rem;
+
+      margin: 0 !important;
+      text-align: center;
+    }
+
+    .p_title1 {
+      font-size: 15px;
+      padding: 1rem;
+      margin: 0 !important;
+    }
+
+    .p_header {
+      font-size: 18px;
+      background-color: #80808091;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    .list {
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+    }
+
+    .icon button {
+      border: none;
+      background: none;
+      font-size: 17px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+    }
+
+    .icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 0.5rem;
+    }
+
+    .btn_func {
+      padding: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn_func a {
+      width: 75px;
+      height: 35px;
+      border-radius: 7px;
+      padding-top: 0.3rem;
+      text-align: center;
+      font-size: 12px;
+      background-color: black;
+      color: white;
+      border: white 1px solid;
+    }
+    .btn_func button {
+      width: 75px;
+      height: 35px;
+      border-radius: 7px;
+      font-size: 12px;
+      background-color: black;
+      color: white;
+      border: white 1px solid;
+    }
+  </style>
+  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">KaFit App</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+              <a href="/overview" class="nav-link smoothScroll">OVERVIEW</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/PFT" class="nav-link smoothScroll">PFT</a>
+            </li>
+            <li class="nav-item">
+              <a href="/Profile" class="nav-link smoothScroll">PROFILE</a>
+            </li>
+            <li class="nav-item">
+              <a href="/Resources" class="nav-link smoothScroll">RESOURCES</a>
+            </li>
+            <li class="nav-item">
+              <a href="/About" class="nav-link smoothScroll">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- ABOUT -->
+    <section class="about section centerdata" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
+            <h1 class="p_title">REPORT</h1>
+            <div style="    display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 1rem;">
+              <p>Type of Report: </p>
+              <select name="select" id="select" style="width: 50%;">
+                <option value="">Select Report</option>
+                <option value="BMI">BMI</option>
+                <option value="FLEXIBILITY">FLEXIBILITY</option>
+                <option value="STRENGTH">STRENGTH</option>
+                <option value="CARDIO">CARDIOVASCULAR ENDURANCE</option>
+              </select>
+            </div>
+          
+            <p style="text-align: justify">
+              <table class="table" id="data">
+              <!-- Append Data -->
+              </table>
+              
+            </p>
+         
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCRIPTS -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/aos.js"></script>
+    <script src="/assets/js/smoothscroll.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#data").hide()
+      });
+
+      $('select').on('change', function() {
+        if (this.value == ""){
+          $("#data").hide()
+        }else if (this.value == "BMI"){
+          $("#data").show()
+          BMI()
+        } else if (this.value == "FLEXIBILITY"){
+          $("#data").show()
+          Flex()
+        }else if (this.value == "CARDIO"){
+          $("#data").show()
+          Cardio()
+        }else if (this.value == "STRENGTH"){
+          $("#data").show()
+          Strength()
+        }
+      });
+
+      function BMI() {
+        $("#data").show()
+        var result = ""
+        $("#data").empty()
+        $("#data").append(`
+        <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Weight / Height</th>
+                    <th scope="col">Result</th>
+                    <th scope="col">Classification</th>
+                  </tr>
+                </thead>`)
+        $.get("/api/get_bmi", function (index) {
+          var result = JSON.parse(index).item1;
+          $.each(result, function (_, v) {
+              if (v.Result.toFixed(2) <= parseFloat(18.5)) {
+                result = "Wasted";
+              } else if (
+                v.Result.toFixed(2) >= parseFloat(18.5) &&
+                v.Result.toFixed(2) <= parseFloat(24.9)
+              ) {
+                result = "Normal";
+              } else if (
+                v.Result.toFixed(2) >= parseFloat(25) &&
+                v.Result.toFixed(2) <= parseFloat(29.9)
+              ) {
+                result = "OVerweight"
+              } else if (
+                v.Result.toFixed(2) >= parseFloat(30) &&
+                v.Result.toFixed(2) <= parseFloat(39.9)
+              ) {
+                result = "Obese";
+              } else {
+                result = "Extremely Obese";
+              }
+              $("#data").append(`
+              <tbody>
+                  <tr>
+                    <th scope="row">`+v.Date+`</th>
+                    <td>`+v.Weight+` / `+v.Height+`</td>
+                    <td>`+v.Result.toFixed(2)+`</td>
+                    <td>`+result+`</td>
+                  </tr>
+                </tbody>`)
+          });
+        });
+      }
+
+      function Cardio() {
+        $("#data").show()
+        var result = ""
+        $("#data").empty()
+        $("#data").append(`
+        <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Before</th>
+                    <th scope="col">After</th>
+                  </tr>
+                </thead>`)
+
+        $.get("/api/get_cardio", function (index) {
+          var result = JSON.parse(index).item1;
+          $.each(result, function (_, v) {
+            $("#data").append(`
+              <tbody>
+                  <tr>
+                    <th scope="row">`+v.Date+`</th>
+                    <td>`+v.Before+` </td>
+                    <td>`+v.After+`</td>
+                  </tr>
+                </tbody>`)
+          });
+        });
+      }
+
+      function Sprint() {
+        var d = new Date();
+        var value = $.cookie("id");
+
+        $.get("/api/get_sprint", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            if (value == v.UserID) {
+              $("#sp").html(v.Sprint);
+            }
+          });
+        });
+      }
+
+      function Strength() {
+        $("#data").show()
+        var result = ""
+        $("#data").empty()
+        $("#data").append(`
+        <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Push-Up</th>
+                    <th scope="col">Basic Plank</th>
+                  </tr>
+                </thead>`)
+
+        $.get("/api/get_basic", function (index) {
+          var result = JSON.parse(index).item1;
+          $.each(result, function (_, v) {
+            $("#data").append(`
+              <tbody>
+                  <tr>
+                    <th scope="row">`+v.Date+`</th>
+                    <td>`+v.Push+` </td>
+                    <td>`+v.Basic+`</td>
+                  </tr>
+                </tbody>`)
+          });
+        });
+      }
+
+      function Flex() {
+        $("#data").show()
+        var result = ""
+        $("#data").empty()
+        $("#data").append(`
+        <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Zipper Test</th>
+                    <th scope="col">Sit and Reach</th>
+                  </tr>
+                </thead>`)
+        $.get("/api/get_flex", function (index) {
+          var result = JSON.parse(index).item1;
+          $.each(result, function (_, v) {
+            $("#data").append(`
+              <tbody>
+                  <tr>
+                    <th scope="row">`+v.Date+`</th>
+                    <td>`+v.Test+` / `+v.Left+`</td>
+                    <td>`+v.Sit+` / `+v.Try+`</td>
+                  </tr>
+                </tbody>`)
+          });
+        });
+      }
+
+      function Jug() {
+        var d = new Date();
+        var value = $.cookie("id");
+
+        $.get("/api/get_jug", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            if (value == v.UserID) {
+              $("#ju").html(v.Jug);
+            }
+          });
+        });
+      }
+
+      function Agility() {
+        var d = new Date();
+        var value = $.cookie("id");
+
+        $.get("/api/get_agility", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            if (value == v.UserID) {
+              $("#cwise").html(v.Test);
+              $("#cuwise").html(v.Test1);
+
+              var result = parseFloat(v.Test) + parseFloat(v.Test1) / 2;
+              $("#av").html(result);
+            }
+          });
+        });
+      }
+
+      function Speed() {
+        var d = new Date();
+        var value = $.cookie("id");
+
+        $.get("/api/get_speed", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            if (value == v.UserID) {
+              $("#st1").html(v.Speed);
+              $("#nd1").html(v.Speed1);
+            }
+          });
+        });
+      }
+
+      function Balance() {
+        var d = new Date();
+        var value = $.cookie("id");
+
+        $.get("/api/get_balance", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            if (value == v.UserID) {
+              $("#rif").html(v.Stork);
+              $("#lef").html(v.Stork1);
+            }
+          });
+        });
+      }
+
+      function Time() {
+        var d = new Date();
+        var value = $.cookie("id");
+        const median = [];
+        $.get("/api/get_time", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            if (value == v.UserID) {
+              $("#t1").html(v.Drop);
+              $("#t2").html(v.Drop1);
+              $("#t3").html(v.Drop2);
+
+              const median = (arr) => {
+                const mid = Math.floor(arr.length / 2),
+                  nums = [...arr].sort((a, b) => a - b);
+                return arr.length % 2 !== 0
+                  ? nums[mid]
+                  : (nums[mid - 1] + nums[mid]) / 2;
+              };
+              var data = median([v.Drop, v.Drop1, v.Drop2]);
+
+              $("#t4").html(data);
+            }
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

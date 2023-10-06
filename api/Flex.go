@@ -57,9 +57,13 @@ func GetFlex(w http.ResponseWriter, r *http.Request) {
 	item := []models.Flex{}
 	db.Preload("User").Last(&item)
 
+	item1 := []models.Flex{}
+	db.Preload("User").Find(&item1)
+
 	data := map[string]interface{}{
 		"status": "ok",
 		"item":   item,
+		"item1":   item1,
 	}
 	ReturnJSON(w, r, data)
 	sqlDB, _ := db.DB()
