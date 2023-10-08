@@ -163,6 +163,7 @@
                 <option value="TIME">REACTION TIME</option>
                 <option value="COORDINATION">COORDINATION</option>
                 <option value="BALANCE">BALANCE</option>
+                <option value="PARQ">PARQ</option>
               </select>
             </div>
           
@@ -239,6 +240,9 @@
         }else if (this.value == "BALANCE"){
           $("#data").show()
           Balance()
+        }else if (this.value == "PARQ"){
+          $("#data").show()
+          Parq()
         }
       });
 
@@ -443,14 +447,14 @@
         $.get("/api/get_agility", function (index) {
           var result = JSON.parse(index).item1;
           $.each(result, function (_, v) {
-            var result = parseFloat(v.Test) + parseFloat(v.Test1) / 2;
+            var result = (parseFloat(v.Test) + parseFloat(v.Test1)) / 2;
             $("#data").append(`
               <tbody>
                   <tr>
                     <th scope="row">`+v.Date+`</th>
                     <td>`+v.Test+`</td>
                     <td>`+v.Test1+`</td>
-                    <td>`+v.result.toFixed(2)+`</td>
+                    <td>`+result.toFixed(2)+`</td>
                   </tr>
                 </tbody>`)
           });
@@ -536,6 +540,70 @@
                     <td>`+v.Drop+`</td>
                     <td>`+v.Drop1+`</td>
                     <td>`+v.Drop2+`</td>
+                  </tr>
+                </tbody>`)
+          });
+        });
+      }
+
+      function Parq() {
+        $("#data").show()
+        var result = ""
+        $("#data").empty()
+        $("#data").append(`
+        <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Question</th>
+                    <th scope="col">Yes/No</th>
+                  </tr>
+                </thead>`)
+        $.get("/api/get_parq", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            $("#data").append(`
+              <tbody>
+                  <tr>
+                    <td>1. Has your doctor ever said that you have a heart condition
+                  and that you should only do physical activity recommended by a
+                  doctor?</td>
+                    <td>`+v.Q1+`</td>
+                  </tr>
+
+                  <tr>
+                    <td>2. Do you feel pain in your chest when you do physical
+                  activity?</td>
+                    <td>`+v.Q2+`</td>
+                  </tr>
+
+                  <tr>
+                    <td> 3. In the past month, have you had chest pain when you were
+                  not doing physical activity?</td>
+                    <td>`+v.Q3+`</td>
+                  </tr>
+
+                  <tr>
+                    <td> 4. Do you lose your balance because of dizziness, or do you
+                  ever lose consciousness?</td>
+                    <td>`+v.Q4+`</td>
+                  </tr>
+
+                  <tr>
+                    <td>  5. Do you have a bone or joint problem (for example, back,
+                  knee or hip) that could be made worse by a change in your
+                  physical activity?</td>
+                    <td>`+v.Q5+`</td>
+                  </tr>
+
+                  <tr>
+                    <td>6. Is your doctor currently prescribing drugs (for example,
+                  water pills) for your blood pressure or heart condition?</td>
+                    <td>`+v.Q6+`</td>
+                  </tr>
+
+                  <tr>
+                    <td>7. Do you know of any other reason why you should not do
+                  physical activity?</td>
+                    <td>`+v.Q7+`</td>
                   </tr>
                 </tbody>`)
           });

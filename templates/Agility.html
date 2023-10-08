@@ -304,7 +304,7 @@
               $("#weight").val(v.Test);
               $("#height").val(v.Test1);
 
-              result = parseFloat(v.Test) + parseFloat(v.Test1) / 2;
+              result = (parseFloat(v.Test) + parseFloat(v.Test1)) / 2;
               if (result >= 25) {
                 $("#hresult").html("Poor");
               } else if (result >= parseFloat(21) && v.Test <= parseFloat(25)) {
