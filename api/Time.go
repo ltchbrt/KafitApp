@@ -50,9 +50,9 @@ func CreateTime(w http.ResponseWriter, r *http.Request) {
 func GetTime(w http.ResponseWriter, r *http.Request) {
 
 	db := GormDB()
-
+	user, _ := r.Cookie("id")
 	item := []models.TimeD{}
-	db.Preload("User").Last(&item)
+	db.Preload("User").Where("user_id", user.Value).Last(&item)
 
 	data := map[string]interface{}{
 		"status": "ok",

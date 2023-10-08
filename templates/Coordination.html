@@ -278,7 +278,7 @@
         $.get("/api/get_jug", function (index) {
           var result = JSON.parse(index).item;
           $.each(result, function (_, v) {
-            if (v.UserID == value && date == v.Date) {
+            if (v.UserID == value) {
               $("#weight").val(v.Jug);
               if (v.Jug >= 0 && v.Jug <= 10) {
                 $("#hresult").html("Needs Improvement");

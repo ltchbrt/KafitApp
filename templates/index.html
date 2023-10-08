@@ -184,7 +184,7 @@
               />
 
               <input
-                type="number"
+                type="date"
                 class="form-control"
                 name="cf-phone"
                 id="age"
@@ -194,7 +194,7 @@
               />
 
               <select name="sex" id="sex" class="form-control">
-                <option value="">Select Gender</option>
+                <option value="">Select Sex</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
@@ -268,6 +268,13 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
+      function calculate_age(dob) {
+        var diff_ms = Date.now() - dob.getTime();
+        var age_dt = new Date(diff_ms);
+
+        return Math.abs(age_dt.getUTCFullYear() - 1970);
+      }
+
       function Register() {
         var name = $("#name").val();
         var number = $("#number").val();
@@ -275,6 +282,9 @@
         var password = $("#password").val();
         var age = $("#age").val();
         var sex = $("#sex").val();
+
+        const myArray = age.split("-");
+        var data = calculate_age(new Date(myArray[0], myArray[1], myArray[2]));
 
         if (
           username == "" ||
@@ -304,7 +314,7 @@
               password: password,
               name: name,
               number: number,
-              age: age,
+              age: data,
               sex: sex,
             },
             success: function (res) {

@@ -47,9 +47,10 @@ func CreateSpeed(w http.ResponseWriter, r *http.Request) {
 func GetSpeed(w http.ResponseWriter, r *http.Request) {
 
 	db := GormDB()
-
+	user, _ := r.Cookie("id")
+	
 	item := []models.SpeedT{}
-	db.Preload("User").Last(&item)
+	db.Preload("User").Where("user_id", user.Value).Last(&item)
 
 	data := map[string]interface{}{
 		"status": "ok",

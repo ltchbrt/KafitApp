@@ -3,6 +3,7 @@ package api
 import (
 	"net/http"
 	"strconv"
+	"time"
 
 	"github.com/dafalo/KafitApp/models"
 	"golang.org/x/crypto/bcrypt"
@@ -19,8 +20,6 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	number := r.FormValue("number")
 	sex := r.FormValue("sex")
 	age := r.FormValue("age")
-	
-
 
 	product.Name = name
 	product.Username = username
@@ -35,6 +34,11 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	sqlDB, _ := db.DB()
 	sqlDB.Close()
 
+}
+
+func getDOB(year, month, day int) time.Time {
+    dob := time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
+    return dob
 }
 
 func GetUser(w http.ResponseWriter, r *http.Request) {

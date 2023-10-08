@@ -364,7 +364,7 @@
         $.get("/api/get_bmi", function (index) {
           var result = JSON.parse(index).item;
           $.each(result, function (_, v) {
-            if (v.UserID == value && date == v.Date) {
+            if (v.UserID == value) {
               $("#hresult").html(v.Height);
               $("#wresult").html(v.Weight);
               $("#bresult").html(v.Result.toFixed(2));

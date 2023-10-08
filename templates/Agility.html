@@ -300,7 +300,7 @@
         $.get("/api/get_agility", function (index) {
           var result = JSON.parse(index).item;
           $.each(result, function (_, v) {
-            if (v.UserID == value && date == v.Date) {
+            if (v.UserID == value) {
               $("#weight").val(v.Test);
               $("#height").val(v.Test1);
 

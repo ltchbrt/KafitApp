@@ -341,7 +341,7 @@
         $.get("/api/get_flex", function (index) {
           var result = JSON.parse(index).item;
           $.each(result, function (_, v) {
-            if (v.UserID == value && date == v.Date) {
+            if (v.UserID == value) {
               $("#weight").val(v.Test);
               $("#weight1").val(v.Left);
               $("#height").val(v.Sit);

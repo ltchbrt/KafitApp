@@ -44,9 +44,10 @@ func CreateCoordination(w http.ResponseWriter, r *http.Request) {
 func GetCoordination(w http.ResponseWriter, r *http.Request) {
 
 	db := GormDB()
+	user, _ := r.Cookie("id")
 
 	item := []models.Juggling{}
-	db.Preload("User").Last(&item)
+	db.Preload("User").Where("user_id", user.Value).Last(&item)
 
 	data := map[string]interface{}{
 		"status": "ok",

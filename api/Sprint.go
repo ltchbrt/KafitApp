@@ -45,11 +45,12 @@ func CreateSprint(w http.ResponseWriter, r *http.Request) {
 func GetSprint(w http.ResponseWriter, r *http.Request) {
 
 	db := GormDB()
+	user, _ := r.Cookie("id")
 
 	item := []models.Sprint{}
-	db.Preload("User").Last(&item)
+	db.Preload("User").Where("user_id", user.Value).Last(&item)
 	item1 := []models.Sprint{}
-	db.Preload("User").Find(&item1)
+	db.Preload("User").Where("user_id", user.Value).Find(&item1)
 
 	data := map[string]interface{}{
 		"status": "ok",

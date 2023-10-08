@@ -299,7 +299,7 @@
         $.get("/api/get_cardio", function (index) {
           var result = JSON.parse(index).item;
           $.each(result, function (_, v) {
-            if (v.UserID == value && date == v.Date) {
+            if (v.UserID == value) {
               $("#hresult").html(v.After);
               $("#wresult").html(v.Before);
             }
