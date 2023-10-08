@@ -122,4 +122,14 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 		GetSprint(w, r)
 		return
 	}
+
+	if strings.HasPrefix(r.URL.Path, "parq") {
+		CreatePARQ(w, r)
+		return
+	}
+
+	if strings.HasPrefix(r.URL.Path, "get_parq") {
+		GetPARQ(w, r)
+		return
+	}
 }

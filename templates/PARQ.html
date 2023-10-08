@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KaFit Fitness App</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/assets/css/aos.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
+  </head>
+
+  <style>
+    .p_title {
+      font-size: 25px;
+      padding: 1rem;
+
+      margin: 0 !important;
+      text-align: center;
+    }
+
+    .p_title1 {
+      font-size: 15px;
+      padding: 1rem;
+      margin: 0 !important;
+    }
+
+    .p_header {
+      font-size: 18px;
+      background-color: #80808091;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    .list {
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+    }
+
+    .icon button {
+      border: none;
+      background: none;
+      font-size: 17px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+    }
+
+    .icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 0.5rem;
+    }
+
+    .btn_func {
+      padding: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn_func button {
+      width: 75px;
+      height: 35px;
+      border-radius: 7px;
+      font-size: 12px;
+      background-color: black;
+      color: white;
+      border: white 1px solid;
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+      position: fixed;
+      top: 110px;
+      right: 0;
+      left: 0;
+      padding: 1rem;
+    }
+
+    p {
+      text-align: justify !important;
+    }
+
+    .prod {
+      font-size: 12px;
+      margin: 0 !important;
+      text-align: justify;
+    }
+
+    .p_button {
+      background-color: black;
+      color: white;
+    }
+  </style>
+  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">KaFit App</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+              <a href="/overview" class="nav-link smoothScroll">OVERVIEW</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/PFT" class="nav-link smoothScroll">PFT</a>
+            </li>
+            <li class="nav-item">
+              <a href="/Profile" class="nav-link smoothScroll">PROFILE</a>
+            </li>
+            <li class="nav-item">
+              <a href="/Resources" class="nav-link smoothScroll">RESOURCES</a>
+            </li>
+            <li class="nav-item">
+              <a href="/About" class="nav-link smoothScroll">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- ABOUT -->
+    <section class="about section centerdata" id="about">
+      <div style="padding-left: 1rem; padding-top: 1rem">
+        <a href="/overview">
+          <?xml version="1.0" encoding="iso-8859-1"?>
+          <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+          <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+          <svg
+            fill="#000000"
+            height="30px"
+            width="30px"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 219.151 219.151"
+            xml:space="preserve"
+          >
+            <g>
+              <path
+                d="M109.576,219.151c60.419,0,109.573-49.156,109.573-109.576C219.149,49.156,169.995,0,109.576,0S0.002,49.156,0.002,109.575
+            C0.002,169.995,49.157,219.151,109.576,219.151z M109.576,15c52.148,0,94.573,42.426,94.574,94.575
+            c0,52.149-42.425,94.575-94.574,94.576c-52.148-0.001-94.573-42.427-94.573-94.577C15.003,57.427,57.428,15,109.576,15z"
+              />
+              <path
+                d="M94.861,156.507c2.929,2.928,7.678,2.927,10.606,0c2.93-2.93,2.93-7.678-0.001-10.608l-28.82-28.819l83.457-0.008
+            c4.142-0.001,7.499-3.358,7.499-7.502c-0.001-4.142-3.358-7.498-7.5-7.498l-83.46,0.008l28.827-28.825
+            c2.929-2.929,2.929-7.679,0-10.607c-1.465-1.464-3.384-2.197-5.304-2.197c-1.919,0-3.838,0.733-5.303,2.196l-41.629,41.628
+            c-1.407,1.406-2.197,3.313-2.197,5.303c0.001,1.99,0.791,3.896,2.198,5.305L94.861,156.507z"
+              />
+            </g>
+          </svg>
+        </a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
+            <div>
+              <h6 style="margin-top: 1rem; font-size: 10px">
+                (Enclosure No. 3 to DepEd Order No. 034, s. 2019)
+                <br />
+                Physical Activity Readiness Questionnaire - PAR-Q (revised 2002)
+              </h6>
+
+              <h1 class="p_title">PAR-Q & YOU</h1>
+              <h6 style="font-size: 10px; text-align: center">
+                (A Questionnaire for People Aged 15 to 69)
+              </h6>
+              <p
+                style="
+                  text-align: left;
+                  font-size: 14px;
+                  padding-left: 1rem;
+                  margin-top: 1rem;
+                "
+              >
+                Regular physical activity is fun and healthy, and increasingly
+                more people are starting to become more active every day. Being
+                more active is very safe for most people. However, some people
+                should check with their doctor before they start becoming much
+                more physically active. <br />
+                <br />
+                If you are planning to become much more physically active than
+                you are now, start by answering the seven questions in the box
+                below. If you are between the ages of 15 and 69, the PAR-Q will
+                tell you if you should check with your doctor before you start.
+                If you are over 69 years of age, and you are not used to being
+                very active, check with your doctor.<br />
+                <br />
+                Common sense is your best guide when you answer these questions.
+                Please read the questions carefully and answer each one
+                honestly: check YES or NO.
+              </p>
+            </div>
+            <div>
+              <h1 class="p_title">Questions:</h1>
+              <div>
+                <p
+                  style="
+                    text-align: left;
+                    font-size: 12px !important;
+                    padding-left: 1rem;
+                    margin-top: 1rem;
+                  "
+                >
+                  1. Has your doctor ever said that you have a heart condition
+                  and that you should only do physical activity recommended by a
+                  doctor?
+                </p>
+                <select name="q1" id="q1" class="form-control">
+                  <option class="form-control" value="">Select</option>
+                  <option class="form-control" value="Yes">Yes</option>
+                  <option class="form-control" value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <p
+                  style="
+                    text-align: left;
+                    font-size: 12px !important;
+                    padding-left: 1rem;
+                    margin-top: 1rem;
+                  "
+                >
+                  2. Do you feel pain in your chest when you do physical
+                  activity?
+                </p>
+                <select name="q2" id="q2" class="form-control">
+                  <option class="form-control" value="">Select</option>
+                  <option class="form-control" value="Yes">Yes</option>
+                  <option class="form-control" value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <p
+                  style="
+                    text-align: left;
+                    font-size: 12px !important;
+                    padding-left: 1rem;
+                    margin-top: 1rem;
+                  "
+                >
+                  3. In the past month, have you had chest pain when you were
+                  not doing physical activity?
+                </p>
+                <select name="q3" id="q3" class="form-control">
+                  <option class="form-control" value="">Select</option>
+                  <option class="form-control" value="Yes">Yes</option>
+                  <option class="form-control" value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <p
+                  style="
+                    text-align: left;
+                    font-size: 12px !important;
+                    padding-left: 1rem;
+                    margin-top: 1rem;
+                  "
+                >
+                  4. Do you lose your balance because of dizziness, or do you
+                  ever lose consciousness?
+                </p>
+                <select name="q4" id="q4" class="form-control">
+                  <option class="form-control" value="">Select</option>
+                  <option class="form-control" value="Yes">Yes</option>
+                  <option class="form-control" value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <p
+                  style="
+                    text-align: left;
+                    font-size: 12px !important;
+                    padding-left: 1rem;
+                    margin-top: 1rem;
+                  "
+                >
+                  5. Do you have a bone or joint problem (for example, back,
+                  knee or hip) that could be made worse by a change in your
+                  physical activity?
+                </p>
+                <select name="q5" id="q5" class="form-control">
+                  <option class="form-control" value="">Select</option>
+                  <option class="form-control" value="Yes">Yes</option>
+                  <option class="form-control" value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <p
+                  style="
+                    text-align: left;
+                    font-size: 12px !important;
+                    padding-left: 1rem;
+                    margin-top: 1rem;
+                  "
+                >
+                  6. Is your doctor currently prescribing drugs (for example,
+                  water pills) for your blood pressure or heart condition?
+                </p>
+                <select name="q6" id="q6" class="form-control">
+                  <option class="form-control" value="">Select</option>
+                  <option class="form-control" value="Yes">Yes</option>
+                  <option class="form-control" value="No">No</option>
+                </select>
+              </div>
+              <div>
+                <p
+                  style="
+                    text-align: left;
+                    font-size: 12px !important;
+                    padding-left: 1rem;
+                    margin-top: 1rem;
+                  "
+                >
+                  7. Do you know of any other reason why you should not do
+                  physical activity?
+                </p>
+                <select name="q7" id="q7" class="form-control">
+                  <option class="form-control" value="">Select</option>
+                  <option class="form-control" value="Yes">Yes</option>
+                  <option class="form-control" value="No">No</option>
+                </select>
+              </div>
+              <button
+                type="submit"
+                class="form-control p_button"
+                onclick="Save()"
+              >
+                Save
+              </button>
+            </div>
+            <h1 style="font-size: 16px">If you answered</h1>
+            <h1 style="font-size: 16px">YES to one or more questions</h1>
+            <p
+              style="
+                text-align: left;
+                font-size: 14px;
+                padding-left: 1rem;
+                margin-top: 1rem;
+              "
+            >
+              Talk with your doctor by phone or in person BEFORE you start
+              becoming much more physically active or BEFORE you have a fitness
+              appraisal. Tell your doctor about the PAR-Q and which questions
+              you answered YES.
+            </p>
+
+            <li
+              style="
+                text-align: justify;
+                font-size: 12px;
+                padding-left: 1rem;
+                margin-top: 1rem;
+              "
+            >
+              You may be able to do any activity you want — as long as you start
+              slowly and build up gradually. Or, you may need to restrict your
+              activities to those which are safe for you. Talk with your doctor
+              about the kinds of activities you wish to participate in and
+              follow his/her advice.
+            </li>
+            <li
+              style="
+                text-align: justify;
+                font-size: 12px;
+                padding-left: 1rem;
+                margin-top: 1rem;
+              "
+            >
+              Find out which community programs are safe and helpful for you.
+            </li>
+            <h1 style="font-size: 16px">NO to all questions</h1>
+            <p
+              style="
+                text-align: left;
+                font-size: 14px;
+                padding-left: 1rem;
+                margin-top: 1rem;
+              "
+            >
+              If you answered NO honestly to all PAR-Q questions, you can be
+              reasonably sure that you can:
+            </p>
+
+            <li
+              style="
+                text-align: justify;
+                font-size: 12px;
+                padding-left: 1rem;
+                margin-top: 1rem;
+              "
+            >
+              Start becoming much more physically active - begin slowly and
+              build up gradually. This is the safest and easiest way to go.
+            </li>
+            <li
+              style="
+                text-align: justify;
+                font-size: 12px;
+                padding-left: 1rem;
+                margin-top: 1rem;
+              "
+            >
+              take part in a fitness appraisal - this is an excellent way to
+              determine your basic fitness so that you can plan the best way for
+              you to live actively. It is also highly recommended that you have
+              your blood pressure evaluated. If your reading is over 144/94,
+              talk with your doctor before you start becoming much more
+              physically active.
+            </li>
+            <h1 style="font-size: 16px">DELAY BECOMING MUCH MORE ACTIVE:</h1>
+            <li
+              style="
+                text-align: justify;
+                font-size: 12px;
+                padding-left: 1rem;
+                margin-top: 1rem;
+              "
+            >
+              ·If you are not feeling well because of a temporary illness such
+              as a cold or a fever - wait until you feel better; or
+            </li>
+            <li
+              style="
+                text-align: justify;
+                font-size: 12px;
+                padding-left: 1rem;
+                margin-top: 1rem;
+              "
+            >
+              If you are or may be pregnant - talk to your doctor before you
+              start becoming more active.
+            </li>
+            <h1 style="font-size: 16px">PLEASE NOTE:</h1>
+            <p
+              style="
+                text-align: left;
+                font-size: 14px;
+                padding-left: 1rem;
+                margin-top: 1rem;
+              "
+            >
+              If your health changes so that you then answer YES to any of the
+              above questions, tell your fitness or health professional. Ask
+              whether you should change your physical activity plan.
+            </p>
+
+            <p
+              style="
+                text-align: left;
+                font-size: 14px;
+                padding-left: 1rem;
+                margin-top: 1rem;
+              "
+            >
+              Informed Use of the PAR-Q: The Canadian Society for Exercise
+              Physiology, Health Canada, and their agents assume no liability
+              for persons who undertake physical activity, and if in doubt after
+              completing this questionnaire, consult your doctor prior to
+              physical activity
+            </p>
+
+            <h1 style="font-size: 12px; text-align: center; margin-left: 1rem">
+              No changes permitted. You are encouraged to photocopy the PAR-Q
+              but only if you use the entire form.
+            </h1>
+            <p
+              style="
+                text-align: left;
+                font-size: 14px;
+                padding-left: 1rem;
+                margin-top: 1rem;
+              "
+            >
+              NOTE: If the PAR-Q is being given to a person before he or she
+              participates in a physical activity program or a fitness
+              appraisal, this section may be used for legal or administrative
+              purposes. "I have read, understood and completed this
+              questionnaire. Any questions I had were answered to my full
+              satisfaction."
+            </p>
+
+            <h3 style="font-size: 20px; margin-top: 0.5rem">NAME</h3>
+            <h3 style="font-size: 20px; margin-top: 0.5rem">SIGNATURE</h3>
+            <h3 style="font-size: 20px; margin-top: 0.5rem">
+              SIGNATURE OF PARENT
+            </h3>
+            <h3 style="font-size: 20px; margin-top: 0.5rem">GUARDIAN</h3>
+            <h3 style="font-size: 20px; margin-top: 0.5rem">DATE</h3>
+            <h3 style="font-size: 20px; margin-top: 0.5rem">WITNESS</h3>
+
+            <p style="text-align: left; font-size: 12px; margin-top: 1rem">
+              Note: This physical activity clearance is valid for a maximum of
+              12 months from the date it is completed and becomes invalid if
+              your condition changes so that you would answer YES to any of the
+              seven questions.
+            </p>
+            <h6 style="font-size: 10px; text-align: left">
+              Canadian Society for Exercise Physiology www.csep.ca/forms
+            </h6>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="modal fade"
+      id="membershipForm"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="membershipFormLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="membershipFormLabel">TUTORIAL</h2>
+
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div>
+              <video width="400" controls>
+                <source src="video/Hexagon.mp4" type="video/mp4" />
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+          </div>
+
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/aos.js"></script>
+    <script src="/assets/js/smoothscroll.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        View();
+      });
+
+      function View() {
+        var value = $.cookie("id");
+        $.get("/api/get_parq", function (index) {
+          var result = JSON.parse(index).item;
+          $.each(result, function (_, v) {
+            if (v.UserID == value) {
+              $("#q1").val(v.Q1);
+              $("#q2").val(v.Q2);
+              $("#q3").val(v.Q3);
+              $("#q4").val(v.Q4);
+              $("#q5").val(v.Q5);
+              $("#q6").val(v.Q6);
+              $("#q7").val(v.Q7);
+            }
+          });
+        });
+      }
+      function Score() {}
+
+      function Save() {
+        var w = $("#q1").val();
+        var w1 = $("#q2").val();
+        var w2 = $("#q3").val();
+        var w3 = $("#q4").val();
+        var w4 = $("#q5").val();
+        var w5 = $("#q6").val();
+        var w6 = $("#q7").val();
+
+        if (
+          w == "" ||
+          w1 == "" ||
+          w2 == "" ||
+          w3 == "" ||
+          w4 == "" ||
+          w5 == "" ||
+          w6 == ""
+        ) {
+          Swal.fire({
+            toast: true,
+            position: "center",
+            icon: "warning",
+            title: "Please Complete Required Details",
+            showConfirmButton: false,
+            timer: 3000,
+          });
+        } else {
+          $.ajax({
+            url: "/api/parq",
+            data: {
+              q1: w,
+              q2: w1,
+              q3: w2,
+              q4: w3,
+              q5: w4,
+              q6: w5,
+              q7: w6,
+            },
+            success: function (res) {
+              Swal.fire({
+                toast: true,
+                position: "center",
+                icon: "success",
+                title: "PARQ Record Success",
+                showConfirmButton: false,
+                timer: 3000,
+              }).then(function () {
+                View();
+              });
+            },
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

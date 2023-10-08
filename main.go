@@ -71,6 +71,7 @@ func Handlers() {
 	http.HandleFunc("/Balance_Page", views.BalanceCopyHandler)
 	http.HandleFunc("/Resources", views.ResourcesHandler)
 	http.HandleFunc("/Profile", views.ProfileHandler)
+	http.HandleFunc("/PARQ", views.PARQHandler)
 	http.HandleFunc("/api/", api.APIHandler)
 	http.HandleFunc("/logout", views.LogOutHandler)
 
@@ -102,6 +103,9 @@ func CreateDB(name string) *sql.DB {
 	return db
 }
 
+
+
+
 func MigrateDB() {
 	fmt.Println("Database Migrated")
 	user := models.User{}
@@ -115,12 +119,13 @@ func MigrateDB() {
 	Balance := models.Balance{}
 	Cardio := models.Cardio{}
 	Sprint := models.Sprint{}
+	Parq := models.PARQ{}
 	
 	
 
 
 	db := GormDB()
-	db.AutoMigrate(&user,&BMI,&Flex,&Strength,&Speed,&Agility,&Time,&Jug,&Balance,&Cardio,&Sprint)
+	db.AutoMigrate(&user,&BMI,&Flex,&Strength,&Speed,&Agility,&Time,&Jug,&Balance,&Cardio,&Sprint,&Parq)
 }
 
 
