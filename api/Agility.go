@@ -52,9 +52,13 @@ func GetAgility(w http.ResponseWriter, r *http.Request) {
 	item := []models.Agility{}
 	db.Preload("User").Where("user_id", user.Value).Last(&item)
 
+	item1 := []models.Agility{}
+	db.Preload("User").Where("user_id", user.Value).Find(&item1)
+
 	data := map[string]interface{}{
 		"status": "ok",
 		"item":   item,
+		"item1":   item1,
 	}
 	ReturnJSON(w, r, data)
 	sqlDB, _ := db.DB()

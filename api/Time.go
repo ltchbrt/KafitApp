@@ -54,9 +54,13 @@ func GetTime(w http.ResponseWriter, r *http.Request) {
 	item := []models.TimeD{}
 	db.Preload("User").Where("user_id", user.Value).Last(&item)
 
+	item1 := []models.TimeD{}
+	db.Preload("User").Where("user_id", user.Value).Find(&item1)
+
 	data := map[string]interface{}{
 		"status": "ok",
 		"item":   item,
+		"item1":   item1,
 	}
 	ReturnJSON(w, r, data)
 	sqlDB, _ := db.DB()

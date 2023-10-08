@@ -157,6 +157,12 @@
                 <option value="FLEXIBILITY">FLEXIBILITY</option>
                 <option value="STRENGTH">STRENGTH</option>
                 <option value="CARDIO">CARDIOVASCULAR ENDURANCE</option>
+                <option value="SPEED">SPEED</option>
+                <option value="POWER">POWER</option>
+                <option value="AGILITY">AGILITY</option>
+                <option value="TIME">REACTION TIME</option>
+                <option value="COORDINATION">COORDINATION</option>
+                <option value="BALANCE">BALANCE</option>
               </select>
             </div>
           
@@ -211,6 +217,28 @@
         }else if (this.value == "STRENGTH"){
           $("#data").show()
           Strength()
+        }
+        else if (this.value == "SPEED"){
+          $("#data").show()
+          Sprint()
+        }
+        else if (this.value == "AGILITY"){
+          $("#data").show()
+          Agility()
+        }
+        else if (this.value == "POWER"){
+          $("#data").show()
+          Speed()
+        }
+        else if (this.value == "TIME"){
+          $("#data").show()
+          Time()
+        } else if (this.value == "COORDINATION"){
+          $("#data").show()
+          Jug()
+        }else if (this.value == "BALANCE"){
+          $("#data").show()
+          Balance()
         }
       });
 
@@ -292,15 +320,28 @@
       }
 
       function Sprint() {
-        var d = new Date();
-        var value = $.cookie("id");
+        $("#data").show()
+        var result = ""
+        $("#data").empty()
+        $("#data").append(`
+        <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                  </tr>
+                </thead>`)
+
 
         $.get("/api/get_sprint", function (index) {
-          var result = JSON.parse(index).item;
+          var result = JSON.parse(index).item1;
           $.each(result, function (_, v) {
-            if (value == v.UserID) {
-              $("#sp").html(v.Sprint);
-            }
+            $("#data").append(`
+              <tbody>
+                  <tr>
+                    <th scope="row">`+v.Date+`</th>
+                    <td>`+v.Sprint+` </td>
+                  </tr>
+                </tbody>`)
           });
         });
       }
@@ -361,90 +402,142 @@
       }
 
       function Jug() {
-        var d = new Date();
-        var value = $.cookie("id");
-
+        $("#data").show()
+        var result = ""
+        $("#data").empty()
+        $("#data").append(`
+        <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Juggling</th>
+                  </tr>
+                </thead>`)
         $.get("/api/get_jug", function (index) {
-          var result = JSON.parse(index).item;
+          var result = JSON.parse(index).item1;
           $.each(result, function (_, v) {
-            if (value == v.UserID) {
-              $("#ju").html(v.Jug);
-            }
+            $("#data").append(`
+              <tbody>
+                  <tr>
+                    <th scope="row">`+v.Date+`</th>
+                    <td> `+v.Jug+`</td>
+                  </tr>
+                </tbody>`)
           });
         });
       }
 
       function Agility() {
-        var d = new Date();
-        var value = $.cookie("id");
+        $("#data").show()
+        var result = ""
+        $("#data").empty()
+        $("#data").append(`
+        <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Clockwise</th>
+                    <th scope="col">Counter Clockwise</th>
+                    <th scope="col">Result</th>
+                  </tr>
+                </thead>`)
 
         $.get("/api/get_agility", function (index) {
-          var result = JSON.parse(index).item;
+          var result = JSON.parse(index).item1;
           $.each(result, function (_, v) {
-            if (value == v.UserID) {
-              $("#cwise").html(v.Test);
-              $("#cuwise").html(v.Test1);
-
-              var result = parseFloat(v.Test) + parseFloat(v.Test1) / 2;
-              $("#av").html(result);
-            }
+            var result = parseFloat(v.Test) + parseFloat(v.Test1) / 2;
+            $("#data").append(`
+              <tbody>
+                  <tr>
+                    <th scope="row">`+v.Date+`</th>
+                    <td>`+v.Test+`</td>
+                    <td>`+v.Test1+`</td>
+                    <td>`+v.result.toFixed(2)+`</td>
+                  </tr>
+                </tbody>`)
           });
         });
       }
 
       function Speed() {
-        var d = new Date();
-        var value = $.cookie("id");
+        $("#data").show()
+        var result = ""
+        $("#data").empty()
+        $("#data").append(`
+        <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">1st Try</th>
+                    <th scope="col">2nd Try</th>
+                  </tr>
+                </thead>`)
 
         $.get("/api/get_speed", function (index) {
-          var result = JSON.parse(index).item;
+          var result = JSON.parse(index).item1;
           $.each(result, function (_, v) {
-            if (value == v.UserID) {
-              $("#st1").html(v.Speed);
-              $("#nd1").html(v.Speed1);
-            }
+            $("#data").append(`
+              <tbody>
+                  <tr>
+                    <th scope="row">`+v.Date+`</th>
+                    <td>`+v.Speed+`</td>
+                    <td>`+v.Speed1+`</td>
+                  </tr>
+                </tbody>`)
           });
         });
       }
 
       function Balance() {
-        var d = new Date();
-        var value = $.cookie("id");
+        $("#data").show()
+        var result = ""
+        $("#data").empty()
+        $("#data").append(`
+        <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Right Foot</th>
+                    <th scope="col">Left Foot</th>
+                  </tr>
+                </thead>`)
 
         $.get("/api/get_balance", function (index) {
-          var result = JSON.parse(index).item;
+          var result = JSON.parse(index).item1;
           $.each(result, function (_, v) {
-            if (value == v.UserID) {
-              $("#rif").html(v.Stork);
-              $("#lef").html(v.Stork1);
-            }
+              $("#data").append(`
+              <tbody>
+                  <tr>
+                    <th scope="row">`+v.Date+`</th>
+                    <td>`+v.Stork+`</td>
+                    <td>`+v.Stork1+`</td>
+                  </tr>
+                </tbody>`) 
           });
         });
       }
 
       function Time() {
-        var d = new Date();
-        var value = $.cookie("id");
-        const median = [];
+        $("#data").show()
+        var result = ""
+        $("#data").empty()
+        $("#data").append(`
+        <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">1st Try</th>
+                    <th scope="col">2nd Try</th>
+                    <th scope="col">3rd Try</th>
+                  </tr>
+                </thead>`)
         $.get("/api/get_time", function (index) {
-          var result = JSON.parse(index).item;
+          var result = JSON.parse(index).item1;
           $.each(result, function (_, v) {
-            if (value == v.UserID) {
-              $("#t1").html(v.Drop);
-              $("#t2").html(v.Drop1);
-              $("#t3").html(v.Drop2);
-
-              const median = (arr) => {
-                const mid = Math.floor(arr.length / 2),
-                  nums = [...arr].sort((a, b) => a - b);
-                return arr.length % 2 !== 0
-                  ? nums[mid]
-                  : (nums[mid - 1] + nums[mid]) / 2;
-              };
-              var data = median([v.Drop, v.Drop1, v.Drop2]);
-
-              $("#t4").html(data);
-            }
+            $("#data").append(`
+              <tbody>
+                  <tr>
+                    <th scope="row">`+v.Date+`</th>
+                    <td>`+v.Drop+`</td>
+                    <td>`+v.Drop1+`</td>
+                    <td>`+v.Drop2+`</td>
+                  </tr>
+                </tbody>`)
           });
         });
       }
