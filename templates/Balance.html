@@ -293,6 +293,7 @@
 
       function View() {
         var d = new Date();
+        d.setDate(d.getDate() - 1);
         var date = moment(d).format("YYYY-MM-DD");
         var value = $.cookie("id");
         var result = 0;

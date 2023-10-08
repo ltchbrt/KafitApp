@@ -76,7 +76,7 @@ func CheckPasswordHash(pass, hash string) bool {
 }
 
 func GormDB() *gorm.DB {
-	dsn := "root:GroupNB2023@tcp(127.0.0.1:3306)/kafit?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:a@tcp(127.0.0.1:3306)/kafit?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {

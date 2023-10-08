@@ -309,6 +309,7 @@
       function View() {
         const median = [];
         var d = new Date();
+        d.setDate(d.getDate() - 1);
         var date = moment(d).format("YYYY-MM-DD");
         var value = $.cookie("id");
         $.get("/api/get_time", function (index) {
