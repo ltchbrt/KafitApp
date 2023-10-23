@@ -27,6 +27,16 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+		if strings.HasPrefix(r.URL.Path, "edit_teacher") {
+		EditTeacher(w, r)
+		return
+	}
+
+	if strings.HasPrefix(r.URL.Path, "delete_teacher") {
+		DeleteTeacher(w, r)
+		return
+	}
+
 	if strings.HasPrefix(r.URL.Path, "bmi") {
 		CreateBMI(w, r)
 		return

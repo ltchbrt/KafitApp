@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>KaFit Fitness App</title>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/assets/css/aos.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
+  </head>
+
+  <style>
+    .p_title {
+      font-size: 25px;
+      padding: 1rem;
+
+      margin: 0 !important;
+      text-align: center;
+    }
+
+    .p_title1 {
+      font-size: 15px;
+      padding: 1rem;
+      margin: 0 !important;
+    }
+
+    .p_header {
+      font-size: 18px;
+      background-color: #80808091;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    .list {
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+    }
+
+    .icon button {
+      border: none;
+      background: none;
+      font-size: 17px;
+      font-weight: bold;
+      padding-bottom: 1rem;
+    }
+
+    .icon {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 0.5rem;
+    }
+
+    .btn_func {
+      padding: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn_func a {
+      width: 75px;
+      height: 35px;
+      border-radius: 7px;
+      padding-top: 0.3rem;
+      text-align: center;
+      font-size: 12px;
+      background-color: black;
+      color: white;
+      border: white 1px solid;
+    }
+
+    .btn_func button {
+      width: 75px;
+      height: 35px;
+      border-radius: 7px;
+      font-size: 12px;
+      background-color: black;
+      color: white;
+      border: white 1px solid;
+    }
+
+    button{
+      width: 75px;
+      height: 35px;
+      border-radius: 7px;
+      font-size: 12px;
+      background-color: black;
+      color: white;
+      border: white 1px solid;
+    }
+  </style>
+  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">KaFit App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+              <a href="/DashboardTeacher" class="nav-link smoothScroll">Teacher</a>
+            </li>
+            <li class="nav-item">
+              <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- ABOUT -->
+    <section class="about section centerdata" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
+            <h1 class="p_title">TEACHER LIST</h1>
+            <div class="btn_func" >
+              <button  data-aos="fade-up"
+              data-aos-delay="300"
+              data-toggle="modal"
+              data-target="#DataSccore"
+              onclick="Score()" style="    width: 19%;
+              position: fixed;
+              right: 17px;">Add</button>
+            </div>
+            <p style="text-align: justify">
+              <table class="table" id="data">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Section</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 
+                </tbody>
+              <!-- Append Data -->
+              </table>
+            
+            </p>
+
+            <!-- <div class="btn_func">
+              <a href="/BMI_Weight" data-aos="fade-up" data-aos-delay="300"
+                >Teacher</a
+              >
+              <a href="/BMI_Height" data-aos="fade-up" data-aos-delay="300"
+                >User</a
+              >
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="modal fade"
+      id="DataSccore"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="membershipFormLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="membershipFormLabel">Add Teacher</h2>
+
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-top: 1rem;
+                gap: 1rem;
+              "
+            >
+            <div class="membership-form webform">
+              <input
+              type="hidden"
+              class="form-control"
+              name="name"
+              id="c_id"
+              placeholder="Name"
+            />
+            <input
+            type="hidden"
+            class="form-control"
+            name="name"
+            id="c_id1"
+            placeholder="Name"
+          />
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                id="name"
+                placeholder="Name"
+              />
+
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  flex-direction: row;
+                  gap: 1rem;
+                "
+              >
+                <label for="age"  id="age1">Birthday</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="cf-phone"
+                  id="age"
+                  name="age"
+                  placeholder="Age"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  required
+                />
+              </div>
+
+              <select name="sex" id="sex" class="form-control">
+                <option class="form-control" value="">Select Sex</option>
+                <option class="form-control" value="Male">Male</option>
+                <option class="form-control" value="Female">Female</option>
+              </select>
+
+              <input
+                type="tel"
+                class="form-control"
+                name="cf-phone"
+                id="number"
+                placeholder="Contact Number"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                required
+              />
+
+              <input
+                type="text"
+                class="form-control"
+                name="cf-name"
+                id="username"
+                placeholder="Username"
+              />
+              <input
+                type="password"
+                class="form-control"
+                name="cf-email"
+                id="password"
+                placeholder="Password"
+              />
+
+              <select name="sex" id="grade" class="form-control">
+                <option class="form-control" value="">Select Grade</option>
+                <option class="form-control" value="1">1</option>
+                <option class="form-control" value="2">2</option>
+                <option class="form-control" value="3">3</option>
+                <option class="form-control" value="4">4</option>
+                <option class="form-control" value="5">5</option>
+                <option class="form-control" value="6">6</option>
+                <option class="form-control" value="7">7</option>
+                <option class="form-control" value="8">8</option>
+                <option class="form-control" value="9">9</option>
+                <option class="form-control" value="10">10</option>
+                <option class="form-control" value="11">11</option>
+                <option class="form-control" value="12">12</option>
+              </select>
+
+            <input
+            type="text"
+            class="form-control"
+            name="name"
+            id="section"
+            placeholder="Section"
+          />
+
+            </div>
+
+              <button
+              id="add"
+                style="
+                  height: 35px;
+                  border-radius: 7px;
+                  font-size: 12px;
+                  background-color: black;
+                  color: white;
+                  border: white 1px solid;
+                "
+                onclick="Register()"
+              >
+                SAVE
+              </button>
+              <button
+              id="modify"
+              style="
+                height: 35px;
+                border-radius: 7px;
+                font-size: 12px;
+                background-color: black;
+                color: white;
+                border: white 1px solid;
+              "
+              onclick="Modify()"
+            >
+           Modify
+            </button>
+            </div>
+          </div>
+
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div
+    class="modal fade"
+    id="DataSccore1"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="membershipFormLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="membershipFormLabel">Delete Teacher</h2>
+
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-top: 1rem;
+              gap: 1rem;
+            "
+          >
+          <div class="membership-form webform">
+         <input type="hidden" id="d_id">
+         <input type="hidden" id="ud_id">
+          <p id="dname"></p>
+          </div>
+
+            <button
+            id="add"
+              style="
+                height: 35px;
+                border-radius: 7px;
+                font-size: 12px;
+                background-color: black;
+                color: white;
+                border: white 1px solid;
+              "
+              onclick="Remove()"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+
+    <!-- SCRIPTS -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/aos.js"></script>
+    <script src="/assets/js/smoothscroll.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+       Teacher()
+      });
+
+      function Score(){
+        $("#modify").hide()
+        $("#add").show()
+      }
+
+      function Teacher(){
+        $("tbody").empty()
+        $.get("/api/get_user", function (index) {
+          var result = JSON.parse(index).item1;
+          $.each(result, function (_, v) {
+           
+            $("tbody").append(`
+            <tr>
+                    <th scope="row">`+v.User.Name+`</th>
+                    <td>`+v.Grade+`</td>
+                    <td>`+v.Section+`</td>
+                    <td><button 
+              data-toggle="modal"
+              data-target="#DataSccore" onclick="Edit(`+v.ID+`)">Edit</button>
+                      <button   data-toggle="modal"
+              data-target="#DataSccore1" onclick="Delete(`+v.ID+`)">Delete</button>
+                    </td>
+                  </tr>
+            `)
+          })
+        })
+      }
+
+      function calculate_age(dob) {
+        var diff_ms = Date.now() - dob.getTime();
+        var age_dt = new Date(diff_ms);
+
+        return Math.abs(age_dt.getUTCFullYear() - 1970);
+      }
+
+      function Register() {
+        var name = $("#name").val();
+        var number = $("#number").val();
+        var username = $("#username").val();
+        var password = $("#password").val();
+        var age = $("#age").val();
+        var sex = $("#sex").val();
+        var grade = $("#grade").val();
+        var section = $("#section").val();
+
+        const myArray = age.split("-");
+        var data = calculate_age(new Date(myArray[0], myArray[1], myArray[2]));
+
+        if (
+          username == "" ||
+          name == "" ||
+          password == "" ||
+          number == "" ||
+          age == "" ||
+          grade == "" ||
+          section == "" ||
+          sex == ""
+        ) {
+          $("#username").val("");
+          $("#password").val("");
+          $("#number").val("");
+          $("#name").val("");
+          $("#grade").val("");
+          $("#section").val("");
+          Swal.fire({
+            toast: true,
+            position: "center",
+            icon: "warning",
+            title: "Please Complete Required Details",
+            showConfirmButton: false,
+            timer: 3000,
+          });
+        } else {
+          $.ajax({
+            url: "/api/user",
+            data: {
+              username: username,
+              password: password,
+              name: name,
+              number: number,
+              age: data,
+              sex: sex,
+              grade : grade,
+              section : section,
+              process : "teacher"
+            },
+            success: function (res) {
+              Swal.fire({
+                toast: true,
+                position: "center",
+                icon: "success",
+                title: "Registration Successful",
+                showConfirmButton: false,
+                timer: 3000,
+              }).then(function () {
+                window.location.reload();
+              });
+            },
+          });
+        }
+      }
+
+
+      function Edit(id){
+        $("#modify").show()
+        $("#add").hide()
+        $("#password").hide()
+        $("#age").hide()
+         $("#age1").hide()
+
+        $.get("/api/get_user", function (index) {
+          var result = JSON.parse(index).item1;
+          $.each(result, function (_, v) {
+            if (id == v.ID){
+              $("#c_id").val(v.ID);
+              $("#c_id1").val(v.UserID);
+              $("#username").val(v.User.Username);
+              $("#number").val(v.User.Number);
+              $("#name").val(v.User.Name);
+             $("#grade").val(v.Grade);
+              $("#section").val(v.Section);
+              $("#sex").val(v.User.Sex);
+            }
+          })
+        })
+      }
+
+      function Delete(id){
+        $.get("/api/get_user", function (index) {
+          var result = JSON.parse(index).item1;
+          $.each(result, function (_, v) {
+            if (id == v.ID){
+              $("#d_id").val(v.ID);
+              $("#ud_id").val(v.UserID);
+              $("#dname").html(v.User.Name);
+            }
+          })
+        })
+      }
+
+
+      function Modify(){
+        var id = $("#c_id").val();
+        var uid = $("#c_id1").val();
+        var name = $("#name").val();
+        var number = $("#number").val();
+        var username = $("#username").val();
+        var sex = $("#sex").val();
+        var grade = $("#grade").val();
+        var section = $("#section").val();
+
+        if (
+          username == "" ||
+          name == "" ||
+          number == "" ||
+          grade == "" ||
+          section == "" ||
+          sex == ""
+        ) {
+          $("#username").val("");
+          $("#number").val("");
+          $("#name").val("");
+          $("#grade").val("");
+          $("#section").val("");
+          Swal.fire({
+            toast: true,
+            position: "center",
+            icon: "warning",
+            title: "Please Complete Required Details",
+            showConfirmButton: false,
+            timer: 3000,
+          });
+        } else {
+          $.ajax({
+            url: "/api/edit_teacher",
+            data: {
+              id : id,
+              uid : uid,
+              username: username,
+              name: name,
+              number: number,
+              sex: sex,
+              grade : grade,
+              section : section,
+            },
+            success: function (res) {
+              Swal.fire({
+                toast: true,
+                position: "center",
+                icon: "success",
+                title: "Modify Teacher Successful",
+                showConfirmButton: false,
+                timer: 3000,
+              }).then(function () {
+                window.location.reload();
+              });
+            },
+          });
+        }
+      }
+
+
+      function Remove(){
+        var id = $("#d_id").val();
+        var uid = $("#ud_id").val();
+        $.ajax({
+            url: "/api/delete_teacher",
+            data: {
+              id : id,
+              uid : uid,
+            },
+            success: function (res) {
+              Swal.fire({
+                toast: true,
+                position: "center",
+                icon: "success",
+                title: "Delete Teacher Successful",
+                showConfirmButton: false,
+                timer: 3000,
+              }).then(function () {
+                window.location.reload();
+              });
+            },
+          });
+      }
+
+    </script>
+  </body>
+</html>

@@ -20,16 +20,43 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	number := r.FormValue("number")
 	sex := r.FormValue("sex")
 	age := r.FormValue("age")
+	section := r.FormValue("section")
+	grade := r.FormValue("grade")
+	process := r.FormValue("process")
 
-	product.Name = name
-	product.Username = username
-	product.Password = hashPassword(password)
-	product.Type = "User"
-	product.Number = number
-	product.Sex = sex
-	product.Age = age
 
-	db.Save(&product)
+	if process == "teacher"{
+
+		product.Name = name
+		product.Username = username
+		product.Password = hashPassword(password)
+		product.Type = "Teacher"
+		product.Number = number
+		product.Sex = sex
+		product.Age = age
+	
+		db.Save(&product)
+
+		product1 := models.Teacher{}
+		product1.UserID = product.ID
+		product1.Section = section
+		product1.Grade = grade
+
+		db.Save(&product1)
+
+	}else{
+		product.Name = name
+		product.Username = username
+		product.Password = hashPassword(password)
+		product.Type = "User"
+		product.Number = number
+		product.Sex = sex
+		product.Age = age
+	
+		db.Save(&product)
+	}
+
+	
 
 	sqlDB, _ := db.DB()
 	sqlDB.Close()
@@ -48,9 +75,13 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	item := []models.User{}
 	db.Find(&item)
 
+	item1 := []models.Teacher{}
+	db.Preload("User").Find(&item1)
+
 	data := map[string]interface{}{
 		"status": "ok",
 		"item":   item,
+		"item1":   item1,
 	}
 	ReturnJSON(w, r, data)
 	sqlDB, _ := db.DB()
@@ -83,6 +114,39 @@ func EditUser(w http.ResponseWriter, r *http.Request) {
 
 }
 
+
+func EditTeacher(w http.ResponseWriter, r *http.Request) {
+
+	db := GormDB()
+	id, _ := strconv.Atoi(r.FormValue("id"))
+	uid, _ := strconv.Atoi(r.FormValue("uid"))
+	product := models.User{}
+	product1 := models.Teacher{}
+	name := r.FormValue("name")
+	username := r.FormValue("username")
+	number := r.FormValue("number")
+	sex := r.FormValue("sex")
+	section := r.FormValue("section")
+	grade := r.FormValue("grade")
+	
+	db.Where("id", uid).Find(&product)
+
+	product.Name = name
+	product.Username = username
+	product.Number = number
+	product.Sex = sex
+
+	db.Save(&product)
+
+	db.Where("id", id).Find(&product1)
+	product1.UserID = product.ID
+	product1.Section = section
+	product1.Grade = grade
+
+	db.Save(&product1)
+
+}
+
 func DeleteUser(w http.ResponseWriter, r *http.Request) {
 
 	db := GormDB()
@@ -94,6 +158,24 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 	sqlDB.Close()
 
 }
+
+
+func DeleteTeacher(w http.ResponseWriter, r *http.Request) {
+
+	db := GormDB()
+	id, _ := strconv.Atoi(r.FormValue("id"))
+	uid, _ := strconv.Atoi(r.FormValue("uid"))
+	item := models.User{}
+	db.Where("id", uid).Statement.Delete(&item)
+
+	item1 := models.Teacher{}
+	db.Where("id", id).Statement.Delete(&item1)
+
+	sqlDB, _ := db.DB()
+	sqlDB.Close()
+
+}
+
 
 func hashPassword(pass string) string {
 	bytes, _ := bcrypt.GenerateFromPassword([]byte(pass), 14)

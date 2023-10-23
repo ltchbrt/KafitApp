@@ -72,6 +72,7 @@ func Handlers() {
 	http.HandleFunc("/Resources", views.ResourcesHandler)
 	http.HandleFunc("/Profile", views.ProfileHandler)
 	http.HandleFunc("/PARQ", views.PARQHandler)
+	http.HandleFunc("/DashboardTeacher", views.TeacherHandler)
 	http.HandleFunc("/api/", api.APIHandler)
 	http.HandleFunc("/logout", views.LogOutHandler)
 
@@ -120,12 +121,13 @@ func MigrateDB() {
 	Cardio := models.Cardio{}
 	Sprint := models.Sprint{}
 	Parq := models.PARQ{}
+	teacher := models.Teacher{}
 	
 	
 
 
 	db := GormDB()
-	db.AutoMigrate(&user,&BMI,&Flex,&Strength,&Speed,&Agility,&Time,&Jug,&Balance,&Cardio,&Sprint,&Parq)
+	db.AutoMigrate(&user,&BMI,&Flex,&Strength,&Speed,&Agility,&Time,&Jug,&Balance,&Cardio,&Sprint,&Parq,&teacher)
 }
 
 

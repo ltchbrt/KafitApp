@@ -358,16 +358,29 @@
               var result = JSON.parse(res).results;
               var user = JSON.parse(res).reports;
               if (result == 1) {
-                Swal.fire({
-                  toast: true,
-                  position: "center",
-                  icon: "success",
-                  title: "Login Successful",
-                  showConfirmButton: false,
-                  timer: 3000,
-                }).then(function () {
-                  window.location.replace("/overview");
-                });
+                if (user[0].Type == "Administrator") {
+                  Swal.fire({
+                    toast: true,
+                    position: "center",
+                    icon: "success",
+                    title: "Login Successful",
+                    showConfirmButton: false,
+                    timer: 3000,
+                  }).then(function () {
+                    window.location.replace("/DashboardTeacher");
+                  });
+                } else if (user[0].Type == "User") {
+                  Swal.fire({
+                    toast: true,
+                    position: "center",
+                    icon: "success",
+                    title: "Login Successful",
+                    showConfirmButton: false,
+                    timer: 3000,
+                  }).then(function () {
+                    window.location.replace("/overview");
+                  });
+                }
               } else {
                 Swal.fire({
                   toast: true,
