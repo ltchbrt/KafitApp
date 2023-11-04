@@ -253,7 +253,7 @@ a:focus {
   -----------------------------------------*/
 
 .navbar {
-  background: var(--dark-color);
+  background: #001a35;
   padding: 1rem;
 }
 

@@ -142,4 +142,9 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 		GetPARQ(w, r)
 		return
 	}
+
+	if strings.HasPrefix(r.URL.Path, "forgot") {
+		Email(w, r)
+		return
+	}
 }
