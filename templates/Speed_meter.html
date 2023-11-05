@@ -1,331 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>KaFit Fitness App</title>
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
+<head>
+  <title>KaFit Fitness App</title>
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/assets/css/aos.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
-  </head>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/css/aos.css" />
 
-  <style>
-    .p_title {
-      font-size: 25px;
-      padding: 1rem;
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
+</head>
 
-      margin: 0 !important;
-      text-align: center;
-    }
+<style>
+  .p_title {
+    font-size: 25px;
+    padding: 1rem;
 
-    .p_title1 {
-      font-size: 15px;
-      padding: 1rem;
-      margin: 0 !important;
-    }
+    margin: 0 !important;
+    text-align: center;
+  }
 
-    .p_header {
-      font-size: 18px;
-      background-color: #80808091;
-      padding: 1rem;
-      border-radius: 5px;
-    }
+  .p_title1 {
+    font-size: 15px;
+    padding: 1rem;
+    margin: 0 !important;
+  }
 
-    .list {
-      font-size: 20px;
-      font-weight: bold;
-      padding-bottom: 1rem;
-    }
+  .p_header {
+    font-size: 18px;
+    background-color: #80808091;
+    padding: 1rem;
+    border-radius: 5px;
+  }
 
-    .icon button {
-      border: none;
-      background: none;
-      font-size: 17px;
-      font-weight: bold;
-      padding-bottom: 1rem;
-    }
+  .list {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
 
-    .icon {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: 0.5rem;
-    }
+  .icon button {
+    border: none;
+    background: none;
+    font-size: 17px;
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
 
-    .btn_func {
-      padding: 1rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
+  .icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
 
-    .btn_func button {
-      width: 75px;
-      height: 35px;
-      border-radius: 7px;
-      font-size: 12px;
-      background-color: black;
-      color: white;
-      border: white 1px solid;
-    }
+  .btn_func {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
 
-    video {
-      max-width: 100%;
-      height: auto;
-      position: fixed;
-      top: 110px;
-      right: 0;
-      left: 0;
-      padding: 1rem;
-    }
-  </style>
-  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
-    <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="/">KaFit App</a>
+  .btn_func button {
+    width: 75px;
+    height: 35px;
+    border-radius: 7px;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    border: white 1px solid;
+  }
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  video {
+    max-width: 100%;
+    height: auto;
+    position: fixed;
+    top: 110px;
+    right: 0;
+    left: 0;
+    padding: 1rem;
+  }
+</style>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-lg-auto">
-            <li class="nav-item">
-              <a href="/overview" class="nav-link smoothScroll">OVERVIEW</a>
-            </li>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+  <!-- MENU BAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">KaFit App</a>
 
-            <li class="nav-item">
-              <a href="/PFT" class="nav-link smoothScroll">PFT</a>
-            </li>
-            <li class="nav-item">
-              <a href="/Profile" class="nav-link smoothScroll">PROFILE</a>
-            </li>
-            <li class="nav-item">
-              <a href="/Resources" class="nav-link smoothScroll">RESOURCES</a>
-            </li>
-            <li class="nav-item">
-              <a href="/About" class="nav-link smoothScroll">ABOUT</a>
-            </li>
-            <li class="nav-item">
-              <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
-            </li>
-          </ul>
-        </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-lg-auto">
+          <li class="nav-item">
+            <a href="/overview" class="nav-link smoothScroll">OVERVIEW</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/PFT" class="nav-link smoothScroll">PFT</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Profile" class="nav-link smoothScroll">PROFILE</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Resources" class="nav-link smoothScroll">RESOURCES</a>
+          </li>
+          <li class="nav-item">
+            <a href="/About" class="nav-link smoothScroll">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
+          </li>
+        </ul>
       </div>
-    </nav>
-    <!-- ABOUT -->
-    <section class="about section centerdata" id="about">
-      <div style="padding-left: 1rem; padding-top: 1rem">
+    </div>
+  </nav>
+  <!-- ABOUT -->
+  <section class="about section centerdata" id="about">
+    <div style="    padding-left: 1rem;
+      padding-top: 1rem;">
+      <div style="display: flex;
+      justify-content: space-between;
+      /* padding-left: 1rem; */
+      padding-right: 1rem;">
         <a href="/Speed">
           <?xml version="1.0" encoding="iso-8859-1"?>
           <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
           <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-          <svg
-            fill="#000000"
-            height="30px"
-            width="30px"
-            version="1.1"
-            id="Capa_1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 219.151 219.151"
-            xml:space="preserve"
-          >
+          <svg fill="#000000" height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 219.151 219.151" xml:space="preserve">
             <g>
               <path
                 d="M109.576,219.151c60.419,0,109.573-49.156,109.573-109.576C219.149,49.156,169.995,0,109.576,0S0.002,49.156,0.002,109.575
             C0.002,169.995,49.157,219.151,109.576,219.151z M109.576,15c52.148,0,94.573,42.426,94.574,94.575
-            c0,52.149-42.425,94.575-94.574,94.576c-52.148-0.001-94.573-42.427-94.573-94.577C15.003,57.427,57.428,15,109.576,15z"
-              />
-              <path
-                d="M94.861,156.507c2.929,2.928,7.678,2.927,10.606,0c2.93-2.93,2.93-7.678-0.001-10.608l-28.82-28.819l83.457-0.008
+            c0,52.149-42.425,94.575-94.574,94.576c-52.148-0.001-94.573-42.427-94.573-94.577C15.003,57.427,57.428,15,109.576,15z" />
+              <path d="M94.861,156.507c2.929,2.928,7.678,2.927,10.606,0c2.93-2.93,2.93-7.678-0.001-10.608l-28.82-28.819l83.457-0.008
             c4.142-0.001,7.499-3.358,7.499-7.502c-0.001-4.142-3.358-7.498-7.5-7.498l-83.46,0.008l28.827-28.825
             c2.929-2.929,2.929-7.679,0-10.607c-1.465-1.464-3.384-2.197-5.304-2.197c-1.919,0-3.838,0.733-5.303,2.196l-41.629,41.628
-            c-1.407,1.406-2.197,3.313-2.197,5.303c0.001,1.99,0.791,3.896,2.198,5.305L94.861,156.507z"
-              />
+            c-1.407,1.406-2.197,3.313-2.197,5.303c0.001,1.99,0.791,3.896,2.198,5.305L94.861,156.507z" />
             </g>
           </svg>
         </a>
+
+        <svg fill="#000000" width="30px" height="30px" viewBox="-0.13 0 511.999 511.999"
+          xmlns="http://www.w3.org/2000/svg" onclick="Play()">
+          <g id="_29_Sound_alt_" data-name="29 Sound (alt)" transform="translate(-0.132 -0.001)">
+            <path id="Path_38" data-name="Path 38"
+              d="M319.967,503.5v-67.34C394.335,409.733,447.9,339.457,447.9,256c0-83.426-53.565-153.732-127.934-180.156V8.5c110.288,28.485,191.9,128.309,191.9,247.5S430.254,475.043,319.967,503.5ZM256,511.868,128.066,383.935H32.115A31.965,31.965,0,0,1,.132,351.952V160.05a31.965,31.965,0,0,1,31.983-31.983h95.951L256,.133s31.983-4,31.983,31.983V479.885C287.983,515.866,256,511.868,256,511.868Zm-31.983-383.8L160.05,192.033H64.1V319.967H160.05l63.967,63.968V128.066ZM415.917,256c0,59.532-40.854,109.132-95.95,123.4V311.1a63.448,63.448,0,0,0,0-110.193V132.6C375.063,146.869,415.917,196.469,415.917,256Z"
+              fill-rule="evenodd" />
+          </g>
+        </svg>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
-            <div>
-              <h1 class="p_title">40 METER SPRINT</h1>
-              <p style="text-align: center; font-size: 14px">
-                to measure running speed.
-              </p>
-
-              <h1 class="p_title1">EQUIPMENT</h1>
-              <p style="text-align: left; font-size: 14px; padding-left: 1rem">
-                1. Stopwatch.
-              </p>
-              <p style="text-align: left; font-size: 14px; padding-left: 1rem">
-                2. Running area with known measurement (40 meters)
-              </p>
-
-              <h1 class="p_title1">Procedure</h1>
-              <h1 class="p_title1">For the Performer:</h1>
-              <div
-                style="
-                  padding: 1rem;
-                  display: flex;
-                  gap: 1rem;
-                  flex-direction: column;
-                "
-              >
-                <p
-                  style="
-                    font-size: 12px;
-                    margin: 0 !important;
-                    text-align: justify;
-                  "
-                >
-                  1. At the signal "Ready", stand behind the take-offline, the
-                  tips of the shoes should not go beyond the line and assume a
-                  crouch position.
-                </p>
-                <p
-                  style="
-                    font-size: 12px;
-                    margin: 0 !important;
-                    text-align: justify;
-                  "
-                >
-                  2. At the signal "Get Set", assume an un-crouch position
-                  (buttocks up) with both hands on the starting line.
-                </p>
-                <p style="font-size: 12px; text-align: justify">
-                  3. At the signal "GO", run to the finish line as fast as you
-                  can.
-                </p>
-              </div>
-
-              <h1 class="p_title1">For the Partner:</h1>
-              <div
-                style="
-                  padding: 1rem;
-                  display: flex;
-                  gap: 1rem;
-                  flex-direction: column;
-                "
-              >
-                <p
-                  style="
-                    font-size: 12px;
-                    margin: 0 !important;
-                    text-align: justify;
-                  "
-                >
-                  4. Set the stopwatch to zero (0) point.
-                </p>
-                <p
-                  style="
-                    font-size: 12px;
-                    margin: 0 !important;
-                    text-align: justify;
-                  "
-                >
-                  5. At the signal "GO" start the watch and stop it as the
-                  performer crosses the finish line.
-                </p>
-              </div>
-              <h1 class="p_title1">SCORING</h1>
-              <div
-                style="
-                  padding: 1rem;
-                  display: flex;
-                  gap: 1rem;
-                  flex-direction: column;
-                "
-              >
-                <p style="font-size: 12px">
-                  Record the time in nearest minutes and seconds.
-                </p>
-                <img src="/assets/images/scoring/speed.png" alt="" />
-              </div>
-              <a
-                href="#"
-                class="nav-link smoothScroll"
-                data-aos="fade-up"
-                data-aos-delay="300"
-                data-toggle="modal"
-                data-target="#membershipForm"
-                style="text-align: center"
-                >VIDEO TUTORIAL</a
-              >
-            </div>
-          </div>
-        </div>
+      <div id="voice">
+        <h1 style="font-size: 20px; text-align: center;">Voice Over</h1>
+        <audio controls style="width: 100%">
+          <source src="/assets/Voice Record/40 meter sprint.m4a" type="audio/mpeg" />
+        </audio>
       </div>
-    </section>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
+          <div>
+            <h1 class="p_title">40 METER SPRINT</h1>
+            <p style="text-align: center; font-size: 14px">
+              to measure running speed.
+            </p>
 
-    <div
-      class="modal fade"
-      id="membershipForm"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="membershipFormLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title" id="membershipFormLabel">TUTORIAL</h2>
+            <h1 class="p_title1">EQUIPMENT</h1>
+            <p style="text-align: left; font-size: 14px; padding-left: 1rem">
+              1. Stopwatch.
+            </p>
+            <p style="text-align: left; font-size: 14px; padding-left: 1rem">
+              2. Running area with known measurement (40 meters)
+            </p>
 
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <div>
-              <video width="400" controls>
-                <source src="/assets/video/40 Meter run.mp4" type="video/mp4" />
-                Your browser does not support HTML5 video.
-              </video>
+            <h1 class="p_title1">Procedure</h1>
+            <h1 class="p_title1">For the Performer:</h1>
+            <div style="
+                  padding: 1rem;
+                  display: flex;
+                  gap: 1rem;
+                  flex-direction: column;
+                ">
+              <p style="
+                    font-size: 12px;
+                    margin: 0 !important;
+                    text-align: justify;
+                  ">
+                1. At the signal "Ready", stand behind the take-offline, the
+                tips of the shoes should not go beyond the line and assume a
+                crouch position.
+              </p>
+              <p style="
+                    font-size: 12px;
+                    margin: 0 !important;
+                    text-align: justify;
+                  ">
+                2. At the signal "Get Set", assume an un-crouch position
+                (buttocks up) with both hands on the starting line.
+              </p>
+              <p style="font-size: 12px; text-align: justify">
+                3. At the signal "GO", run to the finish line as fast as you
+                can.
+              </p>
             </div>
-          </div>
 
-          <div class="modal-footer"></div>
+            <h1 class="p_title1">For the Partner:</h1>
+            <div style="
+                  padding: 1rem;
+                  display: flex;
+                  gap: 1rem;
+                  flex-direction: column;
+                ">
+              <p style="
+                    font-size: 12px;
+                    margin: 0 !important;
+                    text-align: justify;
+                  ">
+                4. Set the stopwatch to zero (0) point.
+              </p>
+              <p style="
+                    font-size: 12px;
+                    margin: 0 !important;
+                    text-align: justify;
+                  ">
+                5. At the signal "GO" start the watch and stop it as the
+                performer crosses the finish line.
+              </p>
+            </div>
+            <h1 class="p_title1">SCORING</h1>
+            <div style="
+                  padding: 1rem;
+                  display: flex;
+                  gap: 1rem;
+                  flex-direction: column;
+                ">
+              <p style="font-size: 12px">
+                Record the time in nearest minutes and seconds.
+              </p>
+              <img src="/assets/images/scoring/speed.png" alt="" />
+            </div>
+            <a href="#" class="nav-link smoothScroll" data-aos="fade-up" data-aos-delay="300" data-toggle="modal"
+              data-target="#membershipForm" style="text-align: center">VIDEO TUTORIAL</a>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- SCRIPTS -->
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/aos.js"></script>
-    <script src="/assets/js/smoothscroll.js"></script>
-    <script src="/assets/js/custom.js"></script>
-  </body>
+  <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="membershipFormLabel">TUTORIAL</h2>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div>
+            <video width="400" controls>
+              <source src="/assets/video/40 Meter run.mp4" type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+        </div>
+
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/aos.js"></script>
+  <script src="/assets/js/smoothscroll.js"></script>
+  <script src="/assets/js/custom.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript"
+    src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+  <script>
+    var count = 0;
+    $(document).ready(function () {
+      $("#voice").hide()
+    });
+
+    function Play() {
+      $("#voice").show()
+      count += parseFloat(1)
+      if (count == 2) {
+        count = 0
+        $("#voice").hide()
+      }
+    }
+
+  </script>
+</body>
+
 </html>

@@ -1,180 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>KaFit Fitness App</title>
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
+<head>
+  <title>KaFit Fitness App</title>
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/assets/css/aos.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
-  </head>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/css/aos.css" />
 
-  <style>
-    .centerdata {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      height: 100vh;
-    }
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
+</head>
 
-    .parq {
-      width: 75px;
-      height: 35px;
-      border-radius: 7px;
-      background-color: black;
-      color: white;
-      border: white 1px solid;
-    }
+<style>
+  .centerdata {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+  }
 
-    .btn_func {
-      padding: 1rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 2rem;
-    }
+  .parq {
+    width: 75px;
+    height: 35px;
+    border-radius: 7px;
+    background-color: black;
+    color: white;
+    border: white 1px solid;
+  }
 
-    .btn_func a {
-      width: 70px;
-      height: 35px;
-      border-radius: 7px;
-      padding-top: 0.3rem;
-      text-align: center;
-      font-size: 10px;
-      background-color: black;
-      color: white;
-      border: white 1px solid;
-      padding: 0.5rem;
-    }
-  </style>
-  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
-    <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="/">KaFit App</a>
+  .btn_func {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  .btn_func a {
+    width: 70px;
+    height: 35px;
+    border-radius: 7px;
+    padding-top: 0.3rem;
+    text-align: center;
+    font-size: 10px;
+    background-color: black;
+    color: white;
+    border: white 1px solid;
+    padding: 0.5rem;
+  }
+</style>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-lg-auto">
-            <li class="nav-item">
-              <a href="/overview" class="nav-link smoothScroll">OVERVIEW</a>
-            </li>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+  <!-- MENU BAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">KaFit App</a>
 
-            <li class="nav-item">
-              <a href="/PFT" class="nav-link smoothScroll">PFT</a>
-            </li>
-            <li class="nav-item">
-              <a href="/Profile" class="nav-link smoothScroll">PROFILE</a>
-            </li>
-            <li class="nav-item">
-              <a href="/Report" class="nav-link smoothScroll">REPORT</a>
-            </li>
-            <li class="nav-item">
-              <a href="/Resources" class="nav-link smoothScroll">RESOURCES</a>
-            </li>
-            <li class="nav-item">
-              <a href="/About" class="nav-link smoothScroll">ABOUT</a>
-            </li>
-            <li class="nav-item">
-              <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
-            </li>
-          </ul>
-        </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-lg-auto">
+          <li class="nav-item">
+            <a href="/overview" class="nav-link smoothScroll">OVERVIEW</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/PFT" class="nav-link smoothScroll">PFT</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Profile" class="nav-link smoothScroll">PROFILE</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Report" class="nav-link smoothScroll">REPORT</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Resources" class="nav-link smoothScroll">RESOURCES</a>
+          </li>
+          <li class="nav-item">
+            <a href="/About" class="nav-link smoothScroll">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
+          </li>
+        </ul>
       </div>
-    </nav>
-    <!-- ABOUT -->
-    <section class="about section centerdata" id="about">
-      <div class="container">
-        <div class="row">
-          <div
-            class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12 back"
-          >
-            <h2
-              class="mb-4"
-              data-aos="fade-up"
-              data-aos-delay="300"
-              style="color: white"
-            >
-              OVERVIEW
-            </h2>
+    </div>
+  </nav>
+  <!-- ABOUT -->
+  <section class="about section centerdata" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12 back">
+          <svg fill="#000000" width="30px" height="30px" style="margin-left: 90%;" viewBox="-0.13 0 511.999 511.999"
+            xmlns="http://www.w3.org/2000/svg" onclick="Play()">
+            <g id="_29_Sound_alt_" data-name="29 Sound (alt)" transform="translate(-0.132 -0.001)">
+              <path id="Path_38" data-name="Path 38"
+                d="M319.967,503.5v-67.34C394.335,409.733,447.9,339.457,447.9,256c0-83.426-53.565-153.732-127.934-180.156V8.5c110.288,28.485,191.9,128.309,191.9,247.5S430.254,475.043,319.967,503.5ZM256,511.868,128.066,383.935H32.115A31.965,31.965,0,0,1,.132,351.952V160.05a31.965,31.965,0,0,1,31.983-31.983h95.951L256,.133s31.983-4,31.983,31.983V479.885C287.983,515.866,256,511.868,256,511.868Zm-31.983-383.8L160.05,192.033H64.1V319.967H160.05l63.967,63.968V128.066ZM415.917,256c0,59.532-40.854,109.132-95.95,123.4V311.1a63.448,63.448,0,0,0,0-110.193V132.6C375.063,146.869,415.917,196.469,415.917,256Z"
+                fill-rule="evenodd" />
+            </g>
+          </svg>
+          <div id="voice">
+            <h1 style="font-size: 20px; text-align: center; color: white;">Voice Over</h1>
+            <audio controls style="width: 100%">
+              <source src="/assets/Voice Record/Overview.m4a" type="audio/mpeg" />
+            </audio>
+          </div>
 
-            <h6
-              class="mb-4"
-              data-aos="fade-up"
-              data-aos-delay="300"
-              style="color: white; font-size: 18px; text-align: justify"
-            >
-              Hello Everyone! We will now discuss about the overview of Physical
-              Fitness Tests
-            </h6>
-            <p
-              data-aos="fade-up"
-              data-aos-delay="400"
-              style="text-align: justify; color: white"
-            >
-              Under the K to 12 Basic Education Curriculum, Physical Fitness is
-              one of the major goals of the Physical Education Program and shall
-              be incorporated/adopted in the PE curriculum from Grades 4 to 12.
-            </p>
-            <p
-              data-aos="fade-up"
-              data-aos-delay="500"
-              style="text-align: justify; color: white"
-            >
-              The PFT is a set of measures designed to determine a student's
-              level of physical fitness. It is intended to test two categories
-              of physical fitness commonly referred to as "health-related" and
-              "skill- related”. Health-related components refer to those
-              physical attributes which enable a person to cope with the
-              requirements of daily living such as cardio-vascular endurance or
-              stamina, muscular strength and endurance, flexibility, and the
-              appropriate body mass index (BMI). Skill-related components are
-              physical abilities that show potential for good performance in
-              certain skills (usually in sports) like running speed, agility,
-              reaction time or quickness, balance, and coordination.
-            </p>
-            <div class="btn_func" style="text-align: center">
-              <a href="/Objectives" style="width: 35%">OBJECTIVES</a>
-              <a href="/Materials" style="width: 35%">MATERIALS</a>
-              <a href="/Observation" style="width: 35%">OBSERVATION</a>
-              <a href="/PARQ" style="width: 35%">PARQ</a>
-            </div>
+          <h2 class="mb-4" data-aos="fade-up" data-aos-delay="300" style="color: white">
+            OVERVIEW
+          </h2>
+
+          <h6 class="mb-4" data-aos="fade-up" data-aos-delay="300"
+            style="color: white; font-size: 18px; text-align: justify">
+            Hello Everyone! We will now discuss about the overview of Physical
+            Fitness Tests
+          </h6>
+          <p data-aos="fade-up" data-aos-delay="400" style="text-align: justify; color: white">
+            Under the K to 12 Basic Education Curriculum, Physical Fitness is
+            one of the major goals of the Physical Education Program and shall
+            be incorporated/adopted in the PE curriculum from Grades 4 to 12.
+          </p>
+          <p data-aos="fade-up" data-aos-delay="500" style="text-align: justify; color: white">
+            The PFT is a set of measures designed to determine a student's
+            level of physical fitness. It is intended to test two categories
+            of physical fitness commonly referred to as "health-related" and
+            "skill- related”. Health-related components refer to those
+            physical attributes which enable a person to cope with the
+            requirements of daily living such as cardio-vascular endurance or
+            stamina, muscular strength and endurance, flexibility, and the
+            appropriate body mass index (BMI). Skill-related components are
+            physical abilities that show potential for good performance in
+            certain skills (usually in sports) like running speed, agility,
+            reaction time or quickness, balance, and coordination.
+          </p>
+          <div class="btn_func" style="text-align: center">
+            <a href="/Objectives" style="width: 35%">OBJECTIVES</a>
+            <a href="/Materials" style="width: 35%">MATERIALS</a>
+            <a href="/Observation" style="width: 35%">OBSERVATION</a>
+            <a href="/PARQ" style="width: 35%">PARQ</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SCRIPTS -->
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/aos.js"></script>
-    <script src="/assets/js/smoothscroll.js"></script>
-    <script src="/assets/js/custom.js"></script>
-  </body>
+  <!-- SCRIPTS -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/aos.js"></script>
+  <script src="/assets/js/smoothscroll.js"></script>
+  <script src="/assets/js/custom.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript"
+    src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+  <script>
+    var count = 0;
+    $(document).ready(function () {
+      $("#voice").hide()
+    });
+
+    function Play() {
+      $("#voice").show()
+      count += parseFloat(1)
+      if (count == 2) {
+        count = 0
+        $("#voice").hide()
+      }
+    }
+
+  </script>
+</body>
+
 </html>

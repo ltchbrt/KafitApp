@@ -1,373 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>KaFit Fitness App</title>
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
+<head>
+  <title>KaFit Fitness App</title>
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/assets/css/aos.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
-  </head>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/css/aos.css" />
 
-  <style>
-    .p_title {
-      font-size: 25px;
-      padding: 1rem;
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
+</head>
 
-      margin: 0 !important;
-      text-align: center;
-    }
+<style>
+  .p_title {
+    font-size: 25px;
+    padding: 1rem;
 
-    .p_title1 {
-      font-size: 15px;
-      padding: 1rem;
-      margin: 0 !important;
-    }
+    margin: 0 !important;
+    text-align: center;
+  }
 
-    .p_header {
-      font-size: 18px;
-      background-color: #80808091;
-      padding: 1rem;
-      border-radius: 5px;
-    }
+  .p_title1 {
+    font-size: 15px;
+    padding: 1rem;
+    margin: 0 !important;
+  }
 
-    .list {
-      font-size: 20px;
-      font-weight: bold;
-      padding-bottom: 1rem;
-    }
+  .p_header {
+    font-size: 18px;
+    background-color: #80808091;
+    padding: 1rem;
+    border-radius: 5px;
+  }
 
-    .icon button {
-      border: none;
-      background: none;
-      font-size: 17px;
-      font-weight: bold;
-      padding-bottom: 1rem;
-    }
+  .list {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
 
-    .icon {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: 0.5rem;
-    }
+  .icon button {
+    border: none;
+    background: none;
+    font-size: 17px;
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
 
-    .btn_func {
-      padding: 1rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
+  .icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
 
-    .btn_func a {
-      width: 75px;
-      height: 35px;
-      border-radius: 7px;
-      padding-top: 0.3rem;
-      text-align: center;
-      font-size: 12px;
-      background-color: black;
-      color: white;
-      border: white 1px solid;
-    }
-    .btn_func button {
-      width: 75px;
-      height: 35px;
-      border-radius: 7px;
-      font-size: 12px;
-      background-color: black;
-      color: white;
-      border: white 1px solid;
-    }
-  </style>
-  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
-    <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="/">KaFit App</a>
+  .btn_func {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  .btn_func a {
+    width: 75px;
+    height: 35px;
+    border-radius: 7px;
+    padding-top: 0.3rem;
+    text-align: center;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    border: white 1px solid;
+  }
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-lg-auto">
-            <li class="nav-item">
-              <a href="/overview" class="nav-link smoothScroll">OVERVIEW</a>
-            </li>
+  .btn_func button {
+    width: 75px;
+    height: 35px;
+    border-radius: 7px;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    border: white 1px solid;
+  }
+</style>
 
-            <li class="nav-item">
-              <a href="/PFT" class="nav-link smoothScroll">PFT</a>
-            </li>
-            <li class="nav-item">
-              <a href="/Profile" class="nav-link smoothScroll">PROFILE</a>
-            </li>
-            <li class="nav-item">
-              <a href="/Resources" class="nav-link smoothScroll">RESOURCES</a>
-            </li>
-            <li class="nav-item">
-              <a href="/About" class="nav-link smoothScroll">ABOUT</a>
-            </li>
-            <li class="nav-item">
-              <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
-            </li>
-          </ul>
-        </div>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+  <!-- MENU BAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">KaFit App</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-lg-auto">
+          <li class="nav-item">
+            <a href="/overview" class="nav-link smoothScroll">OVERVIEW</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/PFT" class="nav-link smoothScroll">PFT</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Profile" class="nav-link smoothScroll">PROFILE</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Resources" class="nav-link smoothScroll">RESOURCES</a>
+          </li>
+          <li class="nav-item">
+            <a href="/About" class="nav-link smoothScroll">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
+          </li>
+        </ul>
       </div>
-    </nav>
-    <!-- ABOUT -->
-    <section class="about section centerdata" id="about">
-      <div class="container">
-        <div class="row">
-          <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
-            <h1 class="p_title">POWER</h1>
-            <p style="text-align: justify">
-              is the ability of the muscle to transfer energy and release
-              maximum force at a fast rate.
-            </p>
-            <div class="btn_func">
-              <a href="/Power_Long" style="width: 40%">STANDING LONG JUMP</a>
-              <button
-                data-aos="fade-up"
-                data-aos-delay="300"
-                data-toggle="modal"
-                data-target="#DataSccore"
-                onclick="Score()"
-              >
-                SCORE
-              </button>
-            </div>
+    </div>
+  </nav>
+  <!-- ABOUT -->
+  <section class="about section centerdata" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
+          <svg fill="#000000" width="30px" height="30px" style="margin-left: 90%;" viewBox="-0.13 0 511.999 511.999"
+            xmlns="http://www.w3.org/2000/svg" onclick="Play()">
+            <g id="_29_Sound_alt_" data-name="29 Sound (alt)" transform="translate(-0.132 -0.001)">
+              <path id="Path_38" data-name="Path 38"
+                d="M319.967,503.5v-67.34C394.335,409.733,447.9,339.457,447.9,256c0-83.426-53.565-153.732-127.934-180.156V8.5c110.288,28.485,191.9,128.309,191.9,247.5S430.254,475.043,319.967,503.5ZM256,511.868,128.066,383.935H32.115A31.965,31.965,0,0,1,.132,351.952V160.05a31.965,31.965,0,0,1,31.983-31.983h95.951L256,.133s31.983-4,31.983,31.983V479.885C287.983,515.866,256,511.868,256,511.868Zm-31.983-383.8L160.05,192.033H64.1V319.967H160.05l63.967,63.968V128.066ZM415.917,256c0,59.532-40.854,109.132-95.95,123.4V311.1a63.448,63.448,0,0,0,0-110.193V132.6C375.063,146.869,415.917,196.469,415.917,256Z"
+                fill-rule="evenodd" />
+            </g>
+          </svg>
+          <div id="voice">
+            <h1 style="font-size: 20px; text-align: center;">Voice Over</h1>
+            <audio controls style="width: 100%">
+              <source src="/assets/Voice Record/Power.m4a" type="audio/mpeg" />
+            </audio>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <div
-      class="modal fade"
-      id="DataSccore"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="membershipFormLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title" id="membershipFormLabel">SCORE</h2>
-
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
+          <h1 class="p_title">POWER</h1>
+          <p style="text-align: justify">
+            is the ability of the muscle to transfer energy and release
+            maximum force at a fast rate.
+          </p>
+          <div class="btn_func">
+            <a href="/Power_Long" style="width: 40%">STANDING LONG JUMP</a>
+            <button data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#DataSccore"
+              onclick="Score()">
+              SCORE
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="modal-body">
-            <div
-              style="
+  <div class="modal fade" id="DataSccore" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="membershipFormLabel">SCORE</h2>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div style="
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 margin-top: 1rem;
                 gap: 1rem;
-              "
-            >
-              <div
-                style="
+              ">
+            <div style="
                   display: flex;
                   flex-direction: column;
                   justify-content: center;
-                "
-              >
-                <span style="font-size: 11px; font-style: italic"
-                  >STANDING LONG JUMP</span
-                >
-                <input
-                  type="number"
-                  name="data"
-                  id="weight"
-                  placeholder="1st Try"
-                />
-              </div>
+                ">
+              <span style="font-size: 11px; font-style: italic">STANDING LONG JUMP</span>
+              <input type="number" name="data" id="weight" placeholder="1st Try" />
+            </div>
 
-              <div
-                style="
+            <div style="
                   display: flex;
                   flex-direction: column;
                   justify-content: center;
-                "
-              >
-                <span style="font-size: 11px; font-style: italic"
-                  >STANDING LONG JUMP</span
-                >
-                <input
-                  type="number"
-                  name="data"
-                  id="height"
-                  placeholder="2nd Try"
-                />
-              </div>
+                ">
+              <span style="font-size: 11px; font-style: italic">STANDING LONG JUMP</span>
+              <input type="number" name="data" id="height" placeholder="2nd Try" />
+            </div>
 
-              <div
-                style="
+            <div style="
                   display: flex;
                   flex-direction: column;
                   justify-content: space-around;
-                "
-              >
-                <p>STANDING LONG JUMP: <span id="hresult"></span></p>
-              </div>
+                ">
+              <p>STANDING LONG JUMP: <span id="hresult"></span></p>
+            </div>
 
-              <button
-                style="
+            <button style="
                   height: 35px;
                   border-radius: 7px;
                   font-size: 12px;
                   background-color: black;
                   color: white;
                   border: white 1px solid;
-                "
-                onclick="Save()"
-              >
-                SAVE
-              </button>
-            </div>
+                " onclick="Save()">
+              SAVE
+            </button>
           </div>
-
-          <div class="modal-footer"></div>
         </div>
+
+        <div class="modal-footer"></div>
       </div>
     </div>
+  </div>
 
-    <!-- SCRIPTS -->
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/aos.js"></script>
-    <script src="/assets/js/smoothscroll.js"></script>
-    <script src="/assets/js/custom.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      type="text/javascript"
-      src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
-    ></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <!-- SCRIPTS -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/aos.js"></script>
+  <script src="/assets/js/smoothscroll.js"></script>
+  <script src="/assets/js/custom.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript"
+    src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
-    <script>
-      $(document).ready(function () {
-        View();
-      });
+  <script>
+    var count = 0;
+    $(document).ready(function () {
+      View();
+      $("#voice").hide()
+    });
 
-      function View() {
-        var d = new Date();
-        d.setDate(d.getDate() - 1);
-        var date = moment(d).format("YYYY-MM-DD");
-        var value = $.cookie("id");
-        $.get("/api/get_speed", function (index) {
-          var result = JSON.parse(index).item;
-          $.each(result, function (_, v) {
-            if (v.UserID == value) {
-              $("#weight").val(v.Speed);
-              $("#height").val(v.Speed1);
+    function Play() {
+      $("#voice").show()
+      count += parseFloat(1)
+      if (count == 2) {
+        count = 0
+        $("#voice").hide()
+      }
+    }
 
-              if (v.Speed > v.Speed1) {
-                alert(1);
-                if (v.Speed >= 55 && v.Speed <= 100) {
-                  $("#hresult").html("Needs Improvement");
-                } else if (v.Speed >= 101 && v.Speed <= 125) {
-                  $("#hresult").html("Fair");
-                } else if (v.Speed >= 126 && v.Speed <= 150) {
-                  $("#hresult").html("Good");
-                } else if (v.Speed >= 151 && v.Speed <= 200) {
-                  $("#hresult").html("Very Good");
-                } else {
-                  $("#hresult").html("Excellent");
-                }
+    function View() {
+      var d = new Date();
+      d.setDate(d.getDate() - 1);
+      var date = moment(d).format("YYYY-MM-DD");
+      var value = $.cookie("id");
+      $.get("/api/get_speed", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (v.UserID == value) {
+            $("#weight").val(v.Speed);
+            $("#height").val(v.Speed1);
+
+            if (v.Speed > v.Speed1) {
+              alert(1);
+              if (v.Speed >= 55 && v.Speed <= 100) {
+                $("#hresult").html("Needs Improvement");
+              } else if (v.Speed >= 101 && v.Speed <= 125) {
+                $("#hresult").html("Fair");
+              } else if (v.Speed >= 126 && v.Speed <= 150) {
+                $("#hresult").html("Good");
+              } else if (v.Speed >= 151 && v.Speed <= 200) {
+                $("#hresult").html("Very Good");
               } else {
-                alert(2);
-                if (v.Speed1 >= 55 && v.Speed1 <= 100) {
-                  $("#hresult").html("Needs Improvement");
-                } else if (v.Speed1 >= 101 && v.Speed1 <= 125) {
-                  $("#hresult").html("Fair");
-                } else if (v.Speed1 >= 126 && v.Speed1 <= 150) {
-                  $("#hresult").html("Good");
-                } else if (v.Speed1 >= 151 && v.Speed1 <= 200) {
-                  $("#hresult").html("Very Good");
-                } else {
-                  $("#hresult").html("Excellent");
-                }
+                $("#hresult").html("Excellent");
+              }
+            } else {
+              alert(2);
+              if (v.Speed1 >= 55 && v.Speed1 <= 100) {
+                $("#hresult").html("Needs Improvement");
+              } else if (v.Speed1 >= 101 && v.Speed1 <= 125) {
+                $("#hresult").html("Fair");
+              } else if (v.Speed1 >= 126 && v.Speed1 <= 150) {
+                $("#hresult").html("Good");
+              } else if (v.Speed1 >= 151 && v.Speed1 <= 200) {
+                $("#hresult").html("Very Good");
+              } else {
+                $("#hresult").html("Excellent");
               }
             }
-          });
+          }
+        });
+      });
+    }
+    function Score() { }
+
+    function Save() {
+      var w = $("#weight").val();
+      var h = $("#height").val();
+
+      if (w == "") {
+        Swal.fire({
+          toast: true,
+          position: "center",
+          icon: "warning",
+          title: "Please Complete Required Details",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      } else {
+        $.ajax({
+          url: "/api/speed",
+          data: {
+            weight: w,
+            height: h,
+          },
+          success: function (res) {
+            Swal.fire({
+              toast: true,
+              position: "center",
+              icon: "success",
+              title: "Power Record Success",
+              showConfirmButton: false,
+              timer: 3000,
+            }).then(function () {
+              View();
+            });
+          },
         });
       }
-      function Score() {}
+    }
+  </script>
+</body>
 
-      function Save() {
-        var w = $("#weight").val();
-        var h = $("#height").val();
-
-        if (w == "") {
-          Swal.fire({
-            toast: true,
-            position: "center",
-            icon: "warning",
-            title: "Please Complete Required Details",
-            showConfirmButton: false,
-            timer: 3000,
-          });
-        } else {
-          $.ajax({
-            url: "/api/speed",
-            data: {
-              weight: w,
-              height: h,
-            },
-            success: function (res) {
-              Swal.fire({
-                toast: true,
-                position: "center",
-                icon: "success",
-                title: "Power Record Success",
-                showConfirmButton: false,
-                timer: 3000,
-              }).then(function () {
-                View();
-              });
-            },
-          });
-        }
-      }
-    </script>
-  </body>
 </html>
