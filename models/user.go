@@ -11,6 +11,9 @@ type User struct {
 	Number	 string 
 	Age		string
 	Sex		string
+	Teacher	string
+	Section	string
+
 	Deleted  gorm.DeletedAt
 }
 

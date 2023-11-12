@@ -71,6 +71,8 @@ func Handlers() {
 	http.HandleFunc("/Balance_Page", views.BalanceCopyHandler)
 	http.HandleFunc("/Resources", views.ResourcesHandler)
 	http.HandleFunc("/Profile", views.ProfileHandler)
+	http.HandleFunc("/Dashboard", views.TProfileHandler)
+	http.HandleFunc("/ClassReport", views.TReportHandler)
 	http.HandleFunc("/PARQ", views.PARQHandler)
 	http.HandleFunc("/DashboardTeacher", views.TeacherHandler)
 	http.HandleFunc("/api/", api.APIHandler)

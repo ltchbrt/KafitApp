@@ -1,509 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>KaFit Fitness App</title>
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
+<head>
+  <title>KaFit Fitness App</title>
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/assets/css/aos.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
-  </head>
-  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
-    <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="/">KaFit App</a>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/css/aos.css" />
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
+</head>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-lg-auto">
-            <li class="nav-item">
-              <a
-                href="#"
-                class="nav-link smoothScroll"
-                data-aos="fade-up"
-                data-aos-delay="300"
-                data-toggle="modal"
-                data-target="#membershipForm"
-                >Login</a
-              >
-            </li>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+  <!-- MENU BAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">KaFit App</a>
 
-            <li class="nav-item">
-              <a
-                href="#"
-                class="nav-link smoothScroll"
-                data-aos="fade-up"
-                data-aos-delay="300"
-                data-toggle="modal"
-                data-target="#membershipForm1"
-                >Register</a
-              >
-            </li>
-          </ul>
-        </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-lg-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link smoothScroll" data-aos="fade-up" data-aos-delay="300" data-toggle="modal"
+              data-target="#membershipForm">Login</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link smoothScroll" data-aos="fade-up" data-aos-delay="300" data-toggle="modal"
+              data-target="#membershipForm1">Register</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- HERO -->
-    <section
-      class="hero d-flex flex-column justify-content-center align-items-center"
-      id="home"
-    >
-      <div class="bg-overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto col-12">
-            <div class="hero-text mt-5 text-center">
-              <h6 data-aos="fade-up" data-aos-delay="300">
-                new way to build a healthy lifestyle!
-              </h6>
-              <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">
-                Upgrade your body at KaFit
-              </h1>
-            </div>
+  <!-- HERO -->
+  <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+    <div class="bg-overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto col-12">
+          <div class="hero-text mt-5 text-center">
+            <h6 data-aos="fade-up" data-aos-delay="300">
+              new way to build a healthy lifestyle!
+            </h6>
+            <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">
+              Upgrade your body at KaFit
+            </h1>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="membershipForm"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="membershipFormLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title" id="membershipFormLabel">Login Form</h2>
-
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <div class="membership-form webform" role="form">
-              <input
-                type="text"
-                class="form-control"
-                name="cf-name"
-                id="username1"
-                placeholder="Username"
-              />
-              <input
-                type="password"
-                class="form-control"
-                name="cf-email"
-                id="password1"
-                placeholder="Password"
-              />
-              <a
-                href="#"
-                class="nav-link smoothScroll"
-                data-aos="fade-up"
-                data-aos-delay="300"
-                data-toggle="modal"
-                data-target="#membershipForm2"
-                onclick="Password()"
-                >Forgot Password</a
-              >
-              <button
-                type="submit"
-                class="form-control"
-                id="submit-button"
-                name="submit"
-                onclick="Login()"
-              >
-                Submit Button
-              </button>
-            </div>
-          </div>
-
-          <div class="modal-footer"></div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div
-      class="modal fade"
-      id="membershipForm2"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="membershipFormLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title" id="membershipFormLabel">
-              Forgot Password
-            </h2>
+  <!-- Modal -->
+  <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="membershipFormLabel">Login Form</h2>
 
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="membership-form webform" role="form">
+            <input type="text" class="form-control" name="cf-name" id="username1" placeholder="Username" />
+            <input type="password" class="form-control" name="cf-email" id="password1" placeholder="Password" />
+            <a href="#" class="nav-link smoothScroll" data-aos="fade-up" data-aos-delay="300" data-toggle="modal"
+              data-target="#membershipForm2" onclick="Password()">Forgot Password</a>
+            <button type="submit" class="form-control" id="submit-button" name="submit" onclick="Login()">
+              Submit Button
             </button>
           </div>
-
-          <div class="modal-body">
-            <div class="membership-form webform">
-              <input
-                type="email"
-                class="form-control"
-                name="name"
-                id="email"
-                placeholder="Email Address"
-              />
-              <button
-                type="submit"
-                class="form-control"
-                id="submit-button"
-                name="submit"
-                onclick="Forgot()"
-              >
-                Submit Button
-              </button>
-            </div>
-          </div>
-
-          <div class="modal-footer"></div>
         </div>
+
+        <div class="modal-footer"></div>
       </div>
     </div>
+  </div>
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="membershipForm1"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="membershipFormLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title" id="membershipFormLabel">
-              Membership Form
-            </h2>
+  <div class="modal fade" id="membershipForm2" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="membershipFormLabel">
+            Forgot Password
+          </h2>
 
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="membership-form webform">
+            <input type="email" class="form-control" name="name" id="email" placeholder="Email Address" />
+            <button type="submit" class="form-control" id="submit-button" name="submit" onclick="Forgot()">
+              Submit Button
             </button>
           </div>
+        </div>
 
-          <div class="modal-body">
-            <div class="membership-form webform">
-              <input
-                type="text"
-                class="form-control"
-                name="name"
-                id="name"
-                placeholder="Name"
-              />
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
 
-              <div
-                style="
+  <!-- Modal -->
+  <div class="modal fade" id="membershipForm1" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="membershipFormLabel">
+            Membership Form
+          </h2>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="membership-form webform">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Name" />
+
+            <div style="
                   display: flex;
                   justify-content: center;
                   align-items: center;
                   flex-direction: row;
                   gap: 1rem;
-                "
-              >
-                <label for="age">Birthday</label>
-                <input
-                  type="date"
-                  class="form-control"
-                  name="cf-phone"
-                  id="age"
-                  name="age"
-                  placeholder="Age"
-                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                  required
-                />
-              </div>
-
-              <select name="sex" id="sex" class="form-control">
-                <option class="form-control" value="">Select Sex</option>
-                <option class="form-control" value="Male">Male</option>
-                <option class="form-control" value="Female">Female</option>
-              </select>
-
-              <input
-                type="email"
-                class="form-control"
-                name="cf-phone"
-                id="number"
-                placeholder="Email Address"
-                required
-              />
-
-              <input
-                type="text"
-                class="form-control"
-                name="cf-name"
-                id="username"
-                placeholder="Username"
-              />
-              <input
-                type="password"
-                class="form-control"
-                name="cf-email"
-                id="password"
-                placeholder="Password"
-              />
-
-              <button
-                type="submit"
-                class="form-control"
-                id="submit-button"
-                name="submit"
-                onclick="Register()"
-              >
-                Submit Button
-              </button>
+                ">
+              <label for="age">Birthday</label>
+              <input type="date" class="form-control" name="cf-phone" id="age" name="age" placeholder="Age"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
             </div>
-          </div>
 
-          <div class="modal-footer"></div>
+            <select name="sex" id="sex" class="form-control">
+              <option class="form-control" value="">Select Sex</option>
+              <option class="form-control" value="Male">Male</option>
+              <option class="form-control" value="Female">Female</option>
+            </select>
+
+            <select name="section" id="section" class="form-control">
+
+            </select>
+
+            <div>
+              <p>Teacher: <span id="teacher"></span></p>
+              <p hidden>Teacher: <span id="section1"></span></p>
+            </div>
+
+            <input type="email" class="form-control" name="cf-phone" id="number" placeholder="Email Address" required />
+
+            <input type="text" class="form-control" name="cf-name" id="username" placeholder="Username" />
+            <input type="password" class="form-control" name="cf-email" id="password" placeholder="Password" />
+
+            <button type="submit" class="form-control" id="submit-button" name="submit" onclick="Register()">
+              Submit Button
+            </button>
+          </div>
         </div>
+
+        <div class="modal-footer"></div>
       </div>
     </div>
+  </div>
 
-    <!-- SCRIPTS -->
+  <!-- SCRIPTS -->
 
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/aos.js"></script>
-    <script src="/assets/js/smoothscroll.js"></script>
-    <script src="/assets/js/custom.js"></script>
-    <script
-      type="text/javascript"
-      src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
-    ></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/aos.js"></script>
+  <script src="/assets/js/smoothscroll.js"></script>
+  <script src="/assets/js/custom.js"></script>
+  <script type="text/javascript"
+    src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
-      function calculate_age(dob) {
-        var diff_ms = Date.now() - dob.getTime();
-        var age_dt = new Date(diff_ms);
+  <script>
 
-        return Math.abs(age_dt.getUTCFullYear() - 1970);
+    $(document).ready(function () {
+      Section()
+    })
+    function calculate_age(dob) {
+      var diff_ms = Date.now() - dob.getTime();
+      var age_dt = new Date(diff_ms);
+
+      return Math.abs(age_dt.getUTCFullYear() - 1970);
+    }
+
+    function Section() {
+      $("#section").empty()
+      $("#section").append(`
+      <option class="form-control" value="">Select Section</option>
+      `)
+      $.get("/api/get_user", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          $("#section").append(`
+      <option class="form-control" value="`+ v.ID + `">` + v.Grade + ` - ` + v.Section + `</option>
+      `)
+        })
+      })
+    }
+
+    $('#section').on('change', function () {
+      var value = this.value
+      $.get("/api/get_user", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          if (value == v.ID) {
+            $("#teacher").html(v.User.Name)
+            $("#section1").html(v.Grade + " " + "-" + " " + v.Section)
+          }
+
+        })
+      })
+      if (value == "") {
+        $("#teacher").html("")
       }
+    })
 
-      function Register() {
-        var name = $("#name").val();
-        var number = $("#number").val();
-        var username = $("#username").val();
-        var password = $("#password").val();
-        var age = $("#age").val();
-        var sex = $("#sex").val();
+    function Register() {
+      var name = $("#name").val();
+      var number = $("#number").val();
+      var username = $("#username").val();
+      var password = $("#password").val();
+      var age = $("#age").val();
+      var sex = $("#sex").val();
+      var teacher = $("#teacher").html();
+      var section = $("#section1").html();
 
-        const myArray = age.split("-");
-        var data = calculate_age(new Date(myArray[0], myArray[1], myArray[2]));
+      const myArray = age.split("-");
+      var data = calculate_age(new Date(myArray[0], myArray[1], myArray[2]));
 
-        if (
-          username == "" ||
-          name == "" ||
-          password == "" ||
-          number == "" ||
-          age == "" ||
-          sex == ""
-        ) {
-          $("#username").val("");
-          $("#password").val("");
-          $("#number").val("");
-          $("#name").val("");
-          Swal.fire({
-            toast: true,
-            position: "center",
-            icon: "warning",
-            title: "Please Complete Required Details",
-            showConfirmButton: false,
-            timer: 3000,
-          });
-        } else {
-          $.ajax({
-            url: "/api/user",
-            data: {
-              username: username,
-              password: password,
-              name: name,
-              number: number,
-              age: data,
-              sex: sex,
-            },
-            success: function (res) {
+      if (
+        username == "" ||
+        name == "" ||
+        password == "" ||
+        number == "" ||
+        age == "" ||
+        teacher == "" ||
+        section == "" ||
+        sex == ""
+      ) {
+        $("#username").val("");
+        $("#password").val("");
+        $("#number").val("");
+        $("#name").val("");
+        Swal.fire({
+          toast: true,
+          position: "center",
+          icon: "warning",
+          title: "Please Complete Required Details",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      } else {
+        $.ajax({
+          url: "/api/user",
+          data: {
+            username: username,
+            password: password,
+            name: name,
+            number: number,
+            age: data,
+            sex: sex,
+            teacher: teacher,
+            section1: section,
+          },
+          success: function (res) {
+            Swal.fire({
+              toast: true,
+              position: "center",
+              icon: "success",
+              title: "Registration Successful",
+              showConfirmButton: false,
+              timer: 3000,
+            }).then(function () {
+              window.location.replace("/");
+            });
+          },
+        });
+      }
+    }
+
+    function Login() {
+      var username = $("#username1").val();
+      var password = $("#password1").val();
+
+      if (username == "" || password == "") {
+        $("#username1").val("");
+        $("#password1").val("");
+        Swal.fire({
+          toast: true,
+          position: "center",
+          icon: "warning",
+          title: "Please Complete Required Details",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      } else {
+        $.ajax({
+          url: "/api/login",
+          data: {
+            username: username,
+            password: password,
+          },
+          success: function (res) {
+            var result = JSON.parse(res).results;
+            var user = JSON.parse(res).reports;
+            if (result == 1) {
+              if (user[0].Type == "Administrator") {
+                Swal.fire({
+                  toast: true,
+                  position: "center",
+                  icon: "success",
+                  title: "Login Successful",
+                  showConfirmButton: false,
+                  timer: 3000,
+                }).then(function () {
+                  window.location.replace("/DashboardTeacher");
+                });
+              } else if (user[0].Type == "User") {
+                Swal.fire({
+                  toast: true,
+                  position: "center",
+                  icon: "success",
+                  title: "Login Successful",
+                  showConfirmButton: false,
+                  timer: 3000,
+                }).then(function () {
+                  window.location.replace("/overview");
+                });
+              } else if (user[0].Type == "Teacher") {
+                Swal.fire({
+                  toast: true,
+                  position: "center",
+                  icon: "success",
+                  title: "Login Successful",
+                  showConfirmButton: false,
+                  timer: 3000,
+                }).then(function () {
+                  window.location.replace("/Dashboard");
+                });
+              }
+            } else {
+              Swal.fire({
+                toast: true,
+                position: "center",
+                icon: "warning",
+                title: "Please Check your Email and Password!",
+                showConfirmButton: false,
+                timer: 3000,
+              });
+              $("#username1").val("");
+              $("#password1").val("");
+            }
+          },
+        });
+      }
+    }
+
+    function Forgot() {
+      var email = $("#email").val();
+
+      if (email == "") {
+        $("#email").val("");
+        Swal.fire({
+          toast: true,
+          position: "center",
+          icon: "warning",
+          title: "Please Complete Required Details",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      } else {
+        $.ajax({
+          url: "/api/forgot",
+          data: {
+            email: email,
+          },
+          success: function (res) {
+            var result = JSON.parse(res).count;
+            if (result == "0") {
+              Swal.fire({
+                toast: true,
+                position: "center",
+                icon: "warning",
+                title: "Check your Email Address",
+                showConfirmButton: false,
+                timer: 3000,
+              });
+            } else {
               Swal.fire({
                 toast: true,
                 position: "center",
                 icon: "success",
-                title: "Registration Successful",
+                title: "Password Sent to Email",
                 showConfirmButton: false,
                 timer: 3000,
               }).then(function () {
                 window.location.replace("/");
               });
-            },
-          });
-        }
+            }
+          },
+        });
       }
+    }
+  </script>
+</body>
 
-      function Login() {
-        var username = $("#username1").val();
-        var password = $("#password1").val();
-
-        if (username == "" || password == "") {
-          $("#username1").val("");
-          $("#password1").val("");
-          Swal.fire({
-            toast: true,
-            position: "center",
-            icon: "warning",
-            title: "Please Complete Required Details",
-            showConfirmButton: false,
-            timer: 3000,
-          });
-        } else {
-          $.ajax({
-            url: "/api/login",
-            data: {
-              username: username,
-              password: password,
-            },
-            success: function (res) {
-              var result = JSON.parse(res).results;
-              var user = JSON.parse(res).reports;
-              if (result == 1) {
-                if (user[0].Type == "Administrator") {
-                  Swal.fire({
-                    toast: true,
-                    position: "center",
-                    icon: "success",
-                    title: "Login Successful",
-                    showConfirmButton: false,
-                    timer: 3000,
-                  }).then(function () {
-                    window.location.replace("/DashboardTeacher");
-                  });
-                } else if (user[0].Type == "User") {
-                  Swal.fire({
-                    toast: true,
-                    position: "center",
-                    icon: "success",
-                    title: "Login Successful",
-                    showConfirmButton: false,
-                    timer: 3000,
-                  }).then(function () {
-                    window.location.replace("/overview");
-                  });
-                }
-              } else {
-                Swal.fire({
-                  toast: true,
-                  position: "center",
-                  icon: "warning",
-                  title: "Please Check your Email and Password!",
-                  showConfirmButton: false,
-                  timer: 3000,
-                });
-                $("#username1").val("");
-                $("#password1").val("");
-              }
-            },
-          });
-        }
-      }
-
-      function Forgot() {
-        var email = $("#email").val();
-
-        if (email == "") {
-          $("#email").val("");
-          Swal.fire({
-            toast: true,
-            position: "center",
-            icon: "warning",
-            title: "Please Complete Required Details",
-            showConfirmButton: false,
-            timer: 3000,
-          });
-        } else {
-          $.ajax({
-            url: "/api/forgot",
-            data: {
-              email: email,
-            },
-            success: function (res) {
-              var result = JSON.parse(res).count;
-              if (result == "0") {
-                Swal.fire({
-                  toast: true,
-                  position: "center",
-                  icon: "warning",
-                  title: "Check your Email Address",
-                  showConfirmButton: false,
-                  timer: 3000,
-                });
-              } else {
-                Swal.fire({
-                  toast: true,
-                  position: "center",
-                  icon: "success",
-                  title: "Password Sent to Email",
-                  showConfirmButton: false,
-                  timer: 3000,
-                }).then(function () {
-                  window.location.replace("/");
-                });
-              }
-            },
-          });
-        }
-      }
-    </script>
-  </body>
 </html>

@@ -22,6 +22,8 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	age := r.FormValue("age")
 	section := r.FormValue("section")
 	grade := r.FormValue("grade")
+	teacher := r.FormValue("teacher")
+	section1 := r.FormValue("section1")
 	process := r.FormValue("process")
 
 
@@ -52,7 +54,8 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 		product.Number = number
 		product.Sex = sex
 		product.Age = age
-	
+		product.Teacher = teacher
+		product.Section = section1
 		db.Save(&product)
 	}
 

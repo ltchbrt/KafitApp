@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>KaFit Fitness App</title>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/css/aos.css" />
+
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
+</head>
+
+<style>
+  .p_title {
+    font-size: 25px;
+    padding: 1rem;
+
+    margin: 0 !important;
+    text-align: center;
+  }
+
+  .p_header {
+    font-size: 18px;
+    background-color: #80808091;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+
+  .list {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
+
+  .icon a {
+    border: none;
+    background: none;
+    font-size: 17px;
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
+
+  .icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .report {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .report select {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 250px;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+  }
+
+  .btn_func button {
+    width: 100%;
+    height: 35px;
+    border-radius: 7px;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    border: white 1px solid;
+  }
+</style>
+
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+  <!-- MENU BAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">KaFit App</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-lg-auto">
+
+          <li class="nav-item">
+            <a href="/Dashboard" class="nav-link smoothScroll">PROFILE</a>
+          </li>
+          <li class="nav-item">
+            <a href="/ClassReport" class="nav-link smoothScroll">REPORT</a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- ABOUT -->
+  <section class="about section centerdata" id="about">
+    <div class="container">
+      <div class="row">
+        <div style="width: 100%;">
+          <h4 style="font-size: 16px; margin-left: 1rem;">Teacher's Name: <span id="teacher"></span></h4>
+          <div>
+            <div style=" display: flex; justify-content: flex-start; flex-direction: row; gap: 1rem; width: 100%;
+            margin: 1rem; padding: 1rem; ">
+              <p>Section</p> <select style=" width: 60%; text-align: center;" name="section" id="section"></select>
+              <p hidden>Teacher: <span id="section1"></span></p>
+            </div>
+            <div style="    display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            gap: 1rem;
+            width: 100%;
+            margin: 1rem; padding: 1rem; ">
+              <p>Student</p> <select style="width: 60%; text-align: center;" name="student" id="student"></select>
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12 report" id="stud">
+          <h1 class="p_title">PHYSICAL FITNESS TEST SCORE CARD</h1>
+          <div style="
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+              ">
+
+            <h3 style="font-size: 17px; text-align: left">
+              NAME:
+              <span id="username" style="font-size: 17px; text-align: left"></span>
+            </h3>
+
+
+            <h3 style="font-size: 17px; text-align: left">
+              SEX:
+              <span id="sex" style="font-size: 17px; text-align: left"></span>
+            </h3>
+            <h3 style="font-size: 17px; text-align: left">
+              AGE:
+              <span id="age" style="font-size: 17px; text-align: left"></span>
+            </h3>
+
+          </div>
+          <div style="width: 100%; margin-top: 1rem">
+            <h1 style="font-size: 15px; margin: 0.5rem !important">
+              Part 1: Health-Related Fitness Test
+            </h1>
+            <div>
+              <h1 style="font-size: 15px; margin: 0.5rem !important">
+                A. BODY COMPOSITION: Body Mass Index (BMI)
+              </h1>
+              <span style="margin-bottom: 1rem">1. Body Mass Index (BMI)</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">Weight: <span id="w"></span></p>
+                <p style="font-weight: bold">Height: <span id="h"></span></p>
+                <p style="font-weight: bold">BMI: <span id="b"></span></p>
+                <p style="font-weight: bold">
+                  Classification: <span id="c"></span>
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h1 style="font-size: 15px; margin: 0.5rem !important">
+                B. Cardiovascular Endurance
+              </h1>
+              <span style="margin-bottom: 1rem">1. 3 Minute step Test</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">
+                  Heart Rate: <span id="rate"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Before the activity: <span id="before"></span>
+                </p>
+                <p style="font-weight: bold">
+                  After the activity: <span id="after"></span>
+                </p>
+                <!-- <p style="font-weight: bold">
+                    Classification: <span id="c"></span>
+                  </p> -->
+              </div>
+            </div>
+
+            <div>
+              <h1 style="font-size: 15px; margin: 0.5rem !important">
+                C. Strength
+              </h1>
+              <span style="margin-bottom: 1rem">1. Push-up</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">
+                  Push-up: <span id="push"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Classification: <span id="push_c"></span>
+                </p>
+              </div>
+              <span style="margin-bottom: 1rem">2. Basic Plank</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">
+                  Basic Plank: <span id="plank"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Classification: <span id="plank_c"></span>
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h1 style="font-size: 15px; margin: 0.5rem !important">
+                D. Flexibility
+              </h1>
+              <span style="margin-bottom: 1rem">1. Zipper Test</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">Right: <span id="ri"></span></p>
+                <p style="font-weight: bold">Classification: <span id="ri_c"></span></p>
+                <p style="font-weight: bold">Left: <span id="le"></span></p>
+                <p style="font-weight: bold">Classification: <span id="le_c"></span></p>
+              </div>
+              <span style="margin-bottom: 1rem">2. Sit and Reach</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">
+                  1st Try: <span id="st"></span>
+                </p>
+                <p style="font-weight: bold">
+                  2nd Try: <span id="nd"></span>
+                </p>
+
+                <p style="font-weight: bold">
+                  Best Score: <span id="es"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Classification: <span id="es_c"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div style="width: 100%; margin-top: 1rem">
+            <h1 style="font-size: 15px; margin: 0.5rem !important">
+              Part 2: Skill-Related Fitness Test
+            </h1>
+            <div>
+              <h1 style="font-size: 15px; margin: 0.5rem !important">
+                A. Coordination
+              </h1>
+              <span style="margin-bottom: 1rem">1. Juggling</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">
+                  Juggling: <span id="ju"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Classification: <span id="ju_c"></span>
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h1 style="font-size: 15px; margin: 0.5rem !important">
+                B. Agility
+              </h1>
+              <span style="margin-bottom: 1rem">1.Hexagon Agility Test</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">
+                  Clockwise: <span id="cwise"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Counter Clockwise: <span id="cuwise"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Average: <span id="av"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Classification: <span id="av_c"></span>
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h1 style="font-size: 15px; margin: 0.5rem !important">
+                C. Speed
+              </h1>
+              <span style="margin-bottom: 1rem">1. 40 Meter Sprint</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">Speed: <span id="sp"></span></p>
+                <p style="font-weight: bold">Classification: <span id="sp_c"></span></p>
+              </div>
+            </div>
+
+            <div>
+              <h1 style="font-size: 15px; margin: 0.5rem !important">
+                D. Power
+              </h1>
+              <span style="margin-bottom: 1rem">1. Standing Long Jump</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">
+                  1st Try: <span id="st1"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Classification: <span id="st1_c"></span>
+                </p>
+                <p style="font-weight: bold">
+                  2nd Try: <span id="nd1"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Classification: <span id="nd1_c"></span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <h1 style="font-size: 15px; margin: 0.5rem !important">
+                E. Balance
+              </h1>
+              <span style="margin-bottom: 1rem">1. Stork Balance Stand Test</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">
+                  Right Foot: <span id="rif"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Left Foot: <span id="lef"></span>
+                </p>
+                <p style="font-weight: bold">
+                  Average: <span id="b_average"></span>
+                </p>
+
+                <p style="font-weight: bold">
+                  Classification: <span id="bc_average"></span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <h1 style="font-size: 15px; margin: 0.5rem !important">
+                F. Reaction Time
+              </h1>
+              <span style="margin-bottom: 1rem">1. Stick Drop Test</span>
+              <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    align-items: flex-start;
+                    flex-direction: column;
+                  ">
+                <p style="font-weight: bold">
+                  1st Try: <span id="t1"></span>
+                </p>
+                <p style="font-weight: bold">
+                  2nd Try: <span id="t2"></span>
+                </p>
+                <p style="font-weight: bold">
+                  3rd Try: <span id="t3"></span>
+                </p>
+
+                <p style="font-weight: bold">
+                  Middle Score: <span id="t4"></span>
+                </p>
+
+                <p style="font-weight: bold">
+                  Classification: <span id="t4_c"></span>
+                </p>
+              </div>
+            </div>
+            <hr>
+            <div class="btn_func" id="btn">
+              <button data-aos="fade-up" data-aos-delay="300" data-toggle="modal" data-target="#DataSccore"
+                onclick="Score()">
+                Change Password
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade" id="DataSccore" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="membershipFormLabel">Change Password</h2>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-top: 1rem;
+              gap: 1rem;
+            ">
+            <div style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              ">
+              <span style="font-size: 11px; font-style: italic">Password</span>
+              <input type="password" name="data" id="password" placeholder="Password" />
+            </div>
+            <button style="
+                height: 35px;
+                border-radius: 7px;
+                font-size: 12px;
+                background-color: black;
+                color: white;
+                border: white 1px solid;
+              " onclick="Save()">
+              Submit
+            </button>
+          </div>
+        </div>
+
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/aos.js"></script>
+  <script src="/assets/js/smoothscroll.js"></script>
+  <script src="/assets/js/custom.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript"
+    src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      var value = $.cookie("tid");
+      $("#stud").hide()
+      $("#btn").hide()
+      var teach = ""
+      $("#section").empty()
+      $("#section").append(`
+      <option class="form-control" value="">Select Section</option>
+      `)
+      $.get("/api/get_user", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          if (v.UserID == value) {
+            $("#teacher").html(v.User.Name);
+            teach = v.User.Name
+          }
+          if (teach == v.User.Name) {
+            $("#section").append(`
+            <option class="form-control" value="` + v.Grade + ` - ` + v.Section + `">` + v.Grade + ` - ` + v.Section + `</option>
+            `)
+          }
+        });
+      });
+    });
+
+    $('#section').on('change', function () {
+      $("#student").empty()
+      var value = $("#section").val()
+      if (value == "") {
+        value = "a"
+        $("#stud").hide()
+      }
+      $("#student").append(`
+      <option class="form-control" value="">Select Student</option>
+      `)
+      $.get("/api/get_user", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (value == v.Section && v.Type == "User") {
+            $("#student").append(`
+      <option class="form-control" value="`+ v.ID + `">` + v.Name + `</option>
+      `)
+          }
+        })
+      })
+    })
+
+
+    $('#student').on('change', function () {
+      $.cookie("id", this.value);
+      $("#stud").show()
+      BMI();
+      Strength();
+      Flex();
+      Jug();
+      Agility();
+      Speed();
+      Balance();
+      Time();
+      Cardio();
+      Sprint();
+      if (this.value == "") {
+        $("#stud").hide()
+      }
+    })
+    function BMI() {
+      var d = new Date();
+      var value = $("#student").val()
+
+      $.get("/api/get_bmi", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (value == v.UserID) {
+            $("#w").html(v.Weight);
+            $("#h").html(v.Height);
+            $("#b").html(v.Result.toFixed(2));
+            if (v.Result.toFixed(2) <= parseFloat(18.5)) {
+              $("#c").html("Wasted");
+            } else if (
+              v.Result.toFixed(2) >= parseFloat(18.5) &&
+              v.Result.toFixed(2) <= parseFloat(24.9)
+            ) {
+              $("#c").html("Normal");
+            } else if (
+              v.Result.toFixed(2) >= parseFloat(25) &&
+              v.Result.toFixed(2) <= parseFloat(29.9)
+            ) {
+              $("#c").html("OVerweight");
+            } else if (
+              v.Result.toFixed(2) >= parseFloat(30) &&
+              v.Result.toFixed(2) <= parseFloat(39.9)
+            ) {
+              $("#c").html("Obese");
+            } else {
+              $("#c").html("Extremely Obese");
+            }
+          }
+        });
+      });
+    }
+
+    function Cardio() {
+      var d = new Date();
+      var value = $("#student").val()
+
+      $.get("/api/get_cardio", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (value == v.UserID) {
+            $("#before").html(v.Before);
+            $("#after").html(v.After);
+          }
+        });
+      });
+    }
+
+    function Sprint() {
+      var d = new Date();
+      var value = $("#student").val()
+
+      $.get("/api/get_sprint", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (value == v.UserID) {
+            var del3 = ""
+            if (v.Sprint.toFixed(2) >= parseFloat(9.6)) {
+              del3 = "Needs Improvement"
+            } else if (
+              v.Sprint.toFixed(2) > parseFloat(8.6) &&
+              v.Sprint.toFixed(2) <= parseFloat(9.5)
+            ) {
+              del3 = "Fair"
+            } else if (
+              v.Sprint.toFixed(2) >= parseFloat(7.8) &&
+              v.Sprint.toFixed(2) <= parseFloat(8.5)
+            ) {
+              del3 = "Good"
+            } else if (
+              v.Sprint.toFixed(2) >= parseFloat(6.1) &&
+              v.Sprint.toFixed(2) <= parseFloat(7.7)
+            ) {
+              del3 = "Very Good"
+            } else if (v.Sprint.toFixed(2) <= parseFloat(6)) {
+              del3 = "Excellent"
+            }
+            $("#sp").html(v.Sprint);
+            $("#sp_c").html(del3);
+          }
+        });
+      });
+    }
+
+    function Strength() {
+      var d = new Date();
+      var value = $("#student").val()
+
+      $.get("/api/get_basic", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (value == v.UserID) {
+            var del3 = ""
+            var del4 = ""
+            if (v.Push == 0) {
+              del3 = "Poor"
+            } else if (v.Push >= parseFloat(1) && v.Push <= parseFloat(5)) {
+              del3 = "Needs Improvement"
+            } else if (v.Push >= parseFloat(6) && v.Push <= parseFloat(10)) {
+              del3 = "Fair"
+            } else if (v.Push >= parseFloat(11) && v.Push <= parseFloat(15)) {
+              del3 = "Good"
+            } else if (v.Push >= parseFloat(16) && v.Push <= parseFloat(20)) {
+              del3 = "Very Good"
+            } else {
+              del3 = "Excellent"
+            }
+
+            if (v.Basic >= parseFloat(1) && v.Basic <= parseFloat(15)) {
+              del4 = "Needs Improvement"
+            } else if (
+              v.Basic >= parseFloat(16) &&
+              v.Basic <= parseFloat(30)
+            ) {
+              del4 = "Fair"
+            } else if (
+              v.Basic >= parseFloat(31) &&
+              v.Basic <= parseFloat(45)
+            ) {
+              del4 = "Good"
+            } else if (
+              v.Basic >= parseFloat(46) &&
+              v.Basic <= parseFloat(50)
+            ) {
+              del4 = "Very Good"
+            } else {
+              del4 = "Excellent"
+            }
+
+
+
+            $("#push").html(v.Push);
+            $("#push_c").html(del3);
+            $("#plank").html(v.Basic);
+            $("#plank_c").html(del4);
+          }
+        });
+      });
+    }
+
+    function Flex() {
+      var d = new Date();
+      var value = $("#student").val()
+
+      $.get("/api/get_flex", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (value == v.UserID) {
+            var del3 = ""
+            var del4 = ""
+            if (v.Test.toFixed(2) < 0) {
+              del3 = "Poor"
+            } else if (v.Test.toFixed(2) == parseFloat(0)) {
+              del3 = "Needs Improvement"
+
+            } else if (
+              v.Test.toFixed(2) > parseFloat(0) &&
+              v.Test.toFixed(2) <= parseFloat(1.9)
+            ) {
+              del3 = "Fair"
+
+            } else if (
+              v.Test.toFixed(2) >= parseFloat(2) &&
+              v.Test.toFixed(2) <= parseFloat(3.9)
+            ) {
+              del3 = "Good"
+
+            } else if (
+              v.Test.toFixed(2) >= parseFloat(4) &&
+              v.Test.toFixed(2) <= parseFloat(5.9)
+            ) {
+              del3 = "Very Good"
+
+            } else if (v.Test.toFixed(2) >= parseFloat(6)) {
+              del3 = "Excellent"
+
+            }
+
+            if (v.Left.toFixed(2) < 0) {
+              del4 = "Poor"
+            } else if (v.Test.toFixed(2) == parseFloat(0)) {
+              del4 = "Needs Improvement"
+            } else if (
+              v.Left.toFixed(2) > parseFloat(0) &&
+              v.Left.toFixed(2) <= parseFloat(1.9)
+            ) {
+              del4 = "Fair"
+            } else if (
+              v.Left.toFixed(2) >= parseFloat(2) &&
+              v.Left.toFixed(2) <= parseFloat(3.9)
+            ) {
+              del4 = "Good"
+            } else if (
+              v.Left.toFixed(2) >= parseFloat(4) &&
+              v.Left.toFixed(2) <= parseFloat(5.9)
+            ) {
+              del4 = "Very Good"
+            } else if (v.Left.toFixed(2) >= parseFloat(6)) {
+
+              del4 = "Excellent"
+            }
+
+            $("#ri").html(v.Test);
+            $("#ri_c").html(del3);
+            $("#le").html(v.Left);
+            $("#le_c").html(del4);
+            $("#st").html(v.Sit);
+            $("#nd").html(v.Try);
+
+            if (v.Sit > v.Try) {
+              var del1 = ""
+              if (v.Sit.toFixed(2) > v.Try.toFixed(2)) {
+                if (
+                  v.Sit.toFixed(2) >= parseFloat(0) &&
+                  v.Sit.toFixed(2) <= parseFloat(15.9)
+                ) {
+                  del1 = "Needs Improvement";
+                } else if (
+                  v.Sit.toFixed(2) >= parseFloat(16) &&
+                  v.Sit.toFixed(2) <= parseFloat(30.9)
+                ) {
+                  del1 = "Fair";
+                } else if (
+                  v.Sit.toFixed(2) >= parseFloat(31) &&
+                  v.Sit.toFixed(2) <= parseFloat(45.9)
+                ) {
+                  del1 = "Good";
+                } else if (
+                  v.Sit.toFixed(2) >= parseFloat(46) &&
+                  v.Sit.toFixed(2) <= parseFloat(59.9)
+                ) {
+                  del1 = "Very Good";
+
+                } else if (v.Sit.toFixed(2) >= parseFloat(60)) {
+                  del1 = "Excellent";
+                }
+              }
+              $("#es").html(v.Sit);
+              $("#es_c").html(del1);
+            } else {
+              var del2 = ""
+              if (
+                v.Try.toFixed(2) >= parseFloat(0) &&
+                v.Try.toFixed(2) <= parseFloat(15.9)
+              ) {
+                del2 = "Needs Improvement";
+
+              } else if (
+                v.Try.toFixed(2) >= parseFloat(16) &&
+                v.Try.toFixed(2) <= parseFloat(30.9)
+              ) {
+                del2 = "Fair";
+              } else if (
+                v.Try.toFixed(2) >= parseFloat(31) &&
+                v.Try.toFixed(2) <= parseFloat(45.9)
+              ) {
+                del2 = "Good";
+              } else if (
+                v.Try.toFixed(2) >= parseFloat(46) &&
+                v.Try.toFixed(2) <= parseFloat(59.9)
+              ) {
+                del2 = "Very Good";
+              } else if (v.Try.toFixed(2) >= parseFloat(60)) {
+                del2 = "Excellent";
+              }
+              $("#es").html(v.Try);
+              $("#es_c").html(del2);
+            }
+          }
+        });
+      });
+    }
+
+    function Jug() {
+      var d = new Date();
+      var value = $("#student").val()
+
+      $.get("/api/get_jug", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (value == v.UserID) {
+            var del3 = ""
+            if (v.Jug >= 0 && v.Jug <= 10) {
+              del3 = "Needs Improvement"
+            } else if (v.Jug >= 11 && v.Jug <= 20) {
+              del3 = "Fair"
+            } else if (v.Jug >= 21 && v.Jug <= 30) {
+              del3 = "Good"
+            } else if (v.Jug >= 31 && v.Jug <= 40) {
+              del3 = "Very Good"
+            } else {
+              del3 = "Excellent"
+            }
+            $("#ju").html(v.Jug);
+            $("#ju_c").html(del3);
+          }
+        });
+      });
+    }
+
+    function Agility() {
+      var d = new Date();
+      var value = $("#student").val()
+
+      $.get("/api/get_agility", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (value == v.UserID) {
+            $("#cwise").html(v.Test);
+            $("#cuwise").html(v.Test1);
+
+            var result = (parseFloat(v.Test) + parseFloat(v.Test1)) / 2;
+            var del3 = ""
+            if (result >= 25) {
+              del3 = "Poor"
+            } else if (result >= parseFloat(21) && v.Test <= parseFloat(25)) {
+              del3 = "Needs Improvement"
+            } else if (result >= parseFloat(16) && v.Test <= parseFloat(20)) {
+              del3 = "Fair"
+            } else if (result >= parseFloat(11) && v.Test <= parseFloat(15)) {
+              del3 = "Good"
+            } else if (result >= parseFloat(10) && v.Test <= parseFloat(6)) {
+              del3 = "Very Good"
+            } else if (result <= parseFloat(5)) {
+              del3 = "Excellent"
+            }
+            $("#av").html(result.toFixed(2));
+            $("#av_c").html(del3);
+          }
+        });
+      });
+    }
+
+    function Speed() {
+      var d = new Date();
+      var value = $("#student").val()
+
+      $.get("/api/get_speed", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (value == v.UserID) {
+            var del3 = ""
+            var del4 = ""
+            if (v.Speed > v.Speed1) {
+              if (v.Speed >= 55 && v.Speed <= 100) {
+                del3 = "Needs Improvement"
+              } else if (v.Speed >= 101 && v.Speed <= 125) {
+                del3 = "Fair"
+              } else if (v.Speed >= 126 && v.Speed <= 150) {
+                del3 = "Good"
+              } else if (v.Speed >= 151 && v.Speed <= 200) {
+                del3 = "Very Good"
+              } else {
+                del3 = "Excellent"
+              }
+            } else {
+              if (v.Speed1 >= 55 && v.Speed1 <= 100) {
+                del4 = "Needs Improvement"
+              } else if (v.Speed1 >= 101 && v.Speed1 <= 125) {
+                del4 = "Fair"
+              } else if (v.Speed1 >= 126 && v.Speed1 <= 150) {
+                del4 = "Good"
+              } else if (v.Speed1 >= 151 && v.Speed1 <= 200) {
+                del4 = "Very Good"
+              } else {
+                del4 = "Excellent"
+              }
+            }
+
+
+            $("#st1").html(v.Speed);
+            $("#st1_c").html(del3);
+            $("#nd1").html(v.Speed1);
+            $("#nd1_c").html(del4);
+          }
+        });
+      });
+    }
+
+    function Balance() {
+      var d = new Date();
+      var value = $("#student").val()
+
+      $.get("/api/get_balance", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (value == v.UserID) {
+            $("#rif").html(v.Stork);
+            $("#lef").html(v.Stork1);
+
+            var result = (v.Stork + v.Stork1) / 2;
+            var del3 = ""
+            if (result >= parseFloat(1) && result <= parseFloat(40)) {
+              del3 = "Needs Improvement"
+            } else if (result >= parseFloat(41) && result <= parseFloat(80)) {
+              del3 = "Fair"
+            } else if (
+              result >= parseFloat(81) &&
+              result <= parseFloat(120)
+            ) {
+              del3 = "Good"
+            } else if (
+              result >= parseFloat(121) &&
+              result <= parseFloat(160)
+            ) {
+              del3 = "Very Good"
+            } else {
+              del3 = "Excellent"
+            }
+
+            $("#b_average").html(result);
+            $("#bc_average").html(del3);
+          }
+        });
+      });
+    }
+
+    function Time() {
+      var d = new Date();
+      var value = $("#student").val()
+      const median = [];
+      $.get("/api/get_time", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (value == v.UserID) {
+            $("#t1").html(v.Drop);
+            $("#t2").html(v.Drop1);
+            $("#t3").html(v.Drop2);
+
+            const median = (arr) => {
+              const mid = Math.floor(arr.length / 2),
+                nums = [...arr].sort((a, b) => a - b);
+              return arr.length % 2 !== 0
+                ? nums[mid]
+                : (nums[mid - 1] + nums[mid]) / 2;
+            };
+            var data = median([v.Drop, v.Drop1, v.Drop2]);
+            var del3 = ""
+            if (data >= 30.49) {
+              del3 = "Poor"
+            } else if (
+              data >= parseFloat(27.94) &&
+              data <= parseFloat(30.48)
+            ) {
+              del3 = "Needs Improvement"
+            } else if (
+              data >= parseFloat(20.32) &&
+              data <= parseFloat(27.93)
+            ) {
+              del3 = "Fair"
+            } else if (
+              data >= parseFloat(12.7) &&
+              data <= parseFloat(20.31)
+            ) {
+              del3 = "Good"
+            } else if (
+              data >= parseFloat(5.08) &&
+              data <= parseFloat(12.69)
+            ) {
+              del3 = "Very Good"
+            } else if (data <= parseFloat(5.07)) {
+              del3 = "Excellent"
+            }
+
+            $("#t4").html(data);
+            $("#t4_c").html(del3);
+          }
+        });
+      });
+    }
+
+    function Score() {
+      var password = $("#password").val()
+      if (password == "") {
+        Swal.fire({
+          toast: true,
+          position: "center",
+          icon: "warning",
+          title: "Please Complete Required Details",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      } else {
+        $.ajax({
+          url: "/api/password",
+          data: {
+            password: password,
+          },
+          success: function (res) {
+            Swal.fire({
+              toast: true,
+              position: "center",
+              icon: "success",
+              title: "Change Password Success",
+              showConfirmButton: false,
+              timer: 3000,
+            }).then(function () {
+              window.location.reload()
+            });
+          },
+        });
+      }
+    }
+  </script>
+</body>
+
+</html>

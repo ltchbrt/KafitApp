@@ -57,6 +57,13 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			Name:  "id",
 			Value: fmt.Sprint(user.ID),
 		})
+
+
+		http.SetCookie(w, &http.Cookie{
+			Path:  "/",
+			Name:  "tid",
+			Value: fmt.Sprint(user.ID),
+		})
 		data := map[string]interface{}{
 			"status":  "ok",
 			"results": result,
