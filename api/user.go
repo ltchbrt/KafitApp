@@ -159,6 +159,21 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func Password(w http.ResponseWriter, r *http.Request) {
+
+	db := GormDB()
+	password := r.FormValue("password")
+	item := models.User{}
+	user, _ := r.Cookie("id")
+	db.Where("id", user.Value).Find(&item)
+
+	item.Password = hashPassword(password)
+
+	sqlDB, _ := db.DB()
+	sqlDB.Close()
+
+}
+
 
 func DeleteTeacher(w http.ResponseWriter, r *http.Request) {
 

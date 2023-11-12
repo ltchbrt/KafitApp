@@ -1,256 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>KaFit Fitness App</title>
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
+<head>
+  <title>KaFit Fitness App</title>
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/assets/css/aos.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
-  </head>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/css/aos.css" />
 
-  <style>
-    .p_title {
-      font-size: 25px;
-      padding: 1rem;
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="/assets/css/tooplate-gymso-style.css" />
+</head>
 
-      margin: 0 !important;
-      text-align: center;
-    }
+<style>
+  .p_title {
+    font-size: 25px;
+    padding: 1rem;
 
-    .p_title1 {
-      font-size: 15px;
-      padding: 1rem;
-      margin: 0 !important;
-    }
+    margin: 0 !important;
+    text-align: center;
+  }
 
-    .p_header {
-      font-size: 18px;
-      background-color: #80808091;
-      padding: 1rem;
-      border-radius: 5px;
-    }
+  .p_title1 {
+    font-size: 15px;
+    padding: 1rem;
+    margin: 0 !important;
+  }
 
-    .list {
-      font-size: 20px;
-      font-weight: bold;
-      padding-bottom: 1rem;
-    }
+  .p_header {
+    font-size: 18px;
+    background-color: #80808091;
+    padding: 1rem;
+    border-radius: 5px;
+  }
 
-    .icon button {
-      border: none;
-      background: none;
-      font-size: 17px;
-      font-weight: bold;
-      padding-bottom: 1rem;
-    }
+  .list {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
 
-    .icon {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: 0.5rem;
-    }
+  .icon button {
+    border: none;
+    background: none;
+    font-size: 17px;
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
 
-    .btn_func {
-      padding: 1rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
+  .icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
 
-    .btn_func a {
-      width: 75px;
-      height: 35px;
-      border-radius: 7px;
-      padding-top: 0.3rem;
-      text-align: center;
-      font-size: 12px;
-      background-color: black;
-      color: white;
-      border: white 1px solid;
-    }
-    .btn_func button {
-      width: 75px;
-      height: 35px;
-      border-radius: 7px;
-      font-size: 12px;
-      background-color: black;
-      color: white;
-      border: white 1px solid;
-    }
-  </style>
-  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
-    <!-- MENU BAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="/">KaFit App</a>
+  .btn_func {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  .btn_func a {
+    width: 75px;
+    height: 35px;
+    border-radius: 7px;
+    padding-top: 0.3rem;
+    text-align: center;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    border: white 1px solid;
+  }
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-lg-auto">
-            <li class="nav-item">
-              <a href="/overview" class="nav-link smoothScroll">OVERVIEW</a>
-            </li>
+  .btn_func button {
+    width: 75px;
+    height: 35px;
+    border-radius: 7px;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    border: white 1px solid;
+  }
+</style>
 
-            <li class="nav-item">
-              <a href="/PFT" class="nav-link smoothScroll">PFT</a>
-            </li>
-            <li class="nav-item">
-              <a href="/Profile" class="nav-link smoothScroll">PROFILE</a>
-            </li>
-            <li class="nav-item">
-              <a href="/Resources" class="nav-link smoothScroll">RESOURCES</a>
-            </li>
-            <li class="nav-item">
-              <a href="/About" class="nav-link smoothScroll">ABOUT</a>
-            </li>
-            <li class="nav-item">
-              <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
-            </li>
-          </ul>
-        </div>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+  <!-- MENU BAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">KaFit App</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-lg-auto">
+          <li class="nav-item">
+            <a href="/overview" class="nav-link smoothScroll">OVERVIEW</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/PFT" class="nav-link smoothScroll">PFT</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Profile" class="nav-link smoothScroll">PROFILE</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Resources" class="nav-link smoothScroll">RESOURCES</a>
+          </li>
+          <li class="nav-item">
+            <a href="/About" class="nav-link smoothScroll">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
+          </li>
+        </ul>
       </div>
-    </nav>
-    <!-- ABOUT -->
-    <section class="about section centerdata" id="about">
-      <div class="container">
-        <div class="row">
-          <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
-            <h1 class="p_title">REPORT</h1>
-            <div style="    display: flex;
+    </div>
+  </nav>
+  <!-- ABOUT -->
+  <section class="about section centerdata" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12">
+          <h1 class="p_title">REPORT</h1>
+          <div style="    display: flex;
             justify-content: center;
             align-content: center;
             flex-direction: row;
             align-items: flex-start;
             gap: 1rem;">
-              <p>Type of Report: </p>
-              <select name="select" id="select" style="width: 50%;">
-                <option value="">Select Report</option>
-                <option value="BMI">BMI</option>
-                <option value="FLEXIBILITY">FLEXIBILITY</option>
-                <option value="STRENGTH">STRENGTH</option>
-                <option value="CARDIO">CARDIOVASCULAR ENDURANCE</option>
-                <option value="SPEED">SPEED</option>
-                <option value="POWER">POWER</option>
-                <option value="AGILITY">AGILITY</option>
-                <option value="TIME">REACTION TIME</option>
-                <option value="COORDINATION">COORDINATION</option>
-                <option value="BALANCE">BALANCE</option>
-                <option value="PARQ">PARQ</option>
-              </select>
-            </div>
-          
-            <p style="text-align: justify">
-              <table class="table" id="data">
-              <!-- Append Data -->
-              </table>
-              
-            </p>
-         
-            </div>
+            <p>Type of Report: </p>
+            <select name="select" id="select" style="width: 50%;">
+              <option value="">Select Report</option>
+              <option value="BMI">BMI</option>
+              <option value="ZIPPER">FLEXIBILITY ZIPPER TEST</option>
+              <option value="SIT">FLEXIBILITY SIT AND REACH</option>
+              <option value="PUSH">STRENGTH PUSH UP</option>
+              <option value="BASIC">STRENGTH BASIC PLANK</option>
+              <option value="CARDIO">CARDIOVASCULAR ENDURANCE</option>
+              <option value="SPEED">SPEED</option>
+              <option value="POWER">POWER</option>
+              <option value="AGILITY">AGILITY</option>
+              <option value="TIME">REACTION TIME</option>
+              <option value="COORDINATION">COORDINATION</option>
+              <option value="BALANCE">BALANCE</option>
+              <option value="PARQ">PARQ</option>
+            </select>
           </div>
+
+          <p style="text-align: justify">
+          <table class="table" id="data">
+            <!-- Append Data -->
+          </table>
+
+          </p>
+
         </div>
       </div>
-    </section>
+    </div>
+    </div>
+  </section>
 
-    <!-- SCRIPTS -->
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/aos.js"></script>
-    <script src="/assets/js/smoothscroll.js"></script>
-    <script src="/assets/js/custom.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      type="text/javascript"
-      src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
-    ></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <!-- SCRIPTS -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/aos.js"></script>
+  <script src="/assets/js/smoothscroll.js"></script>
+  <script src="/assets/js/custom.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript"
+    src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
-    <script>
-      $(document).ready(function () {
+  <script>
+    $(document).ready(function () {
+      $("#data").hide()
+    });
+
+    $('select').on('change', function () {
+      if (this.value == "") {
         $("#data").hide()
-      });
-
-      $('select').on('change', function() {
-        if (this.value == ""){
-          $("#data").hide()
-        }else if (this.value == "BMI"){
-          $("#data").show()
-          BMI()
-        } else if (this.value == "FLEXIBILITY"){
-          $("#data").show()
-          Flex()
-        }else if (this.value == "CARDIO"){
-          $("#data").show()
-          Cardio()
-        }else if (this.value == "STRENGTH"){
-          $("#data").show()
-          Strength()
-        }
-        else if (this.value == "SPEED"){
-          $("#data").show()
-          Sprint()
-        }
-        else if (this.value == "AGILITY"){
-          $("#data").show()
-          Agility()
-        }
-        else if (this.value == "POWER"){
-          $("#data").show()
-          Speed()
-        }
-        else if (this.value == "TIME"){
-          $("#data").show()
-          Time()
-        } else if (this.value == "COORDINATION"){
-          $("#data").show()
-          Jug()
-        }else if (this.value == "BALANCE"){
-          $("#data").show()
-          Balance()
-        }else if (this.value == "PARQ"){
-          $("#data").show()
-          Parq()
-        }
-      });
-
-      function BMI() {
+      } else if (this.value == "BMI") {
         $("#data").show()
-        var result = ""
-        $("#data").empty()
-        $("#data").append(`
+        BMI()
+      } else if (this.value == "ZIPPER") {
+        $("#data").show()
+        Flex("ZIPPER")
+      } else if (this.value == "SIT") {
+        $("#data").show()
+        Flex("SIT")
+      } else if (this.value == "CARDIO") {
+        $("#data").show()
+        Cardio()
+      } else if (this.value == "PUSH") {
+        $("#data").show()
+        Strength("PUSH")
+      } else if (this.value == "BASIC") {
+        $("#data").show()
+        Strength("BASIC")
+      }
+      else if (this.value == "SPEED") {
+        $("#data").show()
+        Sprint()
+      }
+      else if (this.value == "AGILITY") {
+        $("#data").show()
+        Agility()
+      }
+      else if (this.value == "POWER") {
+        $("#data").show()
+        Speed()
+      }
+      else if (this.value == "TIME") {
+        $("#data").show()
+        Time()
+      } else if (this.value == "COORDINATION") {
+        $("#data").show()
+        Jug()
+      } else if (this.value == "BALANCE") {
+        $("#data").show()
+        Balance()
+      } else if (this.value == "PARQ") {
+        $("#data").show()
+        Parq()
+      }
+    });
+
+    function BMI() {
+      $("#data").show()
+      var result = ""
+      $("#data").empty()
+      $("#data").append(`
         <thead class="thead-dark">
                   <tr>
                     <th scope="col">Date</th>
@@ -259,47 +255,47 @@
                     <th scope="col">Classification</th>
                   </tr>
                 </thead>`)
-        $.get("/api/get_bmi", function (index) {
-          var result = JSON.parse(index).item1;
-          $.each(result, function (_, v) {
-              if (v.Result.toFixed(2) <= parseFloat(18.5)) {
-                result = "Wasted";
-              } else if (
-                v.Result.toFixed(2) >= parseFloat(18.5) &&
-                v.Result.toFixed(2) <= parseFloat(24.9)
-              ) {
-                result = "Normal";
-              } else if (
-                v.Result.toFixed(2) >= parseFloat(25) &&
-                v.Result.toFixed(2) <= parseFloat(29.9)
-              ) {
-                result = "OVerweight"
-              } else if (
-                v.Result.toFixed(2) >= parseFloat(30) &&
-                v.Result.toFixed(2) <= parseFloat(39.9)
-              ) {
-                result = "Obese";
-              } else {
-                result = "Extremely Obese";
-              }
-              $("#data").append(`
+      $.get("/api/get_bmi", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          if (v.Result.toFixed(2) <= parseFloat(18.5)) {
+            result = "Wasted";
+          } else if (
+            v.Result.toFixed(2) >= parseFloat(18.5) &&
+            v.Result.toFixed(2) <= parseFloat(24.9)
+          ) {
+            result = "Normal";
+          } else if (
+            v.Result.toFixed(2) >= parseFloat(25) &&
+            v.Result.toFixed(2) <= parseFloat(29.9)
+          ) {
+            result = "OVerweight"
+          } else if (
+            v.Result.toFixed(2) >= parseFloat(30) &&
+            v.Result.toFixed(2) <= parseFloat(39.9)
+          ) {
+            result = "Obese";
+          } else {
+            result = "Extremely Obese";
+          }
+          $("#data").append(`
               <tbody>
                   <tr>
-                    <th scope="row">`+v.Date+`</th>
-                    <td>`+v.Weight+` / `+v.Height+`</td>
-                    <td>`+v.Result.toFixed(2)+`</td>
-                    <td>`+result+`</td>
+                    <th scope="row">`+ v.Date + `</th>
+                    <td>`+ v.Weight + ` / ` + v.Height + `</td>
+                    <td>`+ v.Result.toFixed(2) + `</td>
+                    <td>`+ result + `</td>
                   </tr>
                 </tbody>`)
-          });
         });
-      }
+      });
+    }
 
-      function Cardio() {
-        $("#data").show()
-        var result = ""
-        $("#data").empty()
-        $("#data").append(`
+    function Cardio() {
+      $("#data").show()
+      var result = ""
+      $("#data").empty()
+      $("#data").append(`
         <thead class="thead-dark">
                   <tr>
                     <th scope="col">Date</th>
@@ -308,133 +304,369 @@
                   </tr>
                 </thead>`)
 
-        $.get("/api/get_cardio", function (index) {
-          var result = JSON.parse(index).item1;
-          $.each(result, function (_, v) {
-            $("#data").append(`
+      $.get("/api/get_cardio", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          $("#data").append(`
               <tbody>
                   <tr>
-                    <th scope="row">`+v.Date+`</th>
-                    <td>`+v.Before+` </td>
-                    <td>`+v.After+`</td>
+                    <th scope="row">`+ v.Date + `</th>
+                    <td>`+ v.Before + ` </td>
+                    <td>`+ v.After + `</td>
                   </tr>
                 </tbody>`)
-          });
         });
-      }
+      });
+    }
 
-      function Sprint() {
-        $("#data").show()
-        var result = ""
-        $("#data").empty()
-        $("#data").append(`
+    function Sprint() {
+      $("#data").show()
+      var result = ""
+      $("#data").empty()
+      $("#data").append(`
         <thead class="thead-dark">
                   <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
+                    <th scope="col">Classification</th>
                   </tr>
                 </thead>`)
 
 
-        $.get("/api/get_sprint", function (index) {
-          var result = JSON.parse(index).item1;
-          $.each(result, function (_, v) {
-            $("#data").append(`
+      $.get("/api/get_sprint", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          var del3 = ""
+          if (v.Sprint.toFixed(2) >= parseFloat(9.6)) {
+            del3 = "Needs Improvement"
+          } else if (
+            v.Sprint.toFixed(2) > parseFloat(8.6) &&
+            v.Sprint.toFixed(2) <= parseFloat(9.5)
+          ) {
+            del3 = "Fair"
+          } else if (
+            v.Sprint.toFixed(2) >= parseFloat(7.8) &&
+            v.Sprint.toFixed(2) <= parseFloat(8.5)
+          ) {
+            del3 = "Good"
+          } else if (
+            v.Sprint.toFixed(2) >= parseFloat(6.1) &&
+            v.Sprint.toFixed(2) <= parseFloat(7.7)
+          ) {
+            del3 = "Very Good"
+          } else if (v.Sprint.toFixed(2) <= parseFloat(6)) {
+            del3 = "Excellent"
+          }
+          $("#data").append(`
               <tbody>
                   <tr>
-                    <th scope="row">`+v.Date+`</th>
-                    <td>`+v.Sprint+` </td>
+                    <th scope="row">`+ v.Date + `</th>
+                    <td>`+ v.Sprint + ` </td>
+                    <td>`+ del3 + ` </td>
                   </tr>
                 </tbody>`)
-          });
         });
-      }
+      });
+    }
 
-      function Strength() {
-        $("#data").show()
-        var result = ""
+    function Strength(base) {
+      $("#data").show()
+      var result = ""
+
+      if (base == "PUSH") {
         $("#data").empty()
         $("#data").append(`
         <thead class="thead-dark">
                   <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Push-Up</th>
-                    <th scope="col">Basic Plank</th>
+                    <th scope="col">Classification</th>
                   </tr>
                 </thead>`)
-
-        $.get("/api/get_basic", function (index) {
-          var result = JSON.parse(index).item1;
-          $.each(result, function (_, v) {
-            $("#data").append(`
-              <tbody>
-                  <tr>
-                    <th scope="row">`+v.Date+`</th>
-                    <td>`+v.Push+` </td>
-                    <td>`+v.Basic+`</td>
-                  </tr>
-                </tbody>`)
-          });
-        });
-      }
-
-      function Flex() {
-        $("#data").show()
-        var result = ""
+      } else {
         $("#data").empty()
         $("#data").append(`
         <thead class="thead-dark">
                   <tr>
                     <th scope="col">Date</th>
-                    <th scope="col">Zipper Test</th>
-                    <th scope="col">Sit and Reach</th>
+                    <th scope="col">Basic Plank</th>
+                    <th scope="col">Classification</th>
                   </tr>
                 </thead>`)
-        $.get("/api/get_flex", function (index) {
-          var result = JSON.parse(index).item1;
-          $.each(result, function (_, v) {
-            $("#data").append(`
-              <tbody>
-                  <tr>
-                    <th scope="row">`+v.Date+`</th>
-                    <td>`+v.Test+` / `+v.Left+`</td>
-                    <td>`+v.Sit+` / `+v.Try+`</td>
-                  </tr>
-                </tbody>`)
-          });
-        });
       }
 
-      function Jug() {
-        $("#data").show()
-        var result = ""
+
+
+      $.get("/api/get_basic", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          var del3 = ""
+          var del4 = ""
+          if (v.Push == 0) {
+            del3 = "Poor"
+          } else if (v.Push >= parseFloat(1) && v.Push <= parseFloat(5)) {
+            del3 = "Needs Improvement"
+          } else if (v.Push >= parseFloat(6) && v.Push <= parseFloat(10)) {
+            del3 = "Fair"
+          } else if (v.Push >= parseFloat(11) && v.Push <= parseFloat(15)) {
+            del3 = "Good"
+          } else if (v.Push >= parseFloat(16) && v.Push <= parseFloat(20)) {
+            del3 = "Very Good"
+          } else {
+            del3 = "Excellent"
+          }
+
+          if (v.Basic >= parseFloat(1) && v.Basic <= parseFloat(15)) {
+            del4 = "Needs Improvement"
+          } else if (
+            v.Basic >= parseFloat(16) &&
+            v.Basic <= parseFloat(30)
+          ) {
+            del4 = "Fair"
+          } else if (
+            v.Basic >= parseFloat(31) &&
+            v.Basic <= parseFloat(45)
+          ) {
+            del4 = "Good"
+          } else if (
+            v.Basic >= parseFloat(46) &&
+            v.Basic <= parseFloat(50)
+          ) {
+            del4 = "Very Good"
+          } else {
+            del4 = "Excellent"
+          }
+
+          if (base == "PUSH") {
+
+            $("#data").append(`
+                <tbody>
+                    <tr>
+                      <th scope="row">`+ v.Date + `</th>
+                      <td>`+ v.Push + ` </td>
+                      <td> ` + del3 + ` </td>
+                    </tr>
+                  </tbody>`)
+          } else {
+            $("#data").append(`
+                <tbody>
+                    <tr>
+                      <th scope="row">`+ v.Date + `</th>
+                      <td>`+ v.Basic + `</td>
+                      <td> ` + del4 + ` </td>
+                    </tr>
+                  </tbody>`)
+          }
+        });
+      });
+    }
+
+    function Flex(cat) {
+      $("#data").show()
+      var result = ""
+      if (cat == "ZIPPER") {
         $("#data").empty()
         $("#data").append(`
+          <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Date</th>
+                      <th scope="col">Zipper Test</th>
+                      <th scope="col">Classification</th>
+                    </tr>
+                  </thead>`)
+      } else {
+        $("#data").empty()
+        $("#data").append(`
+          <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Date</th>
+                      <th scope="col">Sit and Reach</th>
+                      <th scope="col">Classification</th>
+                    </tr>
+                  </thead>`)
+      }
+      $.get("/api/get_flex", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          var del3 = ""
+          var del4 = ""
+          if (v.Test.toFixed(2) < 0) {
+            del3 = "Poor"
+          } else if (v.Test.toFixed(2) == parseFloat(0)) {
+            del3 = "Needs Improvement"
+
+          } else if (
+            v.Test.toFixed(2) > parseFloat(0) &&
+            v.Test.toFixed(2) <= parseFloat(1.9)
+          ) {
+            del3 = "Fair"
+
+          } else if (
+            v.Test.toFixed(2) >= parseFloat(2) &&
+            v.Test.toFixed(2) <= parseFloat(3.9)
+          ) {
+            del3 = "Good"
+
+          } else if (
+            v.Test.toFixed(2) >= parseFloat(4) &&
+            v.Test.toFixed(2) <= parseFloat(5.9)
+          ) {
+            del3 = "Very Good"
+
+          } else if (v.Test.toFixed(2) >= parseFloat(6)) {
+            del3 = "Excellent"
+
+          }
+
+          if (v.Left.toFixed(2) < 0) {
+            del4 = "Poor"
+          } else if (v.Test.toFixed(2) == parseFloat(0)) {
+            del4 = "Needs Improvement"
+          } else if (
+            v.Left.toFixed(2) > parseFloat(0) &&
+            v.Left.toFixed(2) <= parseFloat(1.9)
+          ) {
+            del4 = "Fair"
+          } else if (
+            v.Left.toFixed(2) >= parseFloat(2) &&
+            v.Left.toFixed(2) <= parseFloat(3.9)
+          ) {
+            del4 = "Good"
+          } else if (
+            v.Left.toFixed(2) >= parseFloat(4) &&
+            v.Left.toFixed(2) <= parseFloat(5.9)
+          ) {
+            del4 = "Very Good"
+          } else if (v.Left.toFixed(2) >= parseFloat(6)) {
+
+            del4 = "Excellent"
+          }
+
+          var del1 = ""
+          var del2 = ""
+          if (v.Sit > v.Try) {
+
+            if (v.Sit.toFixed(2) > v.Try.toFixed(2)) {
+              if (
+                v.Sit.toFixed(2) >= parseFloat(0) &&
+                v.Sit.toFixed(2) <= parseFloat(15.9)
+              ) {
+                del1 = "Needs Improvement";
+              } else if (
+                v.Sit.toFixed(2) >= parseFloat(16) &&
+                v.Sit.toFixed(2) <= parseFloat(30.9)
+              ) {
+                del1 = "Fair";
+              } else if (
+                v.Sit.toFixed(2) >= parseFloat(31) &&
+                v.Sit.toFixed(2) <= parseFloat(45.9)
+              ) {
+                del1 = "Good";
+              } else if (
+                v.Sit.toFixed(2) >= parseFloat(46) &&
+                v.Sit.toFixed(2) <= parseFloat(59.9)
+              ) {
+                del1 = "Very Good";
+
+              } else if (v.Sit.toFixed(2) >= parseFloat(60)) {
+                del1 = "Excellent";
+              }
+            }
+          } else {
+
+            if (
+              v.Try.toFixed(2) >= parseFloat(0) &&
+              v.Try.toFixed(2) <= parseFloat(15.9)
+            ) {
+              del2 = "Needs Improvement";
+
+            } else if (
+              v.Try.toFixed(2) >= parseFloat(16) &&
+              v.Try.toFixed(2) <= parseFloat(30.9)
+            ) {
+              del2 = "Fair";
+            } else if (
+              v.Try.toFixed(2) >= parseFloat(31) &&
+              v.Try.toFixed(2) <= parseFloat(45.9)
+            ) {
+              del2 = "Good";
+            } else if (
+              v.Try.toFixed(2) >= parseFloat(46) &&
+              v.Try.toFixed(2) <= parseFloat(59.9)
+            ) {
+              del2 = "Very Good";
+            } else if (v.Try.toFixed(2) >= parseFloat(60)) {
+              del2 = "Excellent";
+            }
+          }
+
+          if (cat == "ZIPPER") {
+            $("#data").append(`
+                <tbody>
+                    <tr>
+                      <th scope="row">`+ v.Date + `</th>
+                      <td>`+ v.Test + ` / ` + v.Left + `</td>
+                      <td> ` + del3 + ` /  ` + del4 + `</td>
+                    </tr>
+                  </tbody>`)
+          } else {
+            $("#data").append(`
+                <tbody>
+                    <tr>
+                      <th scope="row">`+ v.Date + `</th>
+                      <td>`+ v.Sit + `  / ` + v.Try + ` </td>
+                      <td> ` + del1 + ` /  ` + del2 + `</td>
+                    </tr>
+                  </tbody>`)
+          }
+        });
+      });
+    }
+
+    function Jug() {
+      $("#data").show()
+      var result = ""
+      $("#data").empty()
+      $("#data").append(`
         <thead class="thead-dark">
                   <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Juggling</th>
+                    <th scope="col">Classification</th>
                   </tr>
                 </thead>`)
-        $.get("/api/get_jug", function (index) {
-          var result = JSON.parse(index).item1;
-          $.each(result, function (_, v) {
-            $("#data").append(`
+      $.get("/api/get_jug", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          var del3 = ""
+          if (v.Jug >= 0 && v.Jug <= 10) {
+            del3 = "Needs Improvement"
+          } else if (v.Jug >= 11 && v.Jug <= 20) {
+            del3 = "Fair"
+          } else if (v.Jug >= 21 && v.Jug <= 30) {
+            del3 = "Good"
+          } else if (v.Jug >= 31 && v.Jug <= 40) {
+            del3 = "Very Good"
+          } else {
+            del3 = "Excellent"
+          }
+          $("#data").append(`
               <tbody>
                   <tr>
-                    <th scope="row">`+v.Date+`</th>
-                    <td> `+v.Jug+`</td>
+                    <th scope="row">`+ v.Date + `</th>
+                    <td> `+ v.Jug + `</td>
+                    <td> `+ del3 + `</td>
                   </tr>
                 </tbody>`)
-          });
         });
-      }
+      });
+    }
 
-      function Agility() {
-        $("#data").show()
-        var result = ""
-        $("#data").empty()
-        $("#data").append(`
+    function Agility() {
+      $("#data").show()
+      var result = ""
+      $("#data").empty()
+      $("#data").append(`
         <thead class="thead-dark">
                   <tr>
                     <th scope="col">Date</th>
@@ -444,171 +676,275 @@
                   </tr>
                 </thead>`)
 
-        $.get("/api/get_agility", function (index) {
-          var result = JSON.parse(index).item1;
-          $.each(result, function (_, v) {
-            var result = (parseFloat(v.Test) + parseFloat(v.Test1)) / 2;
-            $("#data").append(`
+      $.get("/api/get_agility", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          var result = (parseFloat(v.Test) + parseFloat(v.Test1)) / 2;
+          var del3 = ""
+          if (result >= 25) {
+            del3 = "Poor"
+          } else if (result >= parseFloat(21) && v.Test <= parseFloat(25)) {
+            del3 = "Needs Improvement"
+          } else if (result >= parseFloat(16) && v.Test <= parseFloat(20)) {
+            del3 = "Fair"
+          } else if (result >= parseFloat(11) && v.Test <= parseFloat(15)) {
+            del3 = "Good"
+          } else if (result >= parseFloat(10) && v.Test <= parseFloat(6)) {
+            del3 = "Very Good"
+          } else if (result <= parseFloat(5)) {
+            del3 = "Excellent"
+          }
+          $("#data").append(`
               <tbody>
                   <tr>
-                    <th scope="row">`+v.Date+`</th>
-                    <td>`+v.Test+`</td>
-                    <td>`+v.Test1+`</td>
-                    <td>`+result.toFixed(2)+`</td>
+                    <th scope="row">`+ v.Date + `</th>
+                    <td>`+ v.Test + `</td>
+                    <td>`+ v.Test1 + `</td>
+                    <td>`+ result.toFixed(2) + ` - ` + del3 + `</td>
                   </tr>
                 </tbody>`)
-          });
         });
-      }
+      });
+    }
 
-      function Speed() {
-        $("#data").show()
-        var result = ""
-        $("#data").empty()
-        $("#data").append(`
+    function Speed() {
+      $("#data").show()
+      var result = ""
+      $("#data").empty()
+      $("#data").append(`
         <thead class="thead-dark">
                   <tr>
                     <th scope="col">Date</th>
                     <th scope="col">1st Try</th>
                     <th scope="col">2nd Try</th>
+                    <th scope="col">Classification</th>
                   </tr>
                 </thead>`)
 
-        $.get("/api/get_speed", function (index) {
-          var result = JSON.parse(index).item1;
-          $.each(result, function (_, v) {
-            $("#data").append(`
+      $.get("/api/get_speed", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          var del3 = ""
+          var del4 = ""
+          if (v.Speed > v.Speed1) {
+            if (v.Speed >= 55 && v.Speed <= 100) {
+              del3 = "Needs Improvement"
+            } else if (v.Speed >= 101 && v.Speed <= 125) {
+              del3 = "Fair"
+            } else if (v.Speed >= 126 && v.Speed <= 150) {
+              del3 = "Good"
+            } else if (v.Speed >= 151 && v.Speed <= 200) {
+              del3 = "Very Good"
+            } else {
+              del3 = "Excellent"
+            }
+          } else {
+            if (v.Speed1 >= 55 && v.Speed1 <= 100) {
+              del4 = "Needs Improvement"
+            } else if (v.Speed1 >= 101 && v.Speed1 <= 125) {
+              del4 = "Fair"
+            } else if (v.Speed1 >= 126 && v.Speed1 <= 150) {
+              del4 = "Good"
+            } else if (v.Speed1 >= 151 && v.Speed1 <= 200) {
+              del4 = "Very Good"
+            } else {
+              del4 = "Excellent"
+            }
+          }
+          $("#data").append(`
               <tbody>
                   <tr>
-                    <th scope="row">`+v.Date+`</th>
-                    <td>`+v.Speed+`</td>
-                    <td>`+v.Speed1+`</td>
+                    <th scope="row">`+ v.Date + `</th>
+                    <td>`+ v.Speed + `</td>
+                    <td>`+ v.Speed1 + `</td>
+                    <td>`+ del3 + ` ` + del4 + `</td>
                   </tr>
                 </tbody>`)
-          });
         });
-      }
+      });
+    }
 
-      function Balance() {
-        $("#data").show()
-        var result = ""
-        $("#data").empty()
-        $("#data").append(`
+    function Balance() {
+      $("#data").show()
+      var result = ""
+      $("#data").empty()
+      $("#data").append(`
         <thead class="thead-dark">
                   <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Right Foot</th>
                     <th scope="col">Left Foot</th>
+                    <th scope="col">Classification</th>
                   </tr>
                 </thead>`)
 
-        $.get("/api/get_balance", function (index) {
-          var result = JSON.parse(index).item1;
-          $.each(result, function (_, v) {
-              $("#data").append(`
+      $.get("/api/get_balance", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          var result = (v.Stork + v.Stork1) / 2;
+          var del3 = ""
+          if (result >= parseFloat(1) && result <= parseFloat(40)) {
+            del3 = "Needs Improvement"
+          } else if (result >= parseFloat(41) && result <= parseFloat(80)) {
+            del3 = "Fair"
+          } else if (
+            result >= parseFloat(81) &&
+            result <= parseFloat(120)
+          ) {
+            del3 = "Good"
+          } else if (
+            result >= parseFloat(121) &&
+            result <= parseFloat(160)
+          ) {
+            del3 = "Very Good"
+          } else {
+            del3 = "Excellent"
+          }
+
+          $("#data").append(`
               <tbody>
                   <tr>
-                    <th scope="row">`+v.Date+`</th>
-                    <td>`+v.Stork+`</td>
-                    <td>`+v.Stork1+`</td>
+                    <th scope="row">`+ v.Date + `</th>
+                    <td>`+ v.Stork + `</td>
+                    <td>`+ v.Stork1 + `</td>
+                    <td>`+ del3 + `</td>
                   </tr>
-                </tbody>`) 
-          });
+                </tbody>`)
         });
-      }
+      });
+    }
 
-      function Time() {
-        $("#data").show()
-        var result = ""
-        $("#data").empty()
-        $("#data").append(`
+    function Time() {
+      $("#data").show()
+      var result = ""
+      $("#data").empty()
+      const median = [];
+      $("#data").append(`
         <thead class="thead-dark">
                   <tr>
                     <th scope="col">Date</th>
                     <th scope="col">1st Try</th>
                     <th scope="col">2nd Try</th>
                     <th scope="col">3rd Try</th>
+                    <th scope="col">Classification</th>
                   </tr>
                 </thead>`)
-        $.get("/api/get_time", function (index) {
-          var result = JSON.parse(index).item1;
-          $.each(result, function (_, v) {
-            $("#data").append(`
+      $.get("/api/get_time", function (index) {
+        var result = JSON.parse(index).item1;
+        $.each(result, function (_, v) {
+          const median = (arr) => {
+            const mid = Math.floor(arr.length / 2),
+              nums = [...arr].sort((a, b) => a - b);
+            return arr.length % 2 !== 0
+              ? nums[mid]
+              : (nums[mid - 1] + nums[mid]) / 2;
+          };
+          var data = median([v.Drop, v.Drop1, v.Drop2]);
+          var del3 = ""
+          if (data >= 30.49) {
+            del3 = "Poor"
+          } else if (
+            data >= parseFloat(27.94) &&
+            data <= parseFloat(30.48)
+          ) {
+            del3 = "Needs Improvement"
+          } else if (
+            data >= parseFloat(20.32) &&
+            data <= parseFloat(27.93)
+          ) {
+            del3 = "Fair"
+          } else if (
+            data >= parseFloat(12.7) &&
+            data <= parseFloat(20.31)
+          ) {
+            del3 = "Good"
+          } else if (
+            data >= parseFloat(5.08) &&
+            data <= parseFloat(12.69)
+          ) {
+            del3 = "Very Good"
+          } else if (data <= parseFloat(5.07)) {
+            del3 = "Excellent"
+          }
+
+          $("#data").append(`
               <tbody>
                   <tr>
-                    <th scope="row">`+v.Date+`</th>
-                    <td>`+v.Drop+`</td>
-                    <td>`+v.Drop1+`</td>
-                    <td>`+v.Drop2+`</td>
+                    <th scope="row">`+ v.Date + `</th>
+                    <td>`+ v.Drop + `</td>
+                    <td>`+ v.Drop1 + `</td>
+                    <td>`+ v.Drop2 + `</td>
+                    <td>`+ del3 + `</td>
                   </tr>
                 </tbody>`)
-          });
         });
-      }
+      });
+    }
 
-      function Parq() {
-        $("#data").show()
-        var result = ""
-        $("#data").empty()
-        $("#data").append(`
+    function Parq() {
+      $("#data").show()
+      var result = ""
+      $("#data").empty()
+      $("#data").append(`
         <thead class="thead-dark">
                   <tr>
                     <th scope="col">Question</th>
                     <th scope="col">Yes/No</th>
                   </tr>
                 </thead>`)
-        $.get("/api/get_parq", function (index) {
-          var result = JSON.parse(index).item;
-          $.each(result, function (_, v) {
-            $("#data").append(`
+      $.get("/api/get_parq", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          $("#data").append(`
               <tbody>
                   <tr>
                     <td>1. Has your doctor ever said that you have a heart condition
                   and that you should only do physical activity recommended by a
                   doctor?</td>
-                    <td>`+v.Q1+`</td>
+                    <td>`+ v.Q1 + `</td>
                   </tr>
 
                   <tr>
                     <td>2. Do you feel pain in your chest when you do physical
                   activity?</td>
-                    <td>`+v.Q2+`</td>
+                    <td>`+ v.Q2 + `</td>
                   </tr>
 
                   <tr>
                     <td> 3. In the past month, have you had chest pain when you were
                   not doing physical activity?</td>
-                    <td>`+v.Q3+`</td>
+                    <td>`+ v.Q3 + `</td>
                   </tr>
 
                   <tr>
                     <td> 4. Do you lose your balance because of dizziness, or do you
                   ever lose consciousness?</td>
-                    <td>`+v.Q4+`</td>
+                    <td>`+ v.Q4 + `</td>
                   </tr>
 
                   <tr>
                     <td>  5. Do you have a bone or joint problem (for example, back,
                   knee or hip) that could be made worse by a change in your
                   physical activity?</td>
-                    <td>`+v.Q5+`</td>
+                    <td>`+ v.Q5 + `</td>
                   </tr>
 
                   <tr>
                     <td>6. Is your doctor currently prescribing drugs (for example,
                   water pills) for your blood pressure or heart condition?</td>
-                    <td>`+v.Q6+`</td>
+                    <td>`+ v.Q6 + `</td>
                   </tr>
 
                   <tr>
                     <td>7. Do you know of any other reason why you should not do
                   physical activity?</td>
-                    <td>`+v.Q7+`</td>
+                    <td>`+ v.Q7 + `</td>
                   </tr>
                 </tbody>`)
-          });
         });
-      }
-    </script>
-  </body>
+      });
+    }
+  </script>
+</body>
+
 </html>

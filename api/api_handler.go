@@ -147,4 +147,9 @@ func APIHandler(w http.ResponseWriter, r *http.Request) {
 		Email(w, r)
 		return
 	}
+
+	if strings.HasPrefix(r.URL.Path, "password") {
+		Password(w, r)
+		return
+	}
 }

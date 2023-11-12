@@ -79,9 +79,9 @@
     padding-top: 0.3rem;
     text-align: center;
     font-size: 12px;
-    background-color: black;
-    color: white;
-    border: white 1px solid;
+    background-color: yellow;
+    color: black;
+    border: black 1px solid;
   }
 
   .btn_func button {
@@ -89,9 +89,9 @@
     height: 35px;
     border-radius: 7px;
     font-size: 12px;
-    background-color: black;
-    color: white;
-    border: white 1px solid;
+    background-color: yellow;
+    color: black;
+    border: black 1px solid;
   }
 </style>
 
@@ -273,7 +273,6 @@
             $("#height").val(v.Speed1);
 
             if (v.Speed > v.Speed1) {
-              alert(1);
               if (v.Speed >= 55 && v.Speed <= 100) {
                 $("#hresult").html("Needs Improvement");
               } else if (v.Speed >= 101 && v.Speed <= 125) {
@@ -286,7 +285,6 @@
                 $("#hresult").html("Excellent");
               }
             } else {
-              alert(2);
               if (v.Speed1 >= 55 && v.Speed1 <= 100) {
                 $("#hresult").html("Needs Improvement");
               } else if (v.Speed1 >= 101 && v.Speed1 <= 125) {

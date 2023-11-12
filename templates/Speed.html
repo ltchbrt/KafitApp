@@ -79,9 +79,9 @@
     padding-top: 0.3rem;
     text-align: center;
     font-size: 12px;
-    background-color: black;
-    color: white;
-    border: white 1px solid;
+    background-color: yellow;
+    color: black;
+    border: black 1px solid;
   }
 
   .btn_func button {
@@ -89,9 +89,9 @@
     height: 35px;
     border-radius: 7px;
     font-size: 12px;
-    background-color: black;
-    color: white;
-    border: white 1px solid;
+    background-color: yellow;
+    color: black;
+    border: black 1px solid;
   }
 </style>
 
@@ -201,7 +201,6 @@
                   flex-direction: row;
                   justify-content: space-around;
                 ">
-              <p>Time: <span id="hresult"></span></p>
               <p>Classification: <span id="csf"></span></p>
             </div>
 
@@ -263,7 +262,7 @@
         $.each(result, function (_, v) {
           if (v.UserID == value) {
             $("#weight").val(v.Sprint);
-            $("#hresult").html(v.Sprint);
+
 
             if (v.Sprint.toFixed(2) >= parseFloat(9.6)) {
               $("#csf").html("Needs Improvement");
