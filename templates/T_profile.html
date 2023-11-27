@@ -84,6 +84,24 @@
     color: white;
     border: white 1px solid;
   }
+
+  .download{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 4rem;
+
+  }
+
+  .download button {
+    width: 150px;
+    height: 35px;
+    border-radius: 7px;
+    font-size: 12px;
+    background-color: black;
+    color: white;
+    border: white 1px solid;
+  }
 </style>
 
 <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
@@ -138,7 +156,12 @@
 
 
         </div>
-
+        <di class="download">
+          <button id="download-button">
+            Download PDF
+          </button>
+        </div>
+       
         <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12 report" id="stud">
           <h1 class="p_title">PHYSICAL FITNESS TEST SCORE CARD</h1>
           <div style="
@@ -521,11 +544,13 @@
     src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script>
     $(document).ready(function () {
       var value = $.cookie("tid");
       $("#stud").hide()
+      $("#download-button").hide()
       $("#btn").hide()
       var teach = ""
       $("#section").empty()
@@ -548,12 +573,24 @@
       });
     });
 
+    const button = document.getElementById('download-button');
+
+			function generatePDF() {
+				// Choose the element that your content will be rendered to.
+				const element = document.getElementById('stud');
+				// Choose the element and save the PDF for your user.
+				html2pdf().from(element).save();
+			}
+
+			button.addEventListener('click', generatePDF);
+
     $('#section').on('change', function () {
       $("#student").empty()
       var value = $("#section").val()
       if (value == "") {
         value = "a"
         $("#stud").hide()
+        $("#download-button").hide()
       }
       $("#student").append(`
       <option class="form-control" value="">Select Student</option>
@@ -574,6 +611,7 @@
     $('#student').on('change', function () {
       $.cookie("id", this.value);
       $("#stud").show()
+      $("#download-button").show()
       BMI();
       Strength();
       Flex();
@@ -586,6 +624,7 @@
       Sprint();
       if (this.value == "") {
         $("#stud").hide()
+        $("#download-button").hide()
       }
     })
     function BMI() {
