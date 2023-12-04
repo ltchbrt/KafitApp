@@ -339,6 +339,7 @@
                   showConfirmButton: false,
                   timer: 3000,
                 }).then(function () {
+                 
                   window.location.replace("/DashboardTeacher");
                 });
               } else if (user[0].Type == "User") {
@@ -361,6 +362,7 @@
                   showConfirmButton: false,
                   timer: 3000,
                 }).then(function () {
+                  $.cookie("link", "a");
                   window.location.replace("/Dashboard");
                 });
               }

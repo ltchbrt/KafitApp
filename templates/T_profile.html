@@ -90,6 +90,8 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 4rem;
+    flex-direction: column;
+    align-items: center;
 
   }
 
@@ -121,11 +123,11 @@
           <li class="nav-item">
             <a href="/Dashboard" class="nav-link smoothScroll">PROFILE</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="reportlink">
             <a href="/ClassReport" class="nav-link smoothScroll">REPORT</a>
           </li>
           <li class="nav-item">
-            <a href="/logout" class="nav-link smoothScroll">LOGOUT</a>
+            <a href="#" class="nav-link smoothScroll" onclick="Logout()">LOGOUT</a>
           </li>
         </ul>
       </div>
@@ -156,10 +158,15 @@
 
 
         </div>
-        <di class="download">
+        <div id="down_button" class="download">
           <button id="download-button">
             Download PDF
           </button>
+        </div>
+
+        <div id="link" class="download">
+         <p>Open this link in Browser to Download</p>
+         <p>http://148.72.245.158:8054/DownloadFiles</p>
         </div>
        
         <div class="mt-lg-5 mb-lg-0 mb-4 col-lg-5 col-md-10 mx-auto col-12 report" id="stud">
@@ -550,7 +557,15 @@
     $(document).ready(function () {
       var value = $.cookie("tid");
       $("#stud").hide()
-      $("#download-button").hide()
+      $("#download-button").hide() 
+        $("#link").hide() 
+
+        var link = $.cookie("link");
+        if (link == "a"){
+        $("#reportlink").show() 
+      }else{
+        $("#reportlink").hide() 
+      }
       $("#btn").hide()
       var teach = ""
       $("#section").empty()
@@ -590,7 +605,12 @@
       if (value == "") {
         value = "a"
         $("#stud").hide()
-        $("#download-button").hide()
+        var link = $.cookie("link");
+        if (link == "a"){
+        $("#download-button").hide() 
+      }else{
+        $("#link").show() 
+      }
       }
       $("#student").append(`
       <option class="form-control" value="">Select Student</option>
@@ -609,9 +629,26 @@
 
 
     $('#student').on('change', function () {
+      var data = this.value
       $.cookie("id", this.value);
+      $.get("/api/get_user", function (index) {
+        var result = JSON.parse(index).item;
+        $.each(result, function (_, v) {
+          if (v.ID == data) {
+            $("#username").html(v.Name);
+            $("#age").html(v.Age);
+            $("#sex").html(v.Sex);
+          }
+        });
+      });
       $("#stud").show()
-      $("#download-button").show()
+      var link = $.cookie("link");
+      if (link == "a"){
+        $("#link").show() 
+       
+      }else{
+        $("#download-button").show() 
+      }
       BMI();
       Strength();
       Flex();
@@ -624,7 +661,12 @@
       Sprint();
       if (this.value == "") {
         $("#stud").hide()
-        $("#download-button").hide()
+        var link = $.cookie("link");
+        if (link == "a"){
+        $("#download-button").hide() 
+      }else{
+        $("#link").hide() 
+      }
       }
     })
     function BMI() {
@@ -1131,6 +1173,16 @@
             });
           },
         });
+      }
+    }
+
+    function Logout(){
+      var link  = $.cookie("link");
+
+      if (link == "a"){
+        window.location.replace("/")
+      }else{
+        window.location.replace("/DownloadFiles")
       }
     }
   </script>
